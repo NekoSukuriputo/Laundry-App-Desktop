@@ -1,0 +1,3 @@
+-import database
+-jalankan mysql
+-jalankan installer setup.exe
