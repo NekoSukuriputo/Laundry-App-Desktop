@@ -23,7 +23,7 @@ Partial Class formUpdateOrder
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(formUpdateOrder))
-        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.btnUpdate = New System.Windows.Forms.Button()
         Me.groupStatus = New System.Windows.Forms.GroupBox()
         Me.rbSudahBayar = New System.Windows.Forms.RadioButton()
@@ -57,6 +57,10 @@ Partial Class formUpdateOrder
         Me.btnFinish = New System.Windows.Forms.Button()
         Me.btnTambah = New System.Windows.Forms.Button()
         Me.gridItem = New System.Windows.Forms.DataGridView()
+        Me.nama_item = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.kol_Jumlah = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.idItem = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.kolEdit = New System.Windows.Forms.DataGridViewButtonColumn()
         Me.editJumlah = New System.Windows.Forms.TextBox()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.Label9 = New System.Windows.Forms.Label()
@@ -73,10 +77,6 @@ Partial Class formUpdateOrder
         Me.Panel3 = New System.Windows.Forms.Panel()
         Me.Label20 = New System.Windows.Forms.Label()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
-        Me.nama_item = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.kol_Jumlah = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.idItem = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.kolEdit = New System.Windows.Forms.DataGridViewButtonColumn()
         Me.groupStatus.SuspendLayout()
         Me.groupProgress.SuspendLayout()
         Me.groupLayanan.SuspendLayout()
@@ -321,6 +321,7 @@ Partial Class formUpdateOrder
         '
         'tglTerima
         '
+        Me.tglTerima.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
         Me.tglTerima.Location = New System.Drawing.Point(124, 77)
         Me.tglTerima.Name = "tglTerima"
         Me.tglTerima.Size = New System.Drawing.Size(178, 20)
@@ -360,6 +361,7 @@ Partial Class formUpdateOrder
         '
         'tglAmbil
         '
+        Me.tglAmbil.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
         Me.tglAmbil.Location = New System.Drawing.Point(124, 364)
         Me.tglAmbil.Name = "tglAmbil"
         Me.tglAmbil.Size = New System.Drawing.Size(178, 20)
@@ -444,6 +446,52 @@ Partial Class formUpdateOrder
         Me.gridItem.ReadOnly = True
         Me.gridItem.Size = New System.Drawing.Size(365, 292)
         Me.gridItem.TabIndex = 49
+        '
+        'nama_item
+        '
+        Me.nama_item.DataPropertyName = "nama_item"
+        Me.nama_item.HeaderText = "Nama Item"
+        Me.nama_item.Name = "nama_item"
+        Me.nama_item.ReadOnly = True
+        Me.nama_item.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.nama_item.Width = 220
+        '
+        'kol_Jumlah
+        '
+        Me.kol_Jumlah.DataPropertyName = "jumlah"
+        Me.kol_Jumlah.HeaderText = "Jumlah"
+        Me.kol_Jumlah.Name = "kol_Jumlah"
+        Me.kol_Jumlah.ReadOnly = True
+        Me.kol_Jumlah.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.kol_Jumlah.Width = 50
+        '
+        'idItem
+        '
+        Me.idItem.DataPropertyName = "id"
+        Me.idItem.HeaderText = "id"
+        Me.idItem.Name = "idItem"
+        Me.idItem.ReadOnly = True
+        Me.idItem.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.idItem.Visible = False
+        '
+        'kolEdit
+        '
+        Me.kolEdit.DataPropertyName = "id"
+        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
+        DataGridViewCellStyle1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle1.ForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle1.NullValue = "Delete"
+        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.Maroon
+        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.White
+        Me.kolEdit.DefaultCellStyle = DataGridViewCellStyle1
+        Me.kolEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.kolEdit.HeaderText = "Aksi"
+        Me.kolEdit.Name = "kolEdit"
+        Me.kolEdit.ReadOnly = True
+        Me.kolEdit.Text = "Delete"
+        Me.kolEdit.UseColumnTextForButtonValue = True
+        Me.kolEdit.Width = 50
         '
         'editJumlah
         '
@@ -634,52 +682,6 @@ Partial Class formUpdateOrder
         Me.PictureBox1.TabIndex = 52
         Me.PictureBox1.TabStop = False
         '
-        'nama_item
-        '
-        Me.nama_item.DataPropertyName = "nama_item"
-        Me.nama_item.HeaderText = "Nama Item"
-        Me.nama_item.Name = "nama_item"
-        Me.nama_item.ReadOnly = True
-        Me.nama_item.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.nama_item.Width = 220
-        '
-        'kol_Jumlah
-        '
-        Me.kol_Jumlah.DataPropertyName = "jumlah"
-        Me.kol_Jumlah.HeaderText = "Jumlah"
-        Me.kol_Jumlah.Name = "kol_Jumlah"
-        Me.kol_Jumlah.ReadOnly = True
-        Me.kol_Jumlah.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.kol_Jumlah.Width = 50
-        '
-        'idItem
-        '
-        Me.idItem.DataPropertyName = "id"
-        Me.idItem.HeaderText = "id"
-        Me.idItem.Name = "idItem"
-        Me.idItem.ReadOnly = True
-        Me.idItem.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.idItem.Visible = False
-        '
-        'kolEdit
-        '
-        Me.kolEdit.DataPropertyName = "id"
-        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
-        DataGridViewCellStyle2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle2.ForeColor = System.Drawing.Color.White
-        DataGridViewCellStyle2.NullValue = "Delete"
-        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.Maroon
-        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White
-        Me.kolEdit.DefaultCellStyle = DataGridViewCellStyle2
-        Me.kolEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.kolEdit.HeaderText = "Aksi"
-        Me.kolEdit.Name = "kolEdit"
-        Me.kolEdit.ReadOnly = True
-        Me.kolEdit.Text = "Delete"
-        Me.kolEdit.UseColumnTextForButtonValue = True
-        Me.kolEdit.Width = 50
-        '
         'formUpdateOrder
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -698,7 +700,7 @@ Partial Class formUpdateOrder
         Me.MinimumSize = New System.Drawing.Size(1133, 639)
         Me.Name = "formUpdateOrder"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "formUpdateOrder"
+        Me.Text = "Update Order"
         Me.groupStatus.ResumeLayout(False)
         Me.groupStatus.PerformLayout()
         Me.groupProgress.ResumeLayout(False)

@@ -24,8 +24,6 @@ Partial Class formOrder
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(formOrder))
         Me.editNama = New System.Windows.Forms.TextBox()
-        Me.editBerat = New System.Windows.Forms.TextBox()
-        Me.editHarga = New System.Windows.Forms.TextBox()
         Me.rbStandart = New System.Windows.Forms.RadioButton()
         Me.tglTerima = New System.Windows.Forms.DateTimePicker()
         Me.rbExpress = New System.Windows.Forms.RadioButton()
@@ -52,13 +50,16 @@ Partial Class formOrder
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.Label9 = New System.Windows.Forms.Label()
-        Me.Label10 = New System.Windows.Forms.Label()
         Me.Label11 = New System.Windows.Forms.Label()
         Me.Label12 = New System.Windows.Forms.Label()
-        Me.Label13 = New System.Windows.Forms.Label()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.Label10 = New System.Windows.Forms.Label()
+        Me.Panel4 = New System.Windows.Forms.Panel()
+        Me.txtHarga = New System.Windows.Forms.Label()
+        Me.Panel3 = New System.Windows.Forms.Panel()
+        Me.txtBerat = New System.Windows.Forms.Label()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.groupLayanan.SuspendLayout()
         Me.groupProgress.SuspendLayout()
@@ -66,35 +67,20 @@ Partial Class formOrder
         Me.Panel1.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel2.SuspendLayout()
+        Me.Panel4.SuspendLayout()
+        Me.Panel3.SuspendLayout()
         Me.SuspendLayout()
         '
         'editNama
         '
-        Me.editNama.Location = New System.Drawing.Point(152, 25)
+        Me.editNama.Location = New System.Drawing.Point(152, 114)
         Me.editNama.Name = "editNama"
         Me.editNama.Size = New System.Drawing.Size(591, 20)
         Me.editNama.TabIndex = 0
         '
-        'editBerat
-        '
-        Me.editBerat.Location = New System.Drawing.Point(152, 127)
-        Me.editBerat.Name = "editBerat"
-        Me.editBerat.Size = New System.Drawing.Size(591, 20)
-        Me.editBerat.TabIndex = 2
-        '
-        'editHarga
-        '
-        Me.editHarga.Cursor = System.Windows.Forms.Cursors.Default
-        Me.editHarga.Location = New System.Drawing.Point(152, 227)
-        Me.editHarga.Name = "editHarga"
-        Me.editHarga.ReadOnly = True
-        Me.editHarga.Size = New System.Drawing.Size(591, 20)
-        Me.editHarga.TabIndex = 5
-        '
         'rbStandart
         '
         Me.rbStandart.AutoSize = True
-        Me.rbStandart.Checked = True
         Me.rbStandart.Cursor = System.Windows.Forms.Cursors.Hand
         Me.rbStandart.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.rbStandart.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
@@ -102,13 +88,13 @@ Partial Class formOrder
         Me.rbStandart.Name = "rbStandart"
         Me.rbStandart.Size = New System.Drawing.Size(76, 17)
         Me.rbStandart.TabIndex = 3
-        Me.rbStandart.TabStop = True
         Me.rbStandart.Text = "Standard"
         Me.rbStandart.UseVisualStyleBackColor = True
         '
         'tglTerima
         '
-        Me.tglTerima.Location = New System.Drawing.Point(152, 75)
+        Me.tglTerima.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
+        Me.tglTerima.Location = New System.Drawing.Point(152, 164)
         Me.tglTerima.Name = "tglTerima"
         Me.tglTerima.Size = New System.Drawing.Size(591, 20)
         Me.tglTerima.TabIndex = 1
@@ -142,7 +128,6 @@ Partial Class formOrder
         'rbTerima
         '
         Me.rbTerima.AutoSize = True
-        Me.rbTerima.Checked = True
         Me.rbTerima.Cursor = System.Windows.Forms.Cursors.Hand
         Me.rbTerima.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.rbTerima.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
@@ -150,7 +135,6 @@ Partial Class formOrder
         Me.rbTerima.Name = "rbTerima"
         Me.rbTerima.Size = New System.Drawing.Size(71, 17)
         Me.rbTerima.TabIndex = 6
-        Me.rbTerima.TabStop = True
         Me.rbTerima.Text = "Diterima"
         Me.rbTerima.UseVisualStyleBackColor = True
         '
@@ -222,15 +206,13 @@ Partial Class formOrder
         'rbBelumBayar
         '
         Me.rbBelumBayar.AutoSize = True
-        Me.rbBelumBayar.Checked = True
         Me.rbBelumBayar.Cursor = System.Windows.Forms.Cursors.Hand
         Me.rbBelumBayar.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.rbBelumBayar.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
-        Me.rbBelumBayar.Location = New System.Drawing.Point(21, 11)
+        Me.rbBelumBayar.Location = New System.Drawing.Point(19, 11)
         Me.rbBelumBayar.Name = "rbBelumBayar"
         Me.rbBelumBayar.Size = New System.Drawing.Size(106, 17)
         Me.rbBelumBayar.TabIndex = 12
-        Me.rbBelumBayar.TabStop = True
         Me.rbBelumBayar.Text = "Belum Dibayar"
         Me.rbBelumBayar.UseVisualStyleBackColor = True
         '
@@ -238,7 +220,7 @@ Partial Class formOrder
         '
         Me.txtCostumer.AutoSize = True
         Me.txtCostumer.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtCostumer.Location = New System.Drawing.Point(22, 27)
+        Me.txtCostumer.Location = New System.Drawing.Point(22, 116)
         Me.txtCostumer.Name = "txtCostumer"
         Me.txtCostumer.Size = New System.Drawing.Size(110, 15)
         Me.txtCostumer.TabIndex = 23
@@ -248,7 +230,7 @@ Partial Class formOrder
         '
         Me.txtTerima.AutoSize = True
         Me.txtTerima.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtTerima.Location = New System.Drawing.Point(22, 77)
+        Me.txtTerima.Location = New System.Drawing.Point(22, 166)
         Me.txtTerima.Name = "txtTerima"
         Me.txtTerima.Size = New System.Drawing.Size(108, 15)
         Me.txtTerima.TabIndex = 22
@@ -257,10 +239,10 @@ Partial Class formOrder
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(22, 129)
+        Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label3.Location = New System.Drawing.Point(24, 45)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(72, 15)
+        Me.Label3.Size = New System.Drawing.Size(83, 17)
         Me.Label3.TabIndex = 22
         Me.Label3.Text = "Berat (Kg)"
         '
@@ -268,7 +250,7 @@ Partial Class formOrder
         '
         Me.Label4.AutoSize = True
         Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(22, 180)
+        Me.Label4.Location = New System.Drawing.Point(22, 207)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(99, 15)
         Me.Label4.TabIndex = 20
@@ -277,10 +259,10 @@ Partial Class formOrder
         'Label5
         '
         Me.Label5.AutoSize = True
-        Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label5.Location = New System.Drawing.Point(22, 229)
+        Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label5.Location = New System.Drawing.Point(341, 45)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(46, 15)
+        Me.Label5.Size = New System.Drawing.Size(52, 17)
         Me.Label5.TabIndex = 21
         Me.Label5.Text = "Harga"
         '
@@ -288,7 +270,7 @@ Partial Class formOrder
         '
         Me.Label6.AutoSize = True
         Me.Label6.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label6.Location = New System.Drawing.Point(22, 276)
+        Me.Label6.Location = New System.Drawing.Point(22, 286)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(64, 15)
         Me.Label6.TabIndex = 22
@@ -298,7 +280,7 @@ Partial Class formOrder
         '
         Me.Label7.AutoSize = True
         Me.Label7.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label7.Location = New System.Drawing.Point(22, 331)
+        Me.Label7.Location = New System.Drawing.Point(22, 341)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(47, 15)
         Me.Label7.TabIndex = 23
@@ -308,7 +290,7 @@ Partial Class formOrder
         '
         Me.groupLayanan.Controls.Add(Me.rbStandart)
         Me.groupLayanan.Controls.Add(Me.rbExpress)
-        Me.groupLayanan.Location = New System.Drawing.Point(152, 165)
+        Me.groupLayanan.Location = New System.Drawing.Point(152, 192)
         Me.groupLayanan.Name = "groupLayanan"
         Me.groupLayanan.Size = New System.Drawing.Size(591, 43)
         Me.groupLayanan.TabIndex = 24
@@ -322,7 +304,7 @@ Partial Class formOrder
         Me.groupProgress.Controls.Add(Me.rbSetrika)
         Me.groupProgress.Controls.Add(Me.rbSelesai)
         Me.groupProgress.Controls.Add(Me.rbAmbil)
-        Me.groupProgress.Location = New System.Drawing.Point(152, 263)
+        Me.groupProgress.Location = New System.Drawing.Point(152, 273)
         Me.groupProgress.Name = "groupProgress"
         Me.groupProgress.Size = New System.Drawing.Size(591, 37)
         Me.groupProgress.TabIndex = 25
@@ -332,7 +314,7 @@ Partial Class formOrder
         '
         Me.groupStatus.Controls.Add(Me.rbSudahBayar)
         Me.groupStatus.Controls.Add(Me.rbBelumBayar)
-        Me.groupStatus.Location = New System.Drawing.Point(152, 320)
+        Me.groupStatus.Location = New System.Drawing.Point(152, 330)
         Me.groupStatus.Name = "groupStatus"
         Me.groupStatus.Size = New System.Drawing.Size(591, 34)
         Me.groupStatus.TabIndex = 26
@@ -349,7 +331,7 @@ Partial Class formOrder
         Me.btnTambah.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.btnTambah.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.btnTambah.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnTambah.Location = New System.Drawing.Point(152, 373)
+        Me.btnTambah.Location = New System.Drawing.Point(152, 383)
         Me.btnTambah.Name = "btnTambah"
         Me.btnTambah.Size = New System.Drawing.Size(108, 39)
         Me.btnTambah.TabIndex = 14
@@ -370,7 +352,7 @@ Partial Class formOrder
         '
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Showcard Gothic", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(135, 26)
+        Me.Label2.Location = New System.Drawing.Point(135, 115)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(12, 14)
         Me.Label2.TabIndex = 29
@@ -380,7 +362,7 @@ Partial Class formOrder
         '
         Me.Label8.AutoSize = True
         Me.Label8.Font = New System.Drawing.Font("Showcard Gothic", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label8.Location = New System.Drawing.Point(135, 76)
+        Me.Label8.Location = New System.Drawing.Point(135, 165)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(12, 14)
         Me.Label8.TabIndex = 30
@@ -390,27 +372,17 @@ Partial Class formOrder
         '
         Me.Label9.AutoSize = True
         Me.Label9.Font = New System.Drawing.Font("Showcard Gothic", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label9.Location = New System.Drawing.Point(135, 180)
+        Me.Label9.Location = New System.Drawing.Point(135, 207)
         Me.Label9.Name = "Label9"
         Me.Label9.Size = New System.Drawing.Size(12, 14)
         Me.Label9.TabIndex = 31
         Me.Label9.Text = ":"
         '
-        'Label10
-        '
-        Me.Label10.AutoSize = True
-        Me.Label10.Font = New System.Drawing.Font("Showcard Gothic", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label10.Location = New System.Drawing.Point(135, 228)
-        Me.Label10.Name = "Label10"
-        Me.Label10.Size = New System.Drawing.Size(12, 14)
-        Me.Label10.TabIndex = 32
-        Me.Label10.Text = ":"
-        '
         'Label11
         '
         Me.Label11.AutoSize = True
         Me.Label11.Font = New System.Drawing.Font("Showcard Gothic", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label11.Location = New System.Drawing.Point(135, 274)
+        Me.Label11.Location = New System.Drawing.Point(135, 284)
         Me.Label11.Name = "Label11"
         Me.Label11.Size = New System.Drawing.Size(12, 14)
         Me.Label11.TabIndex = 33
@@ -420,21 +392,11 @@ Partial Class formOrder
         '
         Me.Label12.AutoSize = True
         Me.Label12.Font = New System.Drawing.Font("Showcard Gothic", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label12.Location = New System.Drawing.Point(135, 332)
+        Me.Label12.Location = New System.Drawing.Point(135, 342)
         Me.Label12.Name = "Label12"
         Me.Label12.Size = New System.Drawing.Size(12, 14)
         Me.Label12.TabIndex = 34
         Me.Label12.Text = ":"
-        '
-        'Label13
-        '
-        Me.Label13.AutoSize = True
-        Me.Label13.Font = New System.Drawing.Font("Showcard Gothic", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label13.Location = New System.Drawing.Point(135, 129)
-        Me.Label13.Name = "Label13"
-        Me.Label13.Size = New System.Drawing.Size(12, 14)
-        Me.Label13.TabIndex = 35
-        Me.Label13.Text = ":"
         '
         'Panel1
         '
@@ -444,7 +406,7 @@ Partial Class formOrder
         Me.Panel1.Controls.Add(Me.PictureBox1)
         Me.Panel1.Location = New System.Drawing.Point(26, 11)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(774, 71)
+        Me.Panel1.Size = New System.Drawing.Size(889, 71)
         Me.Panel1.TabIndex = 36
         '
         'PictureBox1
@@ -464,16 +426,15 @@ Partial Class formOrder
         '
         Me.Panel2.BackColor = System.Drawing.Color.LightSteelBlue
         Me.Panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Panel2.Controls.Add(Me.Label10)
+        Me.Panel2.Controls.Add(Me.Panel4)
+        Me.Panel2.Controls.Add(Me.Panel3)
         Me.Panel2.Controls.Add(Me.Button1)
         Me.Panel2.Controls.Add(Me.txtCostumer)
         Me.Panel2.Controls.Add(Me.editNama)
-        Me.Panel2.Controls.Add(Me.Label13)
-        Me.Panel2.Controls.Add(Me.editBerat)
         Me.Panel2.Controls.Add(Me.Label12)
-        Me.Panel2.Controls.Add(Me.editHarga)
         Me.Panel2.Controls.Add(Me.Label11)
         Me.Panel2.Controls.Add(Me.tglTerima)
-        Me.Panel2.Controls.Add(Me.Label10)
         Me.Panel2.Controls.Add(Me.txtTerima)
         Me.Panel2.Controls.Add(Me.Label9)
         Me.Panel2.Controls.Add(Me.Label3)
@@ -487,10 +448,60 @@ Partial Class formOrder
         Me.Panel2.Controls.Add(Me.Label7)
         Me.Panel2.Controls.Add(Me.groupProgress)
         Me.Panel2.Controls.Add(Me.groupLayanan)
-        Me.Panel2.Location = New System.Drawing.Point(26, 100)
+        Me.Panel2.Location = New System.Drawing.Point(26, 106)
         Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(774, 434)
+        Me.Panel2.Size = New System.Drawing.Size(889, 456)
         Me.Panel2.TabIndex = 37
+        '
+        'Label10
+        '
+        Me.Label10.AutoSize = True
+        Me.Label10.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label10.Location = New System.Drawing.Point(281, 38)
+        Me.Label10.Name = "Label10"
+        Me.Label10.Size = New System.Drawing.Size(39, 25)
+        Me.Label10.TabIndex = 1
+        Me.Label10.Text = "Kg"
+        '
+        'Panel4
+        '
+        Me.Panel4.BackColor = System.Drawing.Color.LightBlue
+        Me.Panel4.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+        Me.Panel4.Controls.Add(Me.txtHarga)
+        Me.Panel4.Location = New System.Drawing.Point(403, 23)
+        Me.Panel4.Name = "Panel4"
+        Me.Panel4.Size = New System.Drawing.Size(298, 58)
+        Me.Panel4.TabIndex = 38
+        '
+        'txtHarga
+        '
+        Me.txtHarga.AutoSize = True
+        Me.txtHarga.Font = New System.Drawing.Font("Microsoft Sans Serif", 25.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtHarga.Location = New System.Drawing.Point(14, 7)
+        Me.txtHarga.Name = "txtHarga"
+        Me.txtHarga.Size = New System.Drawing.Size(147, 39)
+        Me.txtHarga.TabIndex = 0
+        Me.txtHarga.Text = "000.000"
+        '
+        'Panel3
+        '
+        Me.Panel3.BackColor = System.Drawing.Color.LightBlue
+        Me.Panel3.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+        Me.Panel3.Controls.Add(Me.txtBerat)
+        Me.Panel3.Location = New System.Drawing.Point(129, 23)
+        Me.Panel3.Name = "Panel3"
+        Me.Panel3.Size = New System.Drawing.Size(148, 58)
+        Me.Panel3.TabIndex = 37
+        '
+        'txtBerat
+        '
+        Me.txtBerat.AutoSize = True
+        Me.txtBerat.Font = New System.Drawing.Font("Microsoft Sans Serif", 25.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtBerat.Location = New System.Drawing.Point(32, 8)
+        Me.txtBerat.Name = "txtBerat"
+        Me.txtBerat.Size = New System.Drawing.Size(107, 39)
+        Me.txtBerat.TabIndex = 0
+        Me.txtBerat.Text = "0.000"
         '
         'Button1
         '
@@ -502,7 +513,7 @@ Partial Class formOrder
         Me.Button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Yellow
         Me.Button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
         Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button1.Location = New System.Drawing.Point(283, 372)
+        Me.Button1.Location = New System.Drawing.Point(283, 382)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(90, 39)
         Me.Button1.TabIndex = 36
@@ -515,16 +526,15 @@ Partial Class formOrder
         Me.BackColor = System.Drawing.SystemColors.ButtonHighlight
         Me.BackgroundImage = Global.LaundyProject.My.Resources.Resources.th001X0WEA
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.ClientSize = New System.Drawing.Size(825, 551)
+        Me.ClientSize = New System.Drawing.Size(978, 589)
         Me.Controls.Add(Me.Panel2)
         Me.Controls.Add(Me.Panel1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D
         Me.MaximizeBox = False
-        Me.MaximumSize = New System.Drawing.Size(835, 584)
         Me.MinimumSize = New System.Drawing.Size(835, 584)
         Me.Name = "formOrder"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "formOrder"
+        Me.Text = "Create Order"
         Me.groupLayanan.ResumeLayout(False)
         Me.groupLayanan.PerformLayout()
         Me.groupProgress.ResumeLayout(False)
@@ -536,12 +546,14 @@ Partial Class formOrder
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel2.ResumeLayout(False)
         Me.Panel2.PerformLayout()
+        Me.Panel4.ResumeLayout(False)
+        Me.Panel4.PerformLayout()
+        Me.Panel3.ResumeLayout(False)
+        Me.Panel3.PerformLayout()
         Me.ResumeLayout(False)
 
     End Sub
     Friend WithEvents editNama As System.Windows.Forms.TextBox
-    Friend WithEvents editBerat As System.Windows.Forms.TextBox
-    Friend WithEvents editHarga As System.Windows.Forms.TextBox
     Friend WithEvents rbStandart As System.Windows.Forms.RadioButton
     Friend WithEvents tglTerima As System.Windows.Forms.DateTimePicker
     Friend WithEvents rbExpress As System.Windows.Forms.RadioButton
@@ -567,14 +579,17 @@ Partial Class formOrder
     Friend WithEvents Label2 As System.Windows.Forms.Label
     Friend WithEvents Label8 As System.Windows.Forms.Label
     Friend WithEvents Label9 As System.Windows.Forms.Label
-    Friend WithEvents Label10 As System.Windows.Forms.Label
     Friend WithEvents Label11 As System.Windows.Forms.Label
     Friend WithEvents Label12 As System.Windows.Forms.Label
-    Friend WithEvents Label13 As System.Windows.Forms.Label
     Friend WithEvents btnTambah As System.Windows.Forms.Button
     Friend WithEvents Panel1 As System.Windows.Forms.Panel
     Friend WithEvents Panel2 As System.Windows.Forms.Panel
     Friend WithEvents PictureBox1 As System.Windows.Forms.PictureBox
     Friend WithEvents Button1 As System.Windows.Forms.Button
+    Friend WithEvents Panel4 As System.Windows.Forms.Panel
+    Friend WithEvents txtHarga As System.Windows.Forms.Label
+    Friend WithEvents Panel3 As System.Windows.Forms.Panel
+    Friend WithEvents Label10 As System.Windows.Forms.Label
+    Friend WithEvents txtBerat As System.Windows.Forms.Label
 
 End Class

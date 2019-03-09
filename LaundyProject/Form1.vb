@@ -1,22 +1,69 @@
-﻿Public Class formOrder
+﻿Imports System.Drawing.Printing
+Imports System.IO.Ports
+Imports System.Globalization
+
+Public Class formOrder
     Private conn As New MySqlConnection
     Dim connString = "Database=laundryapp;Data source=localhost;user id=root;password=;"
 
     Private noNota%, newNota$
+    Private mySerialPort As New SerialPort
+    Private comBuffer As Byte()
+    Private Delegate Sub UpdateFormDelegate()
+    Private UpdateFormDelegate1 As UpdateFormDelegate
 
+    Private Sub CommPortSetup()
+        With mySerialPort
+            .PortName = "COM9"
+            .BaudRate = 9600
+            .DataBits = 8
+            .Parity = Parity.None
+            .StopBits = StopBits.One
+            .Handshake = Handshake.None
+        End With
+        Try
+            mySerialPort.Open()
+        Catch ex As Exception
+            MessageBox.Show(ex.Message)
+        End Try
+    End Sub
+
+    Private Sub mySerialPort_DataReceived(ByVal sender As Object, ByVal e As SerialDataReceivedEventArgs)
+        'Handles serial port data received events
+        UpdateFormDelegate1 = New UpdateFormDelegate(AddressOf UpdateDisplay)
+        Dim n As Integer = mySerialPort.BytesToRead 'find number of bytes in buf
+        comBuffer = New Byte(n - 1) {} 're dimension storage buffer
+        mySerialPort.Read(comBuffer, 0, n) 'read data from the buffer
+        Me.Invoke(UpdateFormDelegate1) 'call the delegate
+    End Sub
+    Private Sub UpdateDisplay()
+        'txtBerat.Text = mySerialPort.ReadLine
+        'Label4.Text = Label3.Text.Trim("T.GS.+kg".ToCharArray())
+        Dim b As String = mySerialPort.ReadLine.ToString.Trim("N,.T,$,US,T,GS,+kg".ToCharArray())
+        txtBerat.Text = b.Substring(0, b.Length - 3)
+    End Sub
     Private Sub formOrder_Activated(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Activated
-        editNama.Clear()
-        editBerat.Clear()
-        editHarga.Clear()
+        clear()
         getNewNota()
+        'AddHandler mySerialPort.DataReceived, AddressOf mySerialPort_DataReceived
+        Application.CurrentCulture = New CultureInfo("EN-US")
+        'CommPortSetup()
     End Sub
 
     Private Sub formOrder_FormClosing(ByVal sender As Object, ByVal e As System.Windows.Forms.FormClosingEventArgs) Handles Me.FormClosing
-        Application.Exit()
+        'Application.Exit()
+        Me.Hide()
+        clear()
+        formListOrder.tampil()
+        formListOrder.Show()
     End Sub
 
     Private Sub formOrder_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
-        getNewNota()
+        'getNewNota()
+        AddHandler mySerialPort.DataReceived, AddressOf mySerialPort_DataReceived
+        CommPortSetup()
+        'Label4.Text = Label3.Text.Trim("T.GS.+kg".ToCharArray())
+        'txtBerat.Text = "0"
     End Sub
     Sub getNewNota()
         getLastNota()
@@ -48,7 +95,7 @@
             'MessageBox.Show(ex.Message, "terjadi Kegagalan!", MessageBoxButtons.OK, MessageBoxIcon.Error)
         Finally
             cmdAmbil.Dispose()
-            conn.Close()
+            'conn.Close()
         End Try
     End Sub
 
@@ -78,7 +125,7 @@
         If (rbSudahBayar.Checked) Then
             status = rbSudahBayar.Text
         ElseIf (rbBelumBayar.Checked) Then
-            status = rbSudahBayar.Text
+            status = rbBelumBayar.Text
         End If
 
         conn = New MySqlConnection(connString)
@@ -86,7 +133,7 @@
 
         Dim cmdInsert As MySqlCommand = conn.CreateCommand
 
-        If editNama.Text <> "" And tglTerima.Text <> "" And editBerat.Text <> "" And editHarga.Text <> "" Then
+        If editNama.Text <> "" And tglTerima.Text <> "" And txtBerat.Text <> "" And txtHarga.Text <> "" Then
             Try
                 Dim sqlString As String = "insert into t_order(nota,nama_customer,tgl_terima,berat,jenis_layanan,harga,progress,status,tgl_diambil)" & _
                     " values " & _
@@ -96,9 +143,10 @@
                 cmdInsert.Parameters.Add("@nota", MySqlDbType.VarChar, 10).Value = newNota
                 cmdInsert.Parameters.Add("@nama", MySqlDbType.VarChar, 100).Value = editNama.Text
                 cmdInsert.Parameters.Add("@tglterima", MySqlDbType.Date).Value = tglTerima.Text
-                cmdInsert.Parameters.Add("@berat", MySqlDbType.Double).Value = editBerat.Text
+                cmdInsert.Parameters.Add("@berat", MySqlDbType.Double).Value = txtBerat.Text
                 cmdInsert.Parameters.Add("@jenis_layanan", MySqlDbType.VarChar, 50).Value = jenislyn
-                cmdInsert.Parameters.Add("@harga", MySqlDbType.Double).Value = editHarga.Text
+                cmdInsert.Parameters.Add("@harga", MySqlDbType.Double).Value = txtHarga.Text
+                'cmdInsert.Parameters.Add("@harga", MySqlDbType.Double).Value = editHarga.Text
                 cmdInsert.Parameters.Add("@progress", MySqlDbType.VarChar, 50).Value = progress
                 cmdInsert.Parameters.Add("@status", MySqlDbType.VarChar, 50).Value = status
                 cmdInsert.Parameters.Add("@tgl_ambil", MySqlDbType.Date).Value = tglTerima.Text
@@ -108,6 +156,7 @@
 
                 If MsgBoxResult.Ok Then
                     getLastNota()
+                    clear()
                     formUpdateOrder.Show()
                     Me.Hide()
                 End If
@@ -119,46 +168,58 @@
             MessageBox.Show("Anda Harus Isi semua", "Create Order", MessageBoxButtons.OK, MessageBoxIcon.Information)
         End If
     End Sub
-
-    Private Sub editBerat_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles editBerat.TextChanged
-        If (editBerat.Text <> "" And editBerat.Text <> "0") Then
-            Dim harga As Double
-            If (rbStandart.Checked) Then
-                harga = 5000 * CDbl(editBerat.Text)
-            ElseIf (rbExpress.Checked) Then
-                harga = 8000 * CDbl(editBerat.Text)
-            End If
-            editHarga.Text = CStr(harga)
-        Else
-            editHarga.Text = "0"
-        End If
-
-    End Sub
-
     Private Sub rbStandart_CheckedChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles rbStandart.CheckedChanged
-        If (editBerat.Text <> "" And editBerat.Text <> "0") Then
+        If IsNumeric(txtBerat.Text) AndAlso CDbl(txtBerat.Text) >= 0 Then
             Dim harga As Double
-            harga = 5000 * CDbl(editBerat.Text)
-            editHarga.Text = CStr(harga)
+            harga = 5000 * CDbl(txtBerat.Text)
+            txtHarga.Text = Format(harga, "#,##0.00")
         Else
-            editHarga.Text = "0"
+            MsgBox("Set Timbangan ke Nol")
         End If
-        
     End Sub
-
+    Private Sub clear()
+        editNama.Clear()
+        txtBerat.Text = "0.000"
+        txtHarga.Text = "000.000"
+        rbStandart.Checked = False
+        rbExpress.Checked = False
+        rbJemur.Checked = False
+        rbSelesai.Checked = False
+        rbSetrika.Checked = False
+        rbSudahBayar.Checked = False
+        rbTerima.Checked = False
+        rbAmbil.Checked = False
+        rbBelumBayar.Checked = False
+        rbCuci.Checked = False
+    End Sub
     Private Sub rbExpress_CheckedChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles rbExpress.CheckedChanged
-        If (editBerat.Text <> "" And editBerat.Text <> "0") Then
+        If IsNumeric(txtBerat.Text) AndAlso CDbl(txtBerat.Text) >= 0 Then
             Dim harga As Double
-            harga = 8000 * CDbl(editBerat.Text)
-            editHarga.Text = CStr(harga)
+            harga = 8000 * CDbl(txtBerat.Text)
+            txtHarga.Text = Format(harga, "#,##0.00")
         Else
-            editHarga.Text = "0"
+            MsgBox("Set Timbangan ke Nol")
         End If
     End Sub
 
     Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button1.Click
         Me.Hide()
+        formListOrder.tampil()
         formListOrder.Show()
     End Sub
-End Class
 
+    Private Sub txtBerat_TextChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles txtBerat.TextChanged
+        'If (CDbl(txtBerat.Text) <> 0) Then
+        Dim harga As Double
+        If IsNumeric(txtBerat.Text) AndAlso CDbl(txtBerat.Text) >= 0 Then
+            If (rbStandart.Checked) Then
+                harga = 5000 * CDbl(txtBerat.Text)
+            ElseIf (rbExpress.Checked) Then
+                harga = 8000 * CDbl(txtBerat.Text)
+            End If
+            txtHarga.Text = Format(harga, "#,##0.00")
+        Else
+            MsgBox("Set Timbangan ke Nol")
+        End If
+    End Sub
+End Class

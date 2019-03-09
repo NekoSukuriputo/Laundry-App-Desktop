@@ -88,6 +88,12 @@
       <DependentUpon>Form1.vb</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="formDB.Designer.vb">
+      <DependentUpon>formDB.vb</DependentUpon>
+    </Compile>
+    <Compile Include="formDB.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="formDetail.Designer.vb">
       <DependentUpon>formDetail.vb</DependentUpon>
     </Compile>
@@ -121,10 +127,14 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="RawPrinterHelper.vb" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="formDB.resx">
+      <DependentUpon>formDB.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="formDetail.resx">
       <DependentUpon>formDetail.vb</DependentUpon>

@@ -57,12 +57,13 @@ Partial Class formDetail
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.Label19 = New System.Windows.Forms.Label()
         Me.gridDetail = New System.Windows.Forms.DataGridView()
+        Me.kol_Item = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.kol_jumlah = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.Label20 = New System.Windows.Forms.Label()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.btnFinish = New System.Windows.Forms.Button()
-        Me.kol_Item = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.kol_jumlah = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.btnPrint = New System.Windows.Forms.Button()
         Me.GroupBox1.SuspendLayout()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
@@ -480,6 +481,22 @@ Partial Class formDetail
         Me.gridDetail.Size = New System.Drawing.Size(324, 284)
         Me.gridDetail.TabIndex = 1
         '
+        'kol_Item
+        '
+        Me.kol_Item.DataPropertyName = "nama_item"
+        Me.kol_Item.HeaderText = "Nama Item"
+        Me.kol_Item.Name = "kol_Item"
+        Me.kol_Item.ReadOnly = True
+        Me.kol_Item.Width = 230
+        '
+        'kol_jumlah
+        '
+        Me.kol_jumlah.DataPropertyName = "jumlah"
+        Me.kol_jumlah.HeaderText = "Jumlah"
+        Me.kol_jumlah.Name = "kol_jumlah"
+        Me.kol_jumlah.ReadOnly = True
+        Me.kol_jumlah.Width = 50
+        '
         'Panel2
         '
         Me.Panel2.BackColor = System.Drawing.Color.CornflowerBlue
@@ -532,21 +549,22 @@ Partial Class formDetail
         Me.btnFinish.TabIndex = 20
         Me.btnFinish.UseVisualStyleBackColor = False
         '
-        'kol_Item
+        'btnPrint
         '
-        Me.kol_Item.DataPropertyName = "nama_item"
-        Me.kol_Item.HeaderText = "Nama Item"
-        Me.kol_Item.Name = "kol_Item"
-        Me.kol_Item.ReadOnly = True
-        Me.kol_Item.Width = 230
-        '
-        'kol_jumlah
-        '
-        Me.kol_jumlah.DataPropertyName = "jumlah"
-        Me.kol_jumlah.HeaderText = "Jumlah"
-        Me.kol_jumlah.Name = "kol_jumlah"
-        Me.kol_jumlah.ReadOnly = True
-        Me.kol_jumlah.Width = 50
+        Me.btnPrint.BackColor = System.Drawing.Color.Transparent
+        Me.btnPrint.BackgroundImage = CType(resources.GetObject("btnPrint.BackgroundImage"), System.Drawing.Image)
+        Me.btnPrint.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.btnPrint.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btnPrint.FlatAppearance.BorderSize = 0
+        Me.btnPrint.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.btnPrint.FlatAppearance.MouseOverBackColor = System.Drawing.Color.RoyalBlue
+        Me.btnPrint.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnPrint.ForeColor = System.Drawing.Color.Transparent
+        Me.btnPrint.Location = New System.Drawing.Point(637, 97)
+        Me.btnPrint.Name = "btnPrint"
+        Me.btnPrint.Size = New System.Drawing.Size(99, 38)
+        Me.btnPrint.TabIndex = 21
+        Me.btnPrint.UseVisualStyleBackColor = False
         '
         'formDetail
         '
@@ -555,6 +573,7 @@ Partial Class formDetail
         Me.BackgroundImage = Global.LaundyProject.My.Resources.Resources.th001X0WEA
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.ClientSize = New System.Drawing.Size(840, 521)
+        Me.Controls.Add(Me.btnPrint)
         Me.Controls.Add(Me.btnFinish)
         Me.Controls.Add(Me.Panel2)
         Me.Controls.Add(Me.Panel1)
@@ -566,7 +585,7 @@ Partial Class formDetail
         Me.MinimumSize = New System.Drawing.Size(856, 560)
         Me.Name = "formDetail"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "formDetail"
+        Me.Text = "Detail Order"
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
@@ -619,4 +638,5 @@ Partial Class formDetail
     Friend WithEvents btnFinish As System.Windows.Forms.Button
     Friend WithEvents kol_Item As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents kol_jumlah As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents btnPrint As System.Windows.Forms.Button
 End Class

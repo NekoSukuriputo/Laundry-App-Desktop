@@ -1,4 +1,6 @@
-﻿Public Class formUpdateOrder
+﻿Imports System.Globalization
+
+Public Class formUpdateOrder
     Private conn As New MySqlConnection
     Public nota As String = ""
     Dim connString = "Database=laundryapp;Data source=localhost;user id=root;password=;"
@@ -6,10 +8,13 @@
     Private Sub formUpdateOrder_Activated(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Activated
         tampil()
         showItem()
+        Application.CurrentCulture = New CultureInfo("EN-US")
     End Sub
 
     Private Sub formUpdateOrder_FormClosing(ByVal sender As Object, ByVal e As System.Windows.Forms.FormClosingEventArgs) Handles Me.FormClosing
-        Application.Exit()
+        'Application.Exit()
+        Me.Hide()
+        formListOrder.tampil()
     End Sub
 
     Private Sub formUpdateOrder_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
@@ -92,7 +97,7 @@
                     "(@nota,@item,@jumlah);"
                 cmdInsert.CommandText = sqlString
                 cmdInsert.Connection = conn
-                cmdInsert.Parameters.Add("@nota", MySqlDbType.VarChar, 100).Value = nota
+                cmdInsert.Parameters.Add("@nota", MySqlDbType.VarChar, 100).Value = txtNota.Text
                 'cmdInsert.Parameters.Add("@nota", MySqlDbType.VarChar, 100).Value = 9
                 cmdInsert.Parameters.Add("@item", MySqlDbType.VarChar, 100).Value = editItem.Text
                 cmdInsert.Parameters.Add("@jumlah", MySqlDbType.Int16).Value = editJumlah.Text
@@ -104,7 +109,7 @@
             Catch ex As Exception
                 MessageBox.Show(ex.Message, "Terjadi kegagalan!", MessageBoxButtons.OK, MessageBoxIcon.Error)
             End Try
-            
+
         End If
     End Sub
 
@@ -186,7 +191,7 @@
         If (rbSudahBayar.Checked) Then
             status = rbSudahBayar.Text
         ElseIf (rbBelumBayar.Checked) Then
-            status = rbSudahBayar.Text
+            status = rbBelumBayar.Text
         End If
 
         conn = New MySqlConnection(connString)
@@ -215,7 +220,7 @@
                 cmdInsert.Parameters.Add("@progress", MySqlDbType.VarChar, 50).Value = progress
                 cmdInsert.Parameters.Add("@status", MySqlDbType.VarChar, 50).Value = status
                 cmdInsert.Parameters.Add("@tgl_ambil", MySqlDbType.Date).Value = tglAmbil.Text
-                cmdInsert.Parameters.Add("@nota", MySqlDbType.Int16).Value = nota
+                cmdInsert.Parameters.Add("@nota", MySqlDbType.VarChar, 11).Value = txtNota.Text
                 'cmdInsert.Parameters.Add("@nota", MySqlDbType.Int16).Value = 9
                 cmdInsert.ExecuteNonQuery()
 
@@ -271,8 +276,8 @@
 
     Private Sub btnFinish_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnFinish.Click
         Me.Hide()
+        formListOrder.tampil()
         formDetail.Show()
     End Sub
-
 
 End Class

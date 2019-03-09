@@ -22,17 +22,10 @@ Partial Class formListOrder
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(formListOrder))
-        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
-        Me.btntambah = New System.Windows.Forms.Button()
-        Me.btncari = New System.Windows.Forms.Button()
-        Me.Label1 = New System.Windows.Forms.Label()
-        Me.editCari = New System.Windows.Forms.TextBox()
-        Me.Panel3 = New System.Windows.Forms.Panel()
-        Me.Label2 = New System.Windows.Forms.Label()
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.Kol_Nota = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.kol_Pelanggan = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.kol_Terima = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -44,6 +37,14 @@ Partial Class formListOrder
         Me.kol_Ambil = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.kol_Edit = New System.Windows.Forms.DataGridViewButtonColumn()
         Me.kol_Hapus = New System.Windows.Forms.DataGridViewButtonColumn()
+        Me.btntambah = New System.Windows.Forms.Button()
+        Me.btncari = New System.Windows.Forms.Button()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.editCari = New System.Windows.Forms.TextBox()
+        Me.Panel3 = New System.Windows.Forms.Panel()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.btnDelTable = New System.Windows.Forms.Button()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel3.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -63,6 +64,111 @@ Partial Class formListOrder
         Me.DataGridView1.ReadOnly = True
         Me.DataGridView1.Size = New System.Drawing.Size(1031, 329)
         Me.DataGridView1.TabIndex = 1
+        '
+        'Kol_Nota
+        '
+        Me.Kol_Nota.DataPropertyName = "nota"
+        Me.Kol_Nota.HeaderText = "Nota"
+        Me.Kol_Nota.Name = "Kol_Nota"
+        Me.Kol_Nota.ReadOnly = True
+        Me.Kol_Nota.Width = 50
+        '
+        'kol_Pelanggan
+        '
+        Me.kol_Pelanggan.DataPropertyName = "nama_customer"
+        Me.kol_Pelanggan.HeaderText = "Nama Pelanggan"
+        Me.kol_Pelanggan.Name = "kol_Pelanggan"
+        Me.kol_Pelanggan.ReadOnly = True
+        Me.kol_Pelanggan.Width = 200
+        '
+        'kol_Terima
+        '
+        Me.kol_Terima.DataPropertyName = "tgl_terima"
+        Me.kol_Terima.HeaderText = "Tanggal Terima"
+        Me.kol_Terima.Name = "kol_Terima"
+        Me.kol_Terima.ReadOnly = True
+        Me.kol_Terima.Width = 80
+        '
+        'kol_Berat
+        '
+        Me.kol_Berat.DataPropertyName = "berat"
+        Me.kol_Berat.HeaderText = "Berat"
+        Me.kol_Berat.Name = "kol_Berat"
+        Me.kol_Berat.ReadOnly = True
+        Me.kol_Berat.Width = 50
+        '
+        'kol_Jenis
+        '
+        Me.kol_Jenis.DataPropertyName = "jenis_layanan"
+        Me.kol_Jenis.HeaderText = "Jenis Layanan"
+        Me.kol_Jenis.Name = "kol_Jenis"
+        Me.kol_Jenis.ReadOnly = True
+        '
+        'kol_Harga
+        '
+        Me.kol_Harga.DataPropertyName = "harga"
+        Me.kol_Harga.HeaderText = "Harga"
+        Me.kol_Harga.Name = "kol_Harga"
+        Me.kol_Harga.ReadOnly = True
+        '
+        'kol_Progress
+        '
+        Me.kol_Progress.DataPropertyName = "progress"
+        Me.kol_Progress.HeaderText = "Progress"
+        Me.kol_Progress.Name = "kol_Progress"
+        Me.kol_Progress.ReadOnly = True
+        '
+        'kol_Status
+        '
+        Me.kol_Status.DataPropertyName = "status"
+        Me.kol_Status.HeaderText = "Status"
+        Me.kol_Status.Name = "kol_Status"
+        Me.kol_Status.ReadOnly = True
+        Me.kol_Status.Width = 120
+        '
+        'kol_Ambil
+        '
+        Me.kol_Ambil.DataPropertyName = "tgl_diambil"
+        Me.kol_Ambil.HeaderText = "Tgl Diambil"
+        Me.kol_Ambil.Name = "kol_Ambil"
+        Me.kol_Ambil.ReadOnly = True
+        Me.kol_Ambil.Width = 80
+        '
+        'kol_Edit
+        '
+        Me.kol_Edit.DataPropertyName = "nota"
+        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle3.BackColor = System.Drawing.Color.Goldenrod
+        DataGridViewCellStyle3.ForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle3.NullValue = "Edit"
+        DataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.DarkGoldenrod
+        DataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.White
+        Me.kol_Edit.DefaultCellStyle = DataGridViewCellStyle3
+        Me.kol_Edit.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.kol_Edit.HeaderText = ""
+        Me.kol_Edit.Name = "kol_Edit"
+        Me.kol_Edit.ReadOnly = True
+        Me.kol_Edit.Text = "Edit"
+        Me.kol_Edit.UseColumnTextForButtonValue = True
+        Me.kol_Edit.Width = 40
+        '
+        'kol_Hapus
+        '
+        Me.kol_Hapus.DataPropertyName = "nota"
+        DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle4.BackColor = System.Drawing.Color.Firebrick
+        DataGridViewCellStyle4.ForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle4.NullValue = "Delete"
+        DataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.Brown
+        DataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.White
+        Me.kol_Hapus.DefaultCellStyle = DataGridViewCellStyle4
+        Me.kol_Hapus.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.kol_Hapus.HeaderText = ""
+        Me.kol_Hapus.Name = "kol_Hapus"
+        Me.kol_Hapus.ReadOnly = True
+        Me.kol_Hapus.Text = "Delete"
+        Me.kol_Hapus.UseColumnTextForButtonValue = True
+        Me.kol_Hapus.Width = 50
         '
         'btntambah
         '
@@ -154,110 +260,21 @@ Partial Class formListOrder
         Me.PictureBox1.TabIndex = 7
         Me.PictureBox1.TabStop = False
         '
-        'Kol_Nota
+        'btnDelTable
         '
-        Me.Kol_Nota.DataPropertyName = "nota"
-        Me.Kol_Nota.HeaderText = "Nota"
-        Me.Kol_Nota.Name = "Kol_Nota"
-        Me.Kol_Nota.ReadOnly = True
-        Me.Kol_Nota.Width = 50
-        '
-        'kol_Pelanggan
-        '
-        Me.kol_Pelanggan.DataPropertyName = "nama_customer"
-        Me.kol_Pelanggan.HeaderText = "Nama Pelanggan"
-        Me.kol_Pelanggan.Name = "kol_Pelanggan"
-        Me.kol_Pelanggan.ReadOnly = True
-        Me.kol_Pelanggan.Width = 200
-        '
-        'kol_Terima
-        '
-        Me.kol_Terima.DataPropertyName = "tgl_terima"
-        Me.kol_Terima.HeaderText = "Tanggal Terima"
-        Me.kol_Terima.Name = "kol_Terima"
-        Me.kol_Terima.ReadOnly = True
-        Me.kol_Terima.Width = 80
-        '
-        'kol_Berat
-        '
-        Me.kol_Berat.DataPropertyName = "berat"
-        Me.kol_Berat.HeaderText = "Berat"
-        Me.kol_Berat.Name = "kol_Berat"
-        Me.kol_Berat.ReadOnly = True
-        Me.kol_Berat.Width = 50
-        '
-        'kol_Jenis
-        '
-        Me.kol_Jenis.DataPropertyName = "jenis_layanan"
-        Me.kol_Jenis.HeaderText = "Jenis Layanan"
-        Me.kol_Jenis.Name = "kol_Jenis"
-        Me.kol_Jenis.ReadOnly = True
-        '
-        'kol_Harga
-        '
-        Me.kol_Harga.DataPropertyName = "harga"
-        Me.kol_Harga.HeaderText = "Harga"
-        Me.kol_Harga.Name = "kol_Harga"
-        Me.kol_Harga.ReadOnly = True
-        '
-        'kol_Progress
-        '
-        Me.kol_Progress.DataPropertyName = "progress"
-        Me.kol_Progress.HeaderText = "Progress"
-        Me.kol_Progress.Name = "kol_Progress"
-        Me.kol_Progress.ReadOnly = True
-        '
-        'kol_Status
-        '
-        Me.kol_Status.DataPropertyName = "status"
-        Me.kol_Status.HeaderText = "Status"
-        Me.kol_Status.Name = "kol_Status"
-        Me.kol_Status.ReadOnly = True
-        Me.kol_Status.Width = 120
-        '
-        'kol_Ambil
-        '
-        Me.kol_Ambil.DataPropertyName = "tgl_diambil"
-        Me.kol_Ambil.HeaderText = "Tgl Diambil"
-        Me.kol_Ambil.Name = "kol_Ambil"
-        Me.kol_Ambil.ReadOnly = True
-        Me.kol_Ambil.Width = 80
-        '
-        'kol_Edit
-        '
-        Me.kol_Edit.DataPropertyName = "nota"
-        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle1.BackColor = System.Drawing.Color.Goldenrod
-        DataGridViewCellStyle1.ForeColor = System.Drawing.Color.White
-        DataGridViewCellStyle1.NullValue = "Edit"
-        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.DarkGoldenrod
-        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.White
-        Me.kol_Edit.DefaultCellStyle = DataGridViewCellStyle1
-        Me.kol_Edit.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.kol_Edit.HeaderText = ""
-        Me.kol_Edit.Name = "kol_Edit"
-        Me.kol_Edit.ReadOnly = True
-        Me.kol_Edit.Text = "Edit"
-        Me.kol_Edit.UseColumnTextForButtonValue = True
-        Me.kol_Edit.Width = 40
-        '
-        'kol_Hapus
-        '
-        Me.kol_Hapus.DataPropertyName = "nota"
-        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle2.BackColor = System.Drawing.Color.Firebrick
-        DataGridViewCellStyle2.ForeColor = System.Drawing.Color.White
-        DataGridViewCellStyle2.NullValue = "Delete"
-        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.Brown
-        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White
-        Me.kol_Hapus.DefaultCellStyle = DataGridViewCellStyle2
-        Me.kol_Hapus.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.kol_Hapus.HeaderText = ""
-        Me.kol_Hapus.Name = "kol_Hapus"
-        Me.kol_Hapus.ReadOnly = True
-        Me.kol_Hapus.Text = "Delete"
-        Me.kol_Hapus.UseColumnTextForButtonValue = True
-        Me.kol_Hapus.Width = 50
+        Me.btnDelTable.BackColor = System.Drawing.Color.Transparent
+        Me.btnDelTable.BackgroundImage = CType(resources.GetObject("btnDelTable.BackgroundImage"), System.Drawing.Image)
+        Me.btnDelTable.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.btnDelTable.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btnDelTable.FlatAppearance.BorderSize = 0
+        Me.btnDelTable.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Maroon
+        Me.btnDelTable.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Red
+        Me.btnDelTable.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnDelTable.Location = New System.Drawing.Point(230, 100)
+        Me.btnDelTable.Name = "btnDelTable"
+        Me.btnDelTable.Size = New System.Drawing.Size(98, 41)
+        Me.btnDelTable.TabIndex = 98
+        Me.btnDelTable.UseVisualStyleBackColor = False
         '
         'formListOrder
         '
@@ -266,6 +283,7 @@ Partial Class formListOrder
         Me.BackgroundImage = Global.LaundyProject.My.Resources.Resources.th001X0WEA
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.ClientSize = New System.Drawing.Size(1080, 496)
+        Me.Controls.Add(Me.btnDelTable)
         Me.Controls.Add(Me.Panel3)
         Me.Controls.Add(Me.editCari)
         Me.Controls.Add(Me.Label1)
@@ -277,7 +295,7 @@ Partial Class formListOrder
         Me.MinimumSize = New System.Drawing.Size(1096, 535)
         Me.Name = "formListOrder"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "formListOrder"
+        Me.Text = "List Order"
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel3.ResumeLayout(False)
         Me.Panel3.PerformLayout()
@@ -305,4 +323,5 @@ Partial Class formListOrder
     Friend WithEvents kol_Ambil As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents kol_Edit As System.Windows.Forms.DataGridViewButtonColumn
     Friend WithEvents kol_Hapus As System.Windows.Forms.DataGridViewButtonColumn
+    Friend WithEvents btnDelTable As System.Windows.Forms.Button
 End Class

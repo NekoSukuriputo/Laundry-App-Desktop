@@ -34,3 +34,40 @@ D:\magaang\laundry-app-desktop-vb-.net\LaundyProject\obj\x86\Debug\LaundyProject
 D:\magaang\laundry-app-desktop-vb-.net\LaundyProject\obj\x86\Debug\LaundyProject.formUpdateOrder.resources
 D:\magaang\laundry-app-desktop-vb-.net\LaundyProject\obj\x86\Debug\LaundyProject.Resources.resources
 D:\magaang\laundry-app-desktop-vb-.net\LaundyProject\obj\x86\Debug\LaundyProject.vbproj.GenerateResource.Cache
+D:\Kuliah\semester VI\laundry\Laundry App\code\laundry-app-desktop-vb-.net\LaundyProject\obj\x86\Debug\LaundyProject.exe
+D:\Kuliah\semester VI\laundry\Laundry App\code\laundry-app-desktop-vb-.net\LaundyProject\obj\x86\Debug\LaundyProject.xml
+D:\Kuliah\semester VI\laundry\Laundry App\code\laundry-app-desktop-vb-.net\LaundyProject\obj\x86\Debug\LaundyProject.pdb
+D:\Kuliah\semester VI\laundry\Laundry App\code\laundry-app-desktop-vb-.net\LaundyProject\bin\Debug\LaundyProject.exe
+D:\Kuliah\semester VI\laundry\Laundry App\code\laundry-app-desktop-vb-.net\LaundyProject\bin\Debug\LaundyProject.pdb
+D:\Kuliah\semester VI\laundry\Laundry App\code\laundry-app-desktop-vb-.net\LaundyProject\bin\Debug\LaundyProject.xml
+D:\Kuliah\semester VI\laundry\Laundry App\code\laundry-app-desktop-vb-.net\LaundyProject\obj\x86\Debug\LaundyProject.formOrder.resources
+D:\Kuliah\semester VI\laundry\Laundry App\code\laundry-app-desktop-vb-.net\LaundyProject\obj\x86\Debug\LaundyProject.formDetail.resources
+D:\Kuliah\semester VI\laundry\Laundry App\code\laundry-app-desktop-vb-.net\LaundyProject\obj\x86\Debug\LaundyProject.formListOrder.resources
+D:\Kuliah\semester VI\laundry\Laundry App\code\laundry-app-desktop-vb-.net\LaundyProject\obj\x86\Debug\LaundyProject.formUpdateOrder.resources
+D:\Kuliah\semester VI\laundry\Laundry App\code\laundry-app-desktop-vb-.net\LaundyProject\obj\x86\Debug\LaundyProject.Resources.resources
+D:\Kuliah\semester VI\laundry\Laundry App\code\laundry-app-desktop-vb-.net\LaundyProject\obj\x86\Debug\LaundyProject.vbproj.GenerateResource.Cache
+D:\magaang\Laundry App\code\laundry-app-desktop-vb-.net\LaundyProject\obj\x86\Debug\LaundyProject.exe
+D:\magaang\Laundry App\code\laundry-app-desktop-vb-.net\LaundyProject\obj\x86\Debug\LaundyProject.xml
+D:\magaang\Laundry App\code\laundry-app-desktop-vb-.net\LaundyProject\obj\x86\Debug\LaundyProject.pdb
+D:\magaang\Laundry App\code\laundry-app-desktop-vb-.net\LaundyProject\bin\Debug\LaundyProject.exe
+D:\magaang\Laundry App\code\laundry-app-desktop-vb-.net\LaundyProject\bin\Debug\LaundyProject.pdb
+D:\magaang\Laundry App\code\laundry-app-desktop-vb-.net\LaundyProject\bin\Debug\LaundyProject.xml
+D:\magaang\Laundry App\code\laundry-app-desktop-vb-.net\LaundyProject\obj\x86\Debug\LaundyProject.formOrder.resources
+D:\magaang\Laundry App\code\laundry-app-desktop-vb-.net\LaundyProject\obj\x86\Debug\LaundyProject.formDetail.resources
+D:\magaang\Laundry App\code\laundry-app-desktop-vb-.net\LaundyProject\obj\x86\Debug\LaundyProject.formListOrder.resources
+D:\magaang\Laundry App\code\laundry-app-desktop-vb-.net\LaundyProject\obj\x86\Debug\LaundyProject.formUpdateOrder.resources
+D:\magaang\Laundry App\code\laundry-app-desktop-vb-.net\LaundyProject\obj\x86\Debug\LaundyProject.Resources.resources
+D:\magaang\Laundry App\code\laundry-app-desktop-vb-.net\LaundyProject\obj\x86\Debug\LaundyProject.vbproj.GenerateResource.Cache
+G:\Laundry App\code\laundry-app-desktop-vb-.net\LaundyProject\obj\x86\Debug\LaundyProject.exe
+G:\Laundry App\code\laundry-app-desktop-vb-.net\LaundyProject\obj\x86\Debug\LaundyProject.xml
+G:\Laundry App\code\laundry-app-desktop-vb-.net\LaundyProject\obj\x86\Debug\LaundyProject.pdb
+G:\Laundry App\code\laundry-app-desktop-vb-.net\LaundyProject\bin\Debug\LaundyProject.exe
+G:\Laundry App\code\laundry-app-desktop-vb-.net\LaundyProject\bin\Debug\LaundyProject.pdb
+G:\Laundry App\code\laundry-app-desktop-vb-.net\LaundyProject\bin\Debug\LaundyProject.xml
+G:\Laundry App\code\laundry-app-desktop-vb-.net\LaundyProject\obj\x86\Debug\LaundyProject.formOrder.resources
+G:\Laundry App\code\laundry-app-desktop-vb-.net\LaundyProject\obj\x86\Debug\LaundyProject.formDetail.resources
+G:\Laundry App\code\laundry-app-desktop-vb-.net\LaundyProject\obj\x86\Debug\LaundyProject.formListOrder.resources
+G:\Laundry App\code\laundry-app-desktop-vb-.net\LaundyProject\obj\x86\Debug\LaundyProject.formUpdateOrder.resources
+G:\Laundry App\code\laundry-app-desktop-vb-.net\LaundyProject\obj\x86\Debug\LaundyProject.Resources.resources
+G:\Laundry App\code\laundry-app-desktop-vb-.net\LaundyProject\obj\x86\Debug\LaundyProject.vbproj.GenerateResource.Cache
+D:\magaang\Laundry App\code\laundry-app-desktop-vb-.net\LaundyProject\obj\x86\Debug\LaundyProject.formDB.resources
