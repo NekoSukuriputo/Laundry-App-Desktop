@@ -47,6 +47,7 @@ Public Class formOrder
         getNewNota()
         'AddHandler mySerialPort.DataReceived, AddressOf mySerialPort_DataReceived
         Application.CurrentCulture = New CultureInfo("EN-US")
+        'My.Application.Culture.NumberFormat.NumberDecimalSeparator = ","
         'CommPortSetup()
     End Sub
 
@@ -142,14 +143,14 @@ Public Class formOrder
                 cmdInsert.Connection = conn
                 cmdInsert.Parameters.Add("@nota", MySqlDbType.VarChar, 10).Value = newNota
                 cmdInsert.Parameters.Add("@nama", MySqlDbType.VarChar, 100).Value = editNama.Text
-                cmdInsert.Parameters.Add("@tglterima", MySqlDbType.Date).Value = tglTerima.Text
+                cmdInsert.Parameters.Add("@tglterima", MySqlDbType.Date).Value = CDate(tglTerima.Text)
                 cmdInsert.Parameters.Add("@berat", MySqlDbType.Double).Value = txtBerat.Text
                 cmdInsert.Parameters.Add("@jenis_layanan", MySqlDbType.VarChar, 50).Value = jenislyn
                 cmdInsert.Parameters.Add("@harga", MySqlDbType.Double).Value = txtHarga.Text
                 'cmdInsert.Parameters.Add("@harga", MySqlDbType.Double).Value = editHarga.Text
                 cmdInsert.Parameters.Add("@progress", MySqlDbType.VarChar, 50).Value = progress
                 cmdInsert.Parameters.Add("@status", MySqlDbType.VarChar, 50).Value = status
-                cmdInsert.Parameters.Add("@tgl_ambil", MySqlDbType.Date).Value = tglTerima.Text
+                cmdInsert.Parameters.Add("@tgl_ambil", MySqlDbType.Date).Value = CDate(tglTerima.Text)
                 cmdInsert.ExecuteNonQuery()
 
                 MessageBox.Show("Data berhasil ditambahkan", "Create Order", MessageBoxButtons.OK, MessageBoxIcon.Information)

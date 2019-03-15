@@ -321,7 +321,8 @@ Partial Class formUpdateOrder
         '
         'tglTerima
         '
-        Me.tglTerima.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
+        Me.tglTerima.CustomFormat = "MM/dd/yyyy"
+        Me.tglTerima.Format = System.Windows.Forms.DateTimePickerFormat.Custom
         Me.tglTerima.Location = New System.Drawing.Point(124, 77)
         Me.tglTerima.Name = "tglTerima"
         Me.tglTerima.Size = New System.Drawing.Size(178, 20)
@@ -361,7 +362,8 @@ Partial Class formUpdateOrder
         '
         'tglAmbil
         '
-        Me.tglAmbil.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
+        Me.tglAmbil.CustomFormat = "MM/dd/yyyy"
+        Me.tglAmbil.Format = System.Windows.Forms.DateTimePickerFormat.Custom
         Me.tglAmbil.Location = New System.Drawing.Point(124, 364)
         Me.tglAmbil.Name = "tglAmbil"
         Me.tglAmbil.Size = New System.Drawing.Size(178, 20)

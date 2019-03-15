@@ -37,15 +37,16 @@ Public Class formDetail
             cmdAmbil.CommandText = sqlString
             dr = cmdAmbil.ExecuteReader
             If dr.Read Then
+                Dim forDate As String = "dd-MMMM-yyyy"
                 txtNota.Text = dr("nota").ToString
                 txtNama.Text = dr("nama_customer").ToString
-                txtTerima.Text = CType(dr("tgl_terima").ToString, DateTime).ToShortDateString
+                txtTerima.Text = CType(dr("tgl_terima").ToString, DateTime).ToString(forDate, New CultureInfo("id"))
                 txtBerat.Text = dr("berat").ToString & " Kg"
                 txtJenisLayanan.Text = dr("jenis_layanan").ToString
                 txtHarga.Text = Format(dr("harga"), "#,##0.00")
                 txtProgress.Text = dr("progress").ToString
                 txtStatus.Text = dr("status").ToString
-                txtAmbil.Text = CType(dr("tgl_diambil").ToString, DateTime).ToShortDateString
+                txtAmbil.Text = CType(dr("tgl_diambil").ToString, DateTime).ToString(forDate, New CultureInfo("id"))
             End If
         Catch ex As Exception
             MessageBox.Show(ex.Message, "terjadi Kegagalan!", MessageBoxButtons.OK, MessageBoxIcon.Error)

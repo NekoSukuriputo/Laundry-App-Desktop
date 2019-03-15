@@ -93,7 +93,8 @@ Partial Class formOrder
         '
         'tglTerima
         '
-        Me.tglTerima.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
+        Me.tglTerima.CustomFormat = "MM/dd/yyyy"
+        Me.tglTerima.Format = System.Windows.Forms.DateTimePickerFormat.Custom
         Me.tglTerima.Location = New System.Drawing.Point(152, 164)
         Me.tglTerima.Name = "tglTerima"
         Me.tglTerima.Size = New System.Drawing.Size(591, 20)
