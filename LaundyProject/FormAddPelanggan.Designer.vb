@@ -31,14 +31,12 @@ Partial Class FormAddPelanggan
         Me.Label3 = New System.Windows.Forms.Label()
         Me.editNotelp = New System.Windows.Forms.TextBox()
         Me.btnSave = New System.Windows.Forms.Button()
-        Me.editID = New System.Windows.Forms.TextBox()
         Me.Panel1.SuspendLayout()
         Me.SuspendLayout()
         '
         'Panel1
         '
         Me.Panel1.BackColor = System.Drawing.Color.LightSteelBlue
-        Me.Panel1.Controls.Add(Me.editID)
         Me.Panel1.Controls.Add(Me.btnSave)
         Me.Panel1.Controls.Add(Me.editAlamat)
         Me.Panel1.Controls.Add(Me.Label1)
@@ -118,14 +116,6 @@ Partial Class FormAddPelanggan
         Me.btnSave.Text = " "
         Me.btnSave.UseVisualStyleBackColor = False
         '
-        'editID
-        '
-        Me.editID.Location = New System.Drawing.Point(174, 14)
-        Me.editID.Name = "editID"
-        Me.editID.Size = New System.Drawing.Size(100, 20)
-        Me.editID.TabIndex = 102
-        Me.editID.Visible = False
-        '
         'FormAddPelanggan
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -148,5 +138,4 @@ Partial Class FormAddPelanggan
     Friend WithEvents Label3 As System.Windows.Forms.Label
     Friend WithEvents editNotelp As System.Windows.Forms.TextBox
     Friend WithEvents btnSave As System.Windows.Forms.Button
-    Friend WithEvents editID As System.Windows.Forms.TextBox
 End Class

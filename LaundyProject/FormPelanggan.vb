@@ -46,8 +46,32 @@
     Private Sub DGVPelanggan_CellContentClick(ByVal sender As System.Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles DGVPelanggan.CellContentClick
         If (e.ColumnIndex = 4) Then 'edit
             'MsgBox("edit")
+            statusClick = "edit"
+            FormAddPelanggan.idPel = DGVPelanggan.Rows(e.RowIndex).Cells(0).Value
+            FormAddPelanggan.Show()
         ElseIf (e.ColumnIndex = 5) Then
             'MsgBox("del")
+            conn = New MySqlConnection(connString)
+            conn.Open()
+
+            If MessageBox.Show("Anda yakin akan menghapus Data dengan Nama :  " & DGVPelanggan.Rows(e.RowIndex).Cells(1).Value & " akan dihapus ? ", "Peringatan!", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) = Windows.Forms.DialogResult.Yes Then
+
+                Dim cmdDelete As MySqlCommand = conn.CreateCommand
+                Try
+                    Dim sqlString As String = "delete from t_pelanggan where id=@id;"
+                    cmdDelete.CommandText = sqlString
+                    cmdDelete.Connection = conn
+                    cmdDelete.Parameters.Add("@id", MySqlDbType.Int16).Value = DGVPelanggan.Rows(e.RowIndex).Cells(0).Value
+                    cmdDelete.ExecuteNonQuery()
+                    MessageBox.Show("Data Berhasil dihapus", "Delete Order", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                    tampil()
+                Catch ex As Exception
+                    MessageBox.Show(ex.Message, "Terjadi Kegagalan!", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                Finally
+                    cmdDelete.Dispose()
+                    'conn.Close()
+                End Try
+            End If
         End If
     End Sub
 End Class
