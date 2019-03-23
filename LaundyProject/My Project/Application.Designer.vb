@@ -32,7 +32,7 @@ Namespace My
         
         <Global.System.Diagnostics.DebuggerStepThroughAttribute()>  _
         Protected Overrides Sub OnCreateMainForm()
-            Me.MainForm = Global.LaundyProject.formListOrder
+            Me.MainForm = Global.LaundyProject.FormPelanggan
         End Sub
     End Class
 End Namespace

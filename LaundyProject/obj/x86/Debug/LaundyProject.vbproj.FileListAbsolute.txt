@@ -71,3 +71,8 @@ G:\Laundry App\code\laundry-app-desktop-vb-.net\LaundyProject\obj\x86\Debug\Laun
 G:\Laundry App\code\laundry-app-desktop-vb-.net\LaundyProject\obj\x86\Debug\LaundyProject.Resources.resources
 G:\Laundry App\code\laundry-app-desktop-vb-.net\LaundyProject\obj\x86\Debug\LaundyProject.vbproj.GenerateResource.Cache
 D:\magaang\Laundry App\code\laundry-app-desktop-vb-.net\LaundyProject\obj\x86\Debug\LaundyProject.formDB.resources
+D:\magaang\Laundry App\code\laundry-app-desktop-vb-.net\LaundyProject\obj\x86\Debug\LaundyProject.vbproj.ResolveComReference.cache
+D:\magaang\Laundry App\code\laundry-app-desktop-vb-.net\LaundyProject\obj\x86\Debug\LaundyProject.FormExcel.resources
+D:\magaang\Laundry App\code\laundry-app-desktop-vb-.net\LaundyProject\obj\x86\Debug\LaundyProject.FormAddPelanggan.resources
+D:\magaang\Laundry App\code\laundry-app-desktop-vb-.net\LaundyProject\obj\x86\Debug\LaundyProject.FormPelanggan.resources
+D:\magaang\Laundry App\code\laundry-app-desktop-vb-.net\LaundyProject\obj\x86\Debug\LaundyProject.FormSettings.resources

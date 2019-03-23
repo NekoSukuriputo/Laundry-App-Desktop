@@ -22,8 +22,8 @@ Partial Class formListOrder
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(formListOrder))
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
         Me.Kol_Nota = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -45,9 +45,16 @@ Partial Class formListOrder
         Me.Label2 = New System.Windows.Forms.Label()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.btnDelTable = New System.Windows.Forms.Button()
+        Me.Button1 = New System.Windows.Forms.Button()
+        Me.Button2 = New System.Windows.Forms.Button()
+        Me.MenuBar = New System.Windows.Forms.MenuStrip()
+        Me.PelangganToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.LayananToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.SettingsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel3.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.MenuBar.SuspendLayout()
         Me.SuspendLayout()
         '
         'DataGridView1
@@ -59,7 +66,7 @@ Partial Class formListOrder
         Me.DataGridView1.BackgroundColor = System.Drawing.SystemColors.GradientInactiveCaption
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Kol_Nota, Me.kol_Pelanggan, Me.kol_Terima, Me.kol_Berat, Me.kol_Jenis, Me.kol_Harga, Me.kol_Progress, Me.kol_Status, Me.kol_Ambil, Me.kol_Edit, Me.kol_Hapus})
-        Me.DataGridView1.Location = New System.Drawing.Point(25, 147)
+        Me.DataGridView1.Location = New System.Drawing.Point(25, 188)
         Me.DataGridView1.Name = "DataGridView1"
         Me.DataGridView1.ReadOnly = True
         Me.DataGridView1.Size = New System.Drawing.Size(1031, 329)
@@ -137,13 +144,13 @@ Partial Class formListOrder
         'kol_Edit
         '
         Me.kol_Edit.DataPropertyName = "nota"
-        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle3.BackColor = System.Drawing.Color.Goldenrod
-        DataGridViewCellStyle3.ForeColor = System.Drawing.Color.White
-        DataGridViewCellStyle3.NullValue = "Edit"
-        DataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.DarkGoldenrod
-        DataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.White
-        Me.kol_Edit.DefaultCellStyle = DataGridViewCellStyle3
+        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle1.BackColor = System.Drawing.Color.Goldenrod
+        DataGridViewCellStyle1.ForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle1.NullValue = "Edit"
+        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.DarkGoldenrod
+        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.White
+        Me.kol_Edit.DefaultCellStyle = DataGridViewCellStyle1
         Me.kol_Edit.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.kol_Edit.HeaderText = ""
         Me.kol_Edit.Name = "kol_Edit"
@@ -155,13 +162,13 @@ Partial Class formListOrder
         'kol_Hapus
         '
         Me.kol_Hapus.DataPropertyName = "nota"
-        DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle4.BackColor = System.Drawing.Color.Firebrick
-        DataGridViewCellStyle4.ForeColor = System.Drawing.Color.White
-        DataGridViewCellStyle4.NullValue = "Delete"
-        DataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.Brown
-        DataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.White
-        Me.kol_Hapus.DefaultCellStyle = DataGridViewCellStyle4
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle2.BackColor = System.Drawing.Color.Firebrick
+        DataGridViewCellStyle2.ForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle2.NullValue = "Delete"
+        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.Brown
+        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White
+        Me.kol_Hapus.DefaultCellStyle = DataGridViewCellStyle2
         Me.kol_Hapus.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.kol_Hapus.HeaderText = ""
         Me.kol_Hapus.Name = "kol_Hapus"
@@ -181,7 +188,7 @@ Partial Class formListOrder
         Me.btntambah.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.btntambah.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btntambah.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btntambah.Location = New System.Drawing.Point(25, 99)
+        Me.btntambah.Location = New System.Drawing.Point(25, 140)
         Me.btntambah.Name = "btntambah"
         Me.btntambah.Size = New System.Drawing.Size(104, 42)
         Me.btntambah.TabIndex = 0
@@ -199,7 +206,7 @@ Partial Class formListOrder
         Me.btncari.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DarkOrchid
         Me.btncari.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btncari.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btncari.Location = New System.Drawing.Point(949, 100)
+        Me.btncari.Location = New System.Drawing.Point(949, 141)
         Me.btncari.Name = "btncari"
         Me.btncari.Size = New System.Drawing.Size(107, 42)
         Me.btncari.TabIndex = 3
@@ -211,7 +218,7 @@ Partial Class formListOrder
         Me.Label1.AutoSize = True
         Me.Label1.BackColor = System.Drawing.Color.Transparent
         Me.Label1.Font = New System.Drawing.Font("Modern No. 20", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(697, 108)
+        Me.Label1.Location = New System.Drawing.Point(697, 149)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(67, 24)
         Me.Label1.TabIndex = 95
@@ -219,7 +226,7 @@ Partial Class formListOrder
         '
         'editCari
         '
-        Me.editCari.Location = New System.Drawing.Point(793, 113)
+        Me.editCari.Location = New System.Drawing.Point(793, 154)
         Me.editCari.Name = "editCari"
         Me.editCari.Size = New System.Drawing.Size(150, 20)
         Me.editCari.TabIndex = 2
@@ -230,7 +237,7 @@ Partial Class formListOrder
         Me.Panel3.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
         Me.Panel3.Controls.Add(Me.Label2)
         Me.Panel3.Controls.Add(Me.PictureBox1)
-        Me.Panel3.Location = New System.Drawing.Point(25, 17)
+        Me.Panel3.Location = New System.Drawing.Point(25, 58)
         Me.Panel3.Name = "Panel3"
         Me.Panel3.Size = New System.Drawing.Size(1031, 78)
         Me.Panel3.TabIndex = 97
@@ -270,11 +277,56 @@ Partial Class formListOrder
         Me.btnDelTable.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Maroon
         Me.btnDelTable.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Red
         Me.btnDelTable.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnDelTable.Location = New System.Drawing.Point(230, 100)
+        Me.btnDelTable.Location = New System.Drawing.Point(230, 141)
         Me.btnDelTable.Name = "btnDelTable"
         Me.btnDelTable.Size = New System.Drawing.Size(98, 41)
         Me.btnDelTable.TabIndex = 98
         Me.btnDelTable.UseVisualStyleBackColor = False
+        '
+        'Button1
+        '
+        Me.Button1.Location = New System.Drawing.Point(446, 149)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(75, 23)
+        Me.Button1.TabIndex = 99
+        Me.Button1.Text = "Button1"
+        Me.Button1.UseVisualStyleBackColor = True
+        '
+        'Button2
+        '
+        Me.Button2.Location = New System.Drawing.Point(578, 150)
+        Me.Button2.Name = "Button2"
+        Me.Button2.Size = New System.Drawing.Size(75, 23)
+        Me.Button2.TabIndex = 100
+        Me.Button2.Text = "Button2"
+        Me.Button2.UseVisualStyleBackColor = True
+        '
+        'MenuBar
+        '
+        Me.MenuBar.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.PelangganToolStripMenuItem, Me.LayananToolStripMenuItem, Me.SettingsToolStripMenuItem})
+        Me.MenuBar.Location = New System.Drawing.Point(0, 0)
+        Me.MenuBar.Name = "MenuBar"
+        Me.MenuBar.Size = New System.Drawing.Size(1080, 24)
+        Me.MenuBar.TabIndex = 101
+        Me.MenuBar.Text = "MenuStrip1"
+        '
+        'PelangganToolStripMenuItem
+        '
+        Me.PelangganToolStripMenuItem.Name = "PelangganToolStripMenuItem"
+        Me.PelangganToolStripMenuItem.Size = New System.Drawing.Size(75, 20)
+        Me.PelangganToolStripMenuItem.Text = "Pelanggan"
+        '
+        'LayananToolStripMenuItem
+        '
+        Me.LayananToolStripMenuItem.Name = "LayananToolStripMenuItem"
+        Me.LayananToolStripMenuItem.Size = New System.Drawing.Size(91, 20)
+        Me.LayananToolStripMenuItem.Text = "Jesin Layanan"
+        '
+        'SettingsToolStripMenuItem
+        '
+        Me.SettingsToolStripMenuItem.Name = "SettingsToolStripMenuItem"
+        Me.SettingsToolStripMenuItem.Size = New System.Drawing.Size(61, 20)
+        Me.SettingsToolStripMenuItem.Text = "Settings"
         '
         'formListOrder
         '
@@ -283,6 +335,8 @@ Partial Class formListOrder
         Me.BackgroundImage = Global.LaundyProject.My.Resources.Resources.th001X0WEA
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.ClientSize = New System.Drawing.Size(1080, 496)
+        Me.Controls.Add(Me.Button2)
+        Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.btnDelTable)
         Me.Controls.Add(Me.Panel3)
         Me.Controls.Add(Me.editCari)
@@ -290,6 +344,8 @@ Partial Class formListOrder
         Me.Controls.Add(Me.btntambah)
         Me.Controls.Add(Me.btncari)
         Me.Controls.Add(Me.DataGridView1)
+        Me.Controls.Add(Me.MenuBar)
+        Me.MainMenuStrip = Me.MenuBar
         Me.MaximizeBox = False
         Me.MaximumSize = New System.Drawing.Size(1096, 535)
         Me.MinimumSize = New System.Drawing.Size(1096, 535)
@@ -300,6 +356,8 @@ Partial Class formListOrder
         Me.Panel3.ResumeLayout(False)
         Me.Panel3.PerformLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.MenuBar.ResumeLayout(False)
+        Me.MenuBar.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -324,4 +382,10 @@ Partial Class formListOrder
     Friend WithEvents kol_Edit As System.Windows.Forms.DataGridViewButtonColumn
     Friend WithEvents kol_Hapus As System.Windows.Forms.DataGridViewButtonColumn
     Friend WithEvents btnDelTable As System.Windows.Forms.Button
+    Friend WithEvents Button1 As System.Windows.Forms.Button
+    Friend WithEvents Button2 As System.Windows.Forms.Button
+    Friend WithEvents MenuBar As System.Windows.Forms.MenuStrip
+    Friend WithEvents PelangganToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents LayananToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents SettingsToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
 End Class
