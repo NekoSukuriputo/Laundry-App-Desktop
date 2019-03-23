@@ -88,6 +88,12 @@
       <DependentUpon>Form1.vb</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="FormAddDiskon.Designer.vb">
+      <DependentUpon>FormAddDiskon.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormAddDiskon.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="FormAddLayanan.Designer.vb">
       <DependentUpon>FormAddLayanan.vb</DependentUpon>
     </Compile>
@@ -112,10 +118,10 @@
     <Compile Include="formDetail.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormExcel.Designer.vb">
-      <DependentUpon>FormExcel.vb</DependentUpon>
+    <Compile Include="FormDiskon.Designer.vb">
+      <DependentUpon>FormDiskon.vb</DependentUpon>
     </Compile>
-    <Compile Include="FormExcel.vb">
+    <Compile Include="FormDiskon.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FormLayanan.Designer.vb">
@@ -170,6 +176,9 @@
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormAddDiskon.resx">
+      <DependentUpon>FormAddDiskon.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormAddLayanan.resx">
       <DependentUpon>FormAddLayanan.vb</DependentUpon>
     </EmbeddedResource>
@@ -182,8 +191,8 @@
     <EmbeddedResource Include="formDetail.resx">
       <DependentUpon>formDetail.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormExcel.resx">
-      <DependentUpon>FormExcel.vb</DependentUpon>
+    <EmbeddedResource Include="FormDiskon.resx">
+      <DependentUpon>FormDiskon.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormLayanan.resx">
       <DependentUpon>FormLayanan.vb</DependentUpon>

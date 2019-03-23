@@ -110,9 +110,9 @@ Partial Class FormAddPelanggan
         Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label3.Location = New System.Drawing.Point(29, 202)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(56, 13)
+        Me.Label3.Size = New System.Drawing.Size(47, 13)
         Me.Label3.TabIndex = 4
-        Me.Label3.Text = "No. Telp"
+        Me.Label3.Text = "No. Hp"
         '
         'editNotelp
         '
@@ -139,9 +139,9 @@ Partial Class FormAddPelanggan
         Me.Label5.Font = New System.Drawing.Font("Cooper Std Black", 24.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label5.Location = New System.Drawing.Point(136, 18)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(274, 38)
+        Me.Label5.Size = New System.Drawing.Size(236, 38)
         Me.Label5.TabIndex = 0
-        Me.Label5.Text = "Add Pelanggan"
+        Me.Label5.Text = "Add Member"
         Me.Label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'PictureBox1
@@ -168,7 +168,7 @@ Partial Class FormAddPelanggan
         Me.Controls.Add(Me.Panel1)
         Me.Name = "FormAddPelanggan"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "FormAddPelanggan"
+        Me.Text = "Form Add Member"
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()
         Me.Panel3.ResumeLayout(False)

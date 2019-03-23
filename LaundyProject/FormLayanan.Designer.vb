@@ -181,6 +181,8 @@ Partial Class FormLayanan
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.BackgroundImage = Global.LaundyProject.My.Resources.Resources.th001X0WEA
+        Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.ClientSize = New System.Drawing.Size(585, 440)
         Me.Controls.Add(Me.btntambah)
         Me.Controls.Add(Me.DGVLayanan)

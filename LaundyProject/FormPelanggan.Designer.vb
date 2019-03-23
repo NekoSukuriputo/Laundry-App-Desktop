@@ -22,8 +22,8 @@ Partial Class FormPelanggan
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FormPelanggan))
         Me.DGVPelanggan = New System.Windows.Forms.DataGridView()
         Me.colIDPlgn = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -91,13 +91,13 @@ Partial Class FormPelanggan
         'kol_Edit
         '
         Me.kol_Edit.DataPropertyName = "id"
-        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle3.BackColor = System.Drawing.Color.Goldenrod
-        DataGridViewCellStyle3.ForeColor = System.Drawing.Color.White
-        DataGridViewCellStyle3.NullValue = "Edit"
-        DataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.DarkGoldenrod
-        DataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.White
-        Me.kol_Edit.DefaultCellStyle = DataGridViewCellStyle3
+        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle1.BackColor = System.Drawing.Color.Goldenrod
+        DataGridViewCellStyle1.ForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle1.NullValue = "Edit"
+        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.DarkGoldenrod
+        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.White
+        Me.kol_Edit.DefaultCellStyle = DataGridViewCellStyle1
         Me.kol_Edit.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.kol_Edit.HeaderText = ""
         Me.kol_Edit.Name = "kol_Edit"
@@ -109,13 +109,13 @@ Partial Class FormPelanggan
         'kol_Hapus
         '
         Me.kol_Hapus.DataPropertyName = "id"
-        DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle4.BackColor = System.Drawing.Color.Firebrick
-        DataGridViewCellStyle4.ForeColor = System.Drawing.Color.White
-        DataGridViewCellStyle4.NullValue = "Delete"
-        DataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.Brown
-        DataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.White
-        Me.kol_Hapus.DefaultCellStyle = DataGridViewCellStyle4
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle2.BackColor = System.Drawing.Color.Firebrick
+        DataGridViewCellStyle2.ForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle2.NullValue = "Delete"
+        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.Brown
+        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White
+        Me.kol_Hapus.DefaultCellStyle = DataGridViewCellStyle2
         Me.kol_Hapus.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.kol_Hapus.HeaderText = ""
         Me.kol_Hapus.Name = "kol_Hapus"
@@ -160,9 +160,9 @@ Partial Class FormPelanggan
         Me.Label5.Font = New System.Drawing.Font("Cooper Std Black", 24.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label5.Location = New System.Drawing.Point(136, 18)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(349, 38)
+        Me.Label5.Size = New System.Drawing.Size(311, 38)
         Me.Label5.TabIndex = 0
-        Me.Label5.Text = "Pelanggan Laundry"
+        Me.Label5.Text = "Member Laundry"
         Me.Label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'PictureBox1
@@ -190,7 +190,7 @@ Partial Class FormPelanggan
         Me.Controls.Add(Me.DGVPelanggan)
         Me.Name = "FormPelanggan"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "Form Pelanggan"
+        Me.Text = "Form Member"
         CType(Me.DGVPelanggan, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel3.ResumeLayout(False)
         Me.Panel3.PerformLayout()
