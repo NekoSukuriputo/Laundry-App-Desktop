@@ -50,6 +50,7 @@ Partial Class formListOrder
         Me.MenuBar = New System.Windows.Forms.MenuStrip()
         Me.PelangganToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.LayananToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.DiskonToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SettingsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel3.SuspendLayout()
@@ -303,29 +304,39 @@ Partial Class formListOrder
         '
         'MenuBar
         '
-        Me.MenuBar.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.PelangganToolStripMenuItem, Me.LayananToolStripMenuItem, Me.SettingsToolStripMenuItem})
+        Me.MenuBar.BackColor = System.Drawing.SystemColors.ActiveCaption
+        Me.MenuBar.Font = New System.Drawing.Font("Comic Sans MS", 13.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.MenuBar.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.PelangganToolStripMenuItem, Me.LayananToolStripMenuItem, Me.DiskonToolStripMenuItem, Me.SettingsToolStripMenuItem})
         Me.MenuBar.Location = New System.Drawing.Point(0, 0)
         Me.MenuBar.Name = "MenuBar"
-        Me.MenuBar.Size = New System.Drawing.Size(1080, 24)
+        Me.MenuBar.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional
+        Me.MenuBar.Size = New System.Drawing.Size(1080, 33)
+        Me.MenuBar.Stretch = False
         Me.MenuBar.TabIndex = 101
         Me.MenuBar.Text = "MenuStrip1"
         '
         'PelangganToolStripMenuItem
         '
         Me.PelangganToolStripMenuItem.Name = "PelangganToolStripMenuItem"
-        Me.PelangganToolStripMenuItem.Size = New System.Drawing.Size(75, 20)
+        Me.PelangganToolStripMenuItem.Size = New System.Drawing.Size(107, 29)
         Me.PelangganToolStripMenuItem.Text = "Pelanggan"
         '
         'LayananToolStripMenuItem
         '
         Me.LayananToolStripMenuItem.Name = "LayananToolStripMenuItem"
-        Me.LayananToolStripMenuItem.Size = New System.Drawing.Size(91, 20)
+        Me.LayananToolStripMenuItem.Size = New System.Drawing.Size(145, 29)
         Me.LayananToolStripMenuItem.Text = "Jesin Layanan"
+        '
+        'DiskonToolStripMenuItem
+        '
+        Me.DiskonToolStripMenuItem.Name = "DiskonToolStripMenuItem"
+        Me.DiskonToolStripMenuItem.Size = New System.Drawing.Size(79, 29)
+        Me.DiskonToolStripMenuItem.Text = "Diskon"
         '
         'SettingsToolStripMenuItem
         '
         Me.SettingsToolStripMenuItem.Name = "SettingsToolStripMenuItem"
-        Me.SettingsToolStripMenuItem.Size = New System.Drawing.Size(61, 20)
+        Me.SettingsToolStripMenuItem.Size = New System.Drawing.Size(95, 29)
         Me.SettingsToolStripMenuItem.Text = "Settings"
         '
         'formListOrder
@@ -345,6 +356,7 @@ Partial Class formListOrder
         Me.Controls.Add(Me.btncari)
         Me.Controls.Add(Me.DataGridView1)
         Me.Controls.Add(Me.MenuBar)
+        Me.Cursor = System.Windows.Forms.Cursors.Default
         Me.MainMenuStrip = Me.MenuBar
         Me.MaximizeBox = False
         Me.MaximumSize = New System.Drawing.Size(1096, 535)
@@ -388,4 +400,5 @@ Partial Class formListOrder
     Friend WithEvents PelangganToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents LayananToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents SettingsToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents DiskonToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
 End Class

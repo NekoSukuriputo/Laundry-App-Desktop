@@ -22,18 +22,23 @@ Partial Class FormPelanggan
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FormPelanggan))
-        Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.DGVPelanggan = New System.Windows.Forms.DataGridView()
-        Me.btntambah = New System.Windows.Forms.Button()
         Me.colIDPlgn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.kol_Pelanggan = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.kol_Terima = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.kol_nohp = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.kol_Edit = New System.Windows.Forms.DataGridViewButtonColumn()
         Me.kol_Hapus = New System.Windows.Forms.DataGridViewButtonColumn()
+        Me.btntambah = New System.Windows.Forms.Button()
+        Me.Panel3 = New System.Windows.Forms.Panel()
+        Me.Label5 = New System.Windows.Forms.Label()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         CType(Me.DGVPelanggan, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.Panel3.SuspendLayout()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'DGVPelanggan
@@ -50,24 +55,6 @@ Partial Class FormPelanggan
         Me.DGVPelanggan.ReadOnly = True
         Me.DGVPelanggan.Size = New System.Drawing.Size(954, 273)
         Me.DGVPelanggan.TabIndex = 2
-        '
-        'btntambah
-        '
-        Me.btntambah.BackColor = System.Drawing.Color.Transparent
-        Me.btntambah.BackgroundImage = CType(resources.GetObject("btntambah.BackgroundImage"), System.Drawing.Image)
-        Me.btntambah.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
-        Me.btntambah.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.btntambah.FlatAppearance.BorderSize = 0
-        Me.btntambah.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
-        Me.btntambah.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.btntambah.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btntambah.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btntambah.Location = New System.Drawing.Point(31, 78)
-        Me.btntambah.Name = "btntambah"
-        Me.btntambah.Size = New System.Drawing.Size(104, 42)
-        Me.btntambah.TabIndex = 3
-        Me.btntambah.TextAlign = System.Drawing.ContentAlignment.TopLeft
-        Me.btntambah.UseVisualStyleBackColor = False
         '
         'colIDPlgn
         '
@@ -104,13 +91,13 @@ Partial Class FormPelanggan
         'kol_Edit
         '
         Me.kol_Edit.DataPropertyName = "id"
-        DataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle5.BackColor = System.Drawing.Color.Goldenrod
-        DataGridViewCellStyle5.ForeColor = System.Drawing.Color.White
-        DataGridViewCellStyle5.NullValue = "Edit"
-        DataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.DarkGoldenrod
-        DataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.White
-        Me.kol_Edit.DefaultCellStyle = DataGridViewCellStyle5
+        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle3.BackColor = System.Drawing.Color.Goldenrod
+        DataGridViewCellStyle3.ForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle3.NullValue = "Edit"
+        DataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.DarkGoldenrod
+        DataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.White
+        Me.kol_Edit.DefaultCellStyle = DataGridViewCellStyle3
         Me.kol_Edit.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.kol_Edit.HeaderText = ""
         Me.kol_Edit.Name = "kol_Edit"
@@ -122,13 +109,13 @@ Partial Class FormPelanggan
         'kol_Hapus
         '
         Me.kol_Hapus.DataPropertyName = "id"
-        DataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle6.BackColor = System.Drawing.Color.Firebrick
-        DataGridViewCellStyle6.ForeColor = System.Drawing.Color.White
-        DataGridViewCellStyle6.NullValue = "Delete"
-        DataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.Brown
-        DataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.White
-        Me.kol_Hapus.DefaultCellStyle = DataGridViewCellStyle6
+        DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle4.BackColor = System.Drawing.Color.Firebrick
+        DataGridViewCellStyle4.ForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle4.NullValue = "Delete"
+        DataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.Brown
+        DataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.White
+        Me.kol_Hapus.DefaultCellStyle = DataGridViewCellStyle4
         Me.kol_Hapus.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.kol_Hapus.HeaderText = ""
         Me.kol_Hapus.Name = "kol_Hapus"
@@ -137,17 +124,77 @@ Partial Class FormPelanggan
         Me.kol_Hapus.UseColumnTextForButtonValue = True
         Me.kol_Hapus.Width = 50
         '
+        'btntambah
+        '
+        Me.btntambah.BackColor = System.Drawing.Color.Transparent
+        Me.btntambah.BackgroundImage = CType(resources.GetObject("btntambah.BackgroundImage"), System.Drawing.Image)
+        Me.btntambah.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.btntambah.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btntambah.FlatAppearance.BorderSize = 0
+        Me.btntambah.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.btntambah.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.btntambah.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btntambah.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btntambah.Location = New System.Drawing.Point(31, 88)
+        Me.btntambah.Name = "btntambah"
+        Me.btntambah.Size = New System.Drawing.Size(104, 42)
+        Me.btntambah.TabIndex = 3
+        Me.btntambah.TextAlign = System.Drawing.ContentAlignment.TopLeft
+        Me.btntambah.UseVisualStyleBackColor = False
+        '
+        'Panel3
+        '
+        Me.Panel3.BackColor = System.Drawing.Color.CornflowerBlue
+        Me.Panel3.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+        Me.Panel3.Controls.Add(Me.Label5)
+        Me.Panel3.Controls.Add(Me.PictureBox1)
+        Me.Panel3.Location = New System.Drawing.Point(-1, -5)
+        Me.Panel3.Name = "Panel3"
+        Me.Panel3.Size = New System.Drawing.Size(1029, 78)
+        Me.Panel3.TabIndex = 99
+        '
+        'Label5
+        '
+        Me.Label5.AutoSize = True
+        Me.Label5.BackColor = System.Drawing.Color.Transparent
+        Me.Label5.Font = New System.Drawing.Font("Cooper Std Black", 24.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label5.Location = New System.Drawing.Point(136, 18)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(349, 38)
+        Me.Label5.TabIndex = 0
+        Me.Label5.Text = "Pelanggan Laundry"
+        Me.Label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'PictureBox1
+        '
+        Me.PictureBox1.BackColor = System.Drawing.Color.Transparent
+        Me.PictureBox1.BackgroundImage = CType(resources.GetObject("PictureBox1.BackgroundImage"), System.Drawing.Image)
+        Me.PictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.PictureBox1.ErrorImage = Nothing
+        Me.PictureBox1.InitialImage = Nothing
+        Me.PictureBox1.Location = New System.Drawing.Point(-1, -1)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(133, 77)
+        Me.PictureBox1.TabIndex = 7
+        Me.PictureBox1.TabStop = False
+        '
         'FormPelanggan
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1017, 489)
+        Me.BackgroundImage = Global.LaundyProject.My.Resources.Resources.th001X0WEA
+        Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.ClientSize = New System.Drawing.Size(1017, 455)
+        Me.Controls.Add(Me.Panel3)
         Me.Controls.Add(Me.btntambah)
         Me.Controls.Add(Me.DGVPelanggan)
         Me.Name = "FormPelanggan"
-        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Form Pelanggan"
         CType(Me.DGVPelanggan, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.Panel3.ResumeLayout(False)
+        Me.Panel3.PerformLayout()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -159,4 +206,7 @@ Partial Class FormPelanggan
     Friend WithEvents kol_nohp As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents kol_Edit As System.Windows.Forms.DataGridViewButtonColumn
     Friend WithEvents kol_Hapus As System.Windows.Forms.DataGridViewButtonColumn
+    Friend WithEvents Panel3 As System.Windows.Forms.Panel
+    Friend WithEvents Label5 As System.Windows.Forms.Label
+    Friend WithEvents PictureBox1 As System.Windows.Forms.PictureBox
 End Class

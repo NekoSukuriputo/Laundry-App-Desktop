@@ -291,6 +291,14 @@ Public Class formListOrder
     End Sub
 
     Private Sub LayananToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles LayananToolStripMenuItem.Click
+        FormLayanan.Show()
+    End Sub
 
+    Private Sub PelangganToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles PelangganToolStripMenuItem.Click
+        FormPelanggan.Show()
+    End Sub
+
+    Private Sub SettingsToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles SettingsToolStripMenuItem.Click
+        FormSettings.Show()
     End Sub
 End Class

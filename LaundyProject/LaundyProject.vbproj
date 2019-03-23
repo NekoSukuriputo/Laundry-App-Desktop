@@ -88,6 +88,12 @@
       <DependentUpon>Form1.vb</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="FormAddLayanan.Designer.vb">
+      <DependentUpon>FormAddLayanan.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormAddLayanan.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="FormAddPelanggan.Designer.vb">
       <DependentUpon>FormAddPelanggan.vb</DependentUpon>
     </Compile>
@@ -110,6 +116,12 @@
       <DependentUpon>FormExcel.vb</DependentUpon>
     </Compile>
     <Compile Include="FormExcel.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormLayanan.Designer.vb">
+      <DependentUpon>FormLayanan.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormLayanan.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="formListOrder.Designer.vb">
@@ -158,6 +170,9 @@
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormAddLayanan.resx">
+      <DependentUpon>FormAddLayanan.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormAddPelanggan.resx">
       <DependentUpon>FormAddPelanggan.vb</DependentUpon>
     </EmbeddedResource>
@@ -169,6 +184,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormExcel.resx">
       <DependentUpon>FormExcel.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormLayanan.resx">
+      <DependentUpon>FormLayanan.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="formListOrder.resx">
       <DependentUpon>formListOrder.vb</DependentUpon>

@@ -131,7 +131,7 @@ Partial Class FormSettings
         Me.Panel3.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
         Me.Panel3.Controls.Add(Me.Label5)
         Me.Panel3.Controls.Add(Me.PictureBox1)
-        Me.Panel3.Location = New System.Drawing.Point(-2, -2)
+        Me.Panel3.Location = New System.Drawing.Point(-5, -2)
         Me.Panel3.Name = "Panel3"
         Me.Panel3.Size = New System.Drawing.Size(601, 78)
         Me.Panel3.TabIndex = 98
@@ -188,6 +188,7 @@ Partial Class FormSettings
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.Panel3)
         Me.Name = "FormSettings"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Form Settings"
         Me.Panel3.ResumeLayout(False)
         Me.Panel3.PerformLayout()
