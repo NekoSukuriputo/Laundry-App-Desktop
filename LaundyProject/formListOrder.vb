@@ -301,4 +301,8 @@ Public Class formListOrder
     Private Sub SettingsToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles SettingsToolStripMenuItem.Click
         FormSettings.Show()
     End Sub
+
+    Private Sub DiskonToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles DiskonToolStripMenuItem.Click
+
+    End Sub
 End Class

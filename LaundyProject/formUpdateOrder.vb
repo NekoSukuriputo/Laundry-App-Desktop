@@ -5,11 +5,88 @@ Public Class formUpdateOrder
     Public nota As String = ""
     Dim connString = "Database=laundryapp;Data source=localhost;user id=root;password=;"
 
+    Private disPersen As Double = 0
+
     Private Sub formUpdateOrder_Activated(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Activated
         tampil()
         showItem()
         Application.CurrentCulture = New CultureInfo("EN-US")
+        cmbJenisLayanan.Items.Clear()
+        fillDropDownLayanan()
     End Sub
+
+    Sub fillDropDownLayanan()
+        conn = New MySqlConnection(connString)
+        conn.Open()
+
+        Dim dr As MySqlDataReader = Nothing
+        Dim cmdAmbil As MySqlCommand = conn.CreateCommand
+
+        Try
+            Dim sqlString As String = "select nama_layanan from t_jenislayanan;"
+            cmdAmbil.CommandText = sqlString
+            dr = cmdAmbil.ExecuteReader
+            While dr.Read
+                cmbJenisLayanan.Items.Add(dr.Item("nama_layanan").ToString)
+            End While
+        Catch ex As Exception
+            MessageBox.Show(ex.Message, "terjadi Kegagalan!", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        Finally
+            cmdAmbil.Dispose()
+            'conn.Close()
+            'conn = Nothing
+        End Try
+    End Sub
+
+    Function getHarga(ByVal layanan As String) As Double
+        conn = New MySqlConnection(connString)
+        conn.Open()
+
+        Dim dr As MySqlDataReader = Nothing
+        Dim cmdAmbil As MySqlCommand = conn.CreateCommand
+        Dim hrg As Double
+        Try
+            Dim sqlString As String = "select harga from t_jenislayanan where nama_layanan=@nama_layanan;"
+            cmdAmbil.Parameters.Add("@nama_layanan", MySqlDbType.String, 100).Value = layanan
+            cmdAmbil.CommandText = sqlString
+            dr = cmdAmbil.ExecuteReader
+            If dr.Read Then
+                hrg = CDbl(dr("harga").ToString)
+            End If
+        Catch ex As Exception
+            MessageBox.Show(ex.Message, "terjadi Kegagalan!", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        Finally
+            cmdAmbil.Dispose()
+            'conn.Close()
+            'conn = Nothing
+        End Try
+        Return hrg
+    End Function
+
+    Function getLamaLayanan(ByVal layanan As String) As Double
+        conn = New MySqlConnection(connString)
+        conn.Open()
+
+        Dim dr As MySqlDataReader = Nothing
+        Dim cmdAmbil As MySqlCommand = conn.CreateCommand
+        Dim lama As Double
+        Try
+            Dim sqlString As String = "select lama_hari from t_jenislayanan where nama_layanan=@nama_layanan;"
+            cmdAmbil.Parameters.Add("@nama_layanan", MySqlDbType.String, 100).Value = layanan
+            cmdAmbil.CommandText = sqlString
+            dr = cmdAmbil.ExecuteReader
+            If dr.Read Then
+                lama = CDbl(dr("lama_hari").ToString)
+            End If
+        Catch ex As Exception
+            MessageBox.Show(ex.Message, "terjadi Kegagalan!", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        Finally
+            cmdAmbil.Dispose()
+            'conn.Close()
+            'conn = Nothing
+        End Try
+        Return lama
+    End Function
 
     Private Sub formUpdateOrder_FormClosing(ByVal sender As Object, ByVal e As System.Windows.Forms.FormClosingEventArgs) Handles Me.FormClosing
         'Application.Exit()
@@ -26,7 +103,7 @@ Public Class formUpdateOrder
         conn = New MySqlConnection(connString)
         conn.Open()
 
-        Dim jenisL$, progress$, status$
+        Dim progress$, status$, status_member$
 
         Dim dr As MySqlDataReader = Nothing
         Dim cmdAmbil As MySqlCommand = conn.CreateCommand
@@ -41,17 +118,11 @@ Public Class formUpdateOrder
                 editNama.Text = dr("nama_customer").ToString
                 tglTerima.Text = dr("tgl_terima").ToString
                 editBerat.Text = dr("berat").ToString
-                editHarga.Text = dr("harga").ToString
                 tglAmbil.Text = dr("tgl_diambil").ToString
-                jenisL = dr("jenis_layanan").ToString
+                cmbJenisLayanan.Text = dr("jenis_layanan").ToString
                 progress = dr("progress").ToString
                 status = dr("status").ToString
-
-                If (jenisL = rbStandart.Text) Then
-                    rbStandart.Checked = True
-                ElseIf (jenisL = rbExpress.Text) Then
-                    rbExpress.Checked = True
-                End If
+                status_member = dr("status_member").ToString
 
                 If (progress = rbTerima.Text) Then
                     rbTerima.Checked = True
@@ -71,6 +142,12 @@ Public Class formUpdateOrder
                     rbBelumBayar.Checked = True
                 ElseIf (status = rbSudahBayar.Text) Then
                     rbSudahBayar.Checked = True
+                End If
+
+                If status_member = rbMember.Text Then
+                    rbMember.Checked = True
+                ElseIf status_member = rbNonMember.Text Then
+                    rbNonMember.Checked = True
                 End If
 
             End If
@@ -166,13 +243,12 @@ Public Class formUpdateOrder
     End Sub
 
     Private Sub updateData()
-        Dim jenislyn$, progress$, status$
+        Dim jenislyn$, progress$, status$, member$
+        Dim hrgdiskon As Double = 0
 
-        If (rbStandart.Checked) Then
-            jenislyn = rbStandart.Text
-        ElseIf (rbExpress.Checked) Then
-            jenislyn = rbExpress.Text
-        End If
+        jenislyn = cmbJenisLayanan.Text
+
+        Dim hargaKotor As Double = CDbl(editBerat.Text) * getHarga(cmbJenisLayanan.Text)
 
         If (rbTerima.Checked) Then
             progress = rbTerima.Text
@@ -194,12 +270,18 @@ Public Class formUpdateOrder
             status = rbBelumBayar.Text
         End If
 
+        If rbMember.Checked Then
+            member = rbMember.Text
+        ElseIf rbNonMember.Checked Then
+            member = rbNonMember.Text
+        End If
+
         conn = New MySqlConnection(connString)
         conn.Open()
 
         Dim cmdInsert As MySqlCommand = conn.CreateCommand
 
-        If editNama.Text <> "" And tglTerima.Text <> "" And editBerat.Text <> "" And editHarga.Text <> "" Then
+        If editNama.Text <> "" And tglTerima.Text <> "" And editBerat.Text <> "" Then
             Try
                 Dim sqlString As String = "update t_order set " & _
                 "nama_customer = @nama," & _
@@ -209,19 +291,38 @@ Public Class formUpdateOrder
                 "harga = @harga," & _
                 "progress = @progress," & _
                 "status = @status, " & _
-                "tgl_diambil = @tgl_ambil where nota = @nota"
+                "tgl_diambil = @tgl_ambil, " & _
+                "status_member = @status_member, " & _
+                "diskon = @diskon , " & _
+                "bayar = @bayar where nota = @nota"
                 cmdInsert.CommandText = sqlString
                 cmdInsert.Connection = conn
                 cmdInsert.Parameters.Add("@nama", MySqlDbType.VarChar, 100).Value = editNama.Text
                 cmdInsert.Parameters.Add("@tglterima", MySqlDbType.Date).Value = tglTerima.Text
                 cmdInsert.Parameters.Add("@berat", MySqlDbType.Double).Value = editBerat.Text
                 cmdInsert.Parameters.Add("@jenis_layanan", MySqlDbType.VarChar, 50).Value = jenislyn
-                cmdInsert.Parameters.Add("@harga", MySqlDbType.Double).Value = editHarga.Text
+                cmdInsert.Parameters.Add("@harga", MySqlDbType.Double).Value = hargaKotor
                 cmdInsert.Parameters.Add("@progress", MySqlDbType.VarChar, 50).Value = progress
                 cmdInsert.Parameters.Add("@status", MySqlDbType.VarChar, 50).Value = status
                 cmdInsert.Parameters.Add("@tgl_ambil", MySqlDbType.Date).Value = tglAmbil.Text
                 cmdInsert.Parameters.Add("@nota", MySqlDbType.VarChar, 11).Value = txtNota.Text
                 'cmdInsert.Parameters.Add("@nota", MySqlDbType.Int16).Value = 9
+                cmdInsert.Parameters.Add("@status_member", MySqlDbType.VarChar, 50).Value = member
+
+                If rbMember.Checked Then
+                    calDiskonDate()
+                    hrgdiskon = hargaKotor * disPersen
+                    cmdInsert.Parameters.Add("@diskon", MySqlDbType.Double).Value = hrgdiskon
+                ElseIf rbNonMember.Checked Then
+                    cmdInsert.Parameters.Add("@diskon", MySqlDbType.Double).Value = 0
+                End If
+
+                If rbMember.Checked Then
+                    cmdInsert.Parameters.Add("@bayar", MySqlDbType.Double).Value = (hargaKotor - hrgdiskon)
+                ElseIf rbNonMember.Checked Then
+                    cmdInsert.Parameters.Add("@bayar", MySqlDbType.Double).Value = hargaKotor
+                End If
+
                 cmdInsert.ExecuteNonQuery()
 
                 MessageBox.Show("Data berhasil diUbah", "Update Order", MessageBoxButtons.OK, MessageBoxIcon.Information)
@@ -234,42 +335,6 @@ Public Class formUpdateOrder
         End If
     End Sub
 
-    Private Sub editBerat_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles editBerat.TextChanged
-        If (editBerat.Text <> "" And editBerat.Text <> "0") Then
-            Dim harga As Double
-            If (rbStandart.Checked) Then
-                harga = 5000 * CDbl(editBerat.Text)
-            ElseIf (rbExpress.Checked) Then
-                harga = 8000 * CDbl(editBerat.Text)
-            End If
-            editHarga.Text = CStr(harga)
-        Else
-            editHarga.Text = "0"
-        End If
-
-    End Sub
-
-    Private Sub rbStandart_CheckedChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles rbStandart.CheckedChanged
-        If (editBerat.Text <> "" And editBerat.Text <> "0") Then
-            Dim harga As Double
-            harga = 5000 * CDbl(editBerat.Text)
-            editHarga.Text = CStr(harga)
-        Else
-            editHarga.Text = "0"
-        End If
-
-    End Sub
-
-    Private Sub rbExpress_CheckedChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles rbExpress.CheckedChanged
-        If (editBerat.Text <> "" And editBerat.Text <> "0") Then
-            Dim harga As Double
-            harga = 8000 * CDbl(editBerat.Text)
-            editHarga.Text = CStr(harga)
-        Else
-            editHarga.Text = "0"
-        End If
-    End Sub
-
     Private Sub btnUpdate_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnUpdate.Click
         updateData()
     End Sub
@@ -278,6 +343,95 @@ Public Class formUpdateOrder
         Me.Hide()
         formListOrder.tampil()
         formDetail.Show()
+    End Sub
+
+    Private Sub cmbJenisLayanan_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cmbJenisLayanan.SelectedIndexChanged
+        'If IsNumeric(editBerat.Text) AndAlso CDbl(editBerat.Text) >= 0 Then
+        '    'editBerat.Text = "1"
+        '    'Dim hrg As Double = CDbl(editBerat.Text) * getHarga(cmbJenisLayanan.Text)
+        '    'editBerat.Text = Format(hrg, "#,##0.00")
+        '    'Console.WriteLine(hrg)
+        '    'Console.WriteLine(CDbl(txtBerat.Text) * getHarga(cmbJenisLayanan.Text))
+        'Else
+        '    MsgBox("Set Timbangan ke Nol")
+        'End If
+    End Sub
+
+    Public Sub autocompleteData()
+        editNama.AutoCompleteMode = AutoCompleteMode.Suggest
+        editNama.AutoCompleteSource = AutoCompleteSource.CustomSource
+        Dim dataCollections As New AutoCompleteStringCollection
+        getMember(dataCollections)
+        editNama.AutoCompleteCustomSource = dataCollections
+    End Sub
+    Sub getMember(ByVal dataCollection As AutoCompleteStringCollection)
+        conn = New MySqlConnection(connString)
+        conn.Open()
+
+        Dim dr As MySqlDataReader = Nothing
+        Dim cmdAmbil As MySqlCommand = conn.CreateCommand
+
+        Try
+            Dim sqlString As String = "select nama_pelanggan from t_pelanggan;"
+            cmdAmbil.CommandText = sqlString
+            dr = cmdAmbil.ExecuteReader
+            While dr.Read
+                dataCollection.Add(dr("nama_pelanggan").ToString)
+            End While
+        Catch ex As Exception
+            MessageBox.Show(ex.Message, "terjadi Kegagalan!", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        Finally
+            cmdAmbil.Dispose()
+            'conn.Close()
+            'conn = Nothing
+        End Try
+    End Sub
+
+    Sub calDiskonDate()
+        'Console.WriteLine(Date.Now.ToShortDateString)
+        conn = New MySqlConnection(connString)
+        conn.Open()
+
+        Dim dr As MySqlDataReader = Nothing
+        Dim cmdAmbil As MySqlCommand = conn.CreateCommand
+
+        Try
+            Dim sqlString As String = "select * from t_diskon;"
+            cmdAmbil.CommandText = sqlString
+            dr = cmdAmbil.ExecuteReader
+            While dr.Read
+                'Console.WriteLine(CDate(dr("dari").ToString) & "|" & CDate(dr("sampai").ToString))
+                If (Date.Now.ToShortDateString >= dr("dari")) And
+                    (Date.Now.ToShortDateString <= dr("sampai")) Then
+                    disPersen = dr("diskon") + disPersen
+                    Console.WriteLine(disPersen)
+                End If
+            End While
+        Catch ex As Exception
+            MessageBox.Show(ex.Message, "terjadi Kegagalan!", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        Finally
+            cmdAmbil.Dispose()
+            'conn.Close()
+            'conn = Nothing
+        End Try
+    End Sub
+    Private Sub rbMember_CheckedChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles rbMember.CheckedChanged
+        If rbMember.Checked = True Then
+            editNama.Clear()
+            autocompleteData()
+        ElseIf rbMember.Checked = False Then
+            editNama.AutoCompleteMode = False
+            editNama.Clear()
+        End If
+    End Sub
+
+    Private Sub rbNonMember_CheckedChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles rbNonMember.CheckedChanged
+        If rbNonMember.Checked = True Then
+            editNama.AutoCompleteMode = False
+        ElseIf rbNonMember.Checked = False Then
+            editNama.Clear()
+            autocompleteData()
+        End If
     End Sub
 
 End Class

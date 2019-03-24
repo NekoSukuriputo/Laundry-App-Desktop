@@ -156,13 +156,41 @@ Public Class formDetail
     Public sess_PRINT_BOLD_OFF As String = sess_ESC + Chr(0)
 
     Public Sub PrintingOut()
+        conn = New MySqlConnection(connString)
+        conn.Open()
+
+        Dim cmdSelect2 As MySqlCommand = conn.CreateCommand()
+        Dim sqlString2 As String
+
+        Dim drset As MySqlDataReader = Nothing
+
+        Dim nama_laundry$, alamat$, notelp$, footer$
+        Try
+            sqlString2 = "Select * from t_settings where id=1;"
+            cmdSelect2.CommandText = sqlString2
+            drset = cmdSelect2.ExecuteReader
+            If drset.Read() Then
+                nama_laundry = drset("nama_laundry").ToString
+                alamat = drset("alamat").ToString
+                notelp = drset("notelp").ToString
+                footer = drset("footer_print").ToString
+            End If
+        Catch ex As Exception
+            MessageBox.Show(ex.Message, "Terjadi Kegagalan!", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        Finally
+            cmdSelect2.Dispose()
+            'conn.Close()
+        End Try
+
         Dim s As String
 
         Dim pd As New PrintDialog()
 
         ' You need a string to send.
         s = sess_PRINT_BOLD_ON
-        s &= vbTab & "   .: Nama Laundry :." & vbCrLf
+        s &= vbTab & "   .: " & nama_laundry & " :." & vbCrLf
+        s &= vbTab & alamat & vbCrLf
+        s &= vbTab & notelp & vbCrLf
         s &= sess_PRINT_BOLD_OFF
         s &= vbCrLf
         s &= sess_PRINT_BOLD_ON
@@ -184,9 +212,6 @@ Public Class formDetail
         'item section
         s &= "Item: " & vbCrLf
         's &= "Item - Jumlah" & vbCrLf
-
-        conn = New MySqlConnection(connString)
-        conn.Open()
 
         Dim cmdSelect As MySqlCommand = conn.CreateCommand()
         Dim sqlString As String
@@ -213,7 +238,7 @@ Public Class formDetail
         'end item section
 
         s &= "================================" & vbCrLf
-        s &= "Terima Kasih Atas Kunjungan Anda" & vbCrLf
+        s &= footer & vbCrLf
         s &= "" & vbCrLf
         s &= "" & vbCrLf
         s &= "" & vbCrLf

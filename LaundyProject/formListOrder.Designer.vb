@@ -52,8 +52,6 @@ Partial Class formListOrder
         Me.LayananToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.DiskonToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SettingsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.DiskonMemberToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.DiskonPeriodeToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel3.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -331,7 +329,6 @@ Partial Class formListOrder
         '
         'DiskonToolStripMenuItem
         '
-        Me.DiskonToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.DiskonMemberToolStripMenuItem, Me.DiskonPeriodeToolStripMenuItem})
         Me.DiskonToolStripMenuItem.Name = "DiskonToolStripMenuItem"
         Me.DiskonToolStripMenuItem.Size = New System.Drawing.Size(79, 29)
         Me.DiskonToolStripMenuItem.Text = "Diskon"
@@ -341,18 +338,6 @@ Partial Class formListOrder
         Me.SettingsToolStripMenuItem.Name = "SettingsToolStripMenuItem"
         Me.SettingsToolStripMenuItem.Size = New System.Drawing.Size(95, 29)
         Me.SettingsToolStripMenuItem.Text = "Settings"
-        '
-        'DiskonMemberToolStripMenuItem
-        '
-        Me.DiskonMemberToolStripMenuItem.Name = "DiskonMemberToolStripMenuItem"
-        Me.DiskonMemberToolStripMenuItem.Size = New System.Drawing.Size(217, 30)
-        Me.DiskonMemberToolStripMenuItem.Text = "Diskon Member"
-        '
-        'DiskonPeriodeToolStripMenuItem
-        '
-        Me.DiskonPeriodeToolStripMenuItem.Name = "DiskonPeriodeToolStripMenuItem"
-        Me.DiskonPeriodeToolStripMenuItem.Size = New System.Drawing.Size(217, 30)
-        Me.DiskonPeriodeToolStripMenuItem.Text = "Diskon Periode"
         '
         'formListOrder
         '
@@ -416,6 +401,4 @@ Partial Class formListOrder
     Friend WithEvents LayananToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents SettingsToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents DiskonToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents DiskonMemberToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents DiskonPeriodeToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
 End Class

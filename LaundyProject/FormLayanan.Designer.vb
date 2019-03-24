@@ -22,8 +22,8 @@ Partial Class FormLayanan
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FormLayanan))
         Me.Panel3 = New System.Windows.Forms.Panel()
         Me.Label5 = New System.Windows.Forms.Label()
@@ -113,13 +113,13 @@ Partial Class FormLayanan
         'kol_Edit
         '
         Me.kol_Edit.DataPropertyName = "id"
-        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle1.BackColor = System.Drawing.Color.Goldenrod
-        DataGridViewCellStyle1.ForeColor = System.Drawing.Color.White
-        DataGridViewCellStyle1.NullValue = "Edit"
-        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.DarkGoldenrod
-        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.White
-        Me.kol_Edit.DefaultCellStyle = DataGridViewCellStyle1
+        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle3.BackColor = System.Drawing.Color.Goldenrod
+        DataGridViewCellStyle3.ForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle3.NullValue = "Edit"
+        DataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.DarkGoldenrod
+        DataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.White
+        Me.kol_Edit.DefaultCellStyle = DataGridViewCellStyle3
         Me.kol_Edit.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.kol_Edit.HeaderText = ""
         Me.kol_Edit.Name = "kol_Edit"
@@ -131,13 +131,13 @@ Partial Class FormLayanan
         'kol_Hapus
         '
         Me.kol_Hapus.DataPropertyName = "id"
-        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle2.BackColor = System.Drawing.Color.Firebrick
-        DataGridViewCellStyle2.ForeColor = System.Drawing.Color.White
-        DataGridViewCellStyle2.NullValue = "Delete"
-        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.Brown
-        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White
-        Me.kol_Hapus.DefaultCellStyle = DataGridViewCellStyle2
+        DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle4.BackColor = System.Drawing.Color.Firebrick
+        DataGridViewCellStyle4.ForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle4.NullValue = "Delete"
+        DataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.Brown
+        DataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.White
+        Me.kol_Hapus.DefaultCellStyle = DataGridViewCellStyle4
         Me.kol_Hapus.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.kol_Hapus.HeaderText = ""
         Me.kol_Hapus.Name = "kol_Hapus"
