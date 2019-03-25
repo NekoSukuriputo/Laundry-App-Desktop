@@ -302,7 +302,11 @@ Public Class formListOrder
         FormSettings.Show()
     End Sub
 
-    Private Sub DiskonToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles DiskonToolStripMenuItem.Click
+    Private Sub HargaItemTetapToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles HargaItemTetapToolStripMenuItem.Click
+        FormSingelItem.Show()
+    End Sub
 
+    Private Sub DiskonToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles DiskonToolStripMenuItem.Click
+        FormDiskon.Show()
     End Sub
 End Class

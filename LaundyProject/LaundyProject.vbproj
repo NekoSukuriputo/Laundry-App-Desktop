@@ -94,6 +94,12 @@
     <Compile Include="FormAddDiskon.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="FormAddItem.Designer.vb">
+      <DependentUpon>FormAddItem.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormAddItem.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="FormAddLayanan.Designer.vb">
       <DependentUpon>FormAddLayanan.vb</DependentUpon>
     </Compile>
@@ -104,6 +110,12 @@
       <DependentUpon>FormAddPelanggan.vb</DependentUpon>
     </Compile>
     <Compile Include="FormAddPelanggan.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormAddSingleItem.Designer.vb">
+      <DependentUpon>FormAddSingleItem.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormAddSingleItem.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="formDB.Designer.vb">
@@ -148,6 +160,12 @@
     <Compile Include="FormSettings.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="FormSingelItem.Designer.vb">
+      <DependentUpon>FormSingelItem.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormSingelItem.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="formUpdateOrder.Designer.vb">
       <DependentUpon>formUpdateOrder.vb</DependentUpon>
     </Compile>
@@ -179,11 +197,17 @@
     <EmbeddedResource Include="FormAddDiskon.resx">
       <DependentUpon>FormAddDiskon.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormAddItem.resx">
+      <DependentUpon>FormAddItem.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormAddLayanan.resx">
       <DependentUpon>FormAddLayanan.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormAddPelanggan.resx">
       <DependentUpon>FormAddPelanggan.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormAddSingleItem.resx">
+      <DependentUpon>FormAddSingleItem.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="formDB.resx">
       <DependentUpon>formDB.vb</DependentUpon>
@@ -205,6 +229,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormSettings.resx">
       <DependentUpon>FormSettings.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormSingelItem.resx">
+      <DependentUpon>FormSingelItem.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="formUpdateOrder.resx">
       <DependentUpon>formUpdateOrder.vb</DependentUpon>

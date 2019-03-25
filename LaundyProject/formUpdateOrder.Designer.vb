@@ -23,32 +23,14 @@ Partial Class formUpdateOrder
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(formUpdateOrder))
-        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.btnUpdate = New System.Windows.Forms.Button()
-        Me.Label2 = New System.Windows.Forms.Label()
-        Me.editItem = New System.Windows.Forms.TextBox()
-        Me.Panel1 = New System.Windows.Forms.Panel()
-        Me.btnFinish = New System.Windows.Forms.Button()
-        Me.btnTambah = New System.Windows.Forms.Button()
-        Me.gridItem = New System.Windows.Forms.DataGridView()
-        Me.nama_item = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.kol_Jumlah = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.idItem = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.kolEdit = New System.Windows.Forms.DataGridViewButtonColumn()
-        Me.editJumlah = New System.Windows.Forms.TextBox()
-        Me.Label8 = New System.Windows.Forms.Label()
         Me.Label9 = New System.Windows.Forms.Label()
         Me.txtNota = New System.Windows.Forms.Label()
         Me.Panel2 = New System.Windows.Forms.Panel()
-        Me.Panel3 = New System.Windows.Forms.Panel()
-        Me.Label20 = New System.Windows.Forms.Label()
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
-        Me.Label17 = New System.Windows.Forms.Label()
-        Me.Label1 = New System.Windows.Forms.Label()
-        Me.tglAmbil = New System.Windows.Forms.DateTimePicker()
+        Me.GroupBox5 = New System.Windows.Forms.GroupBox()
         Me.editBerat = New System.Windows.Forms.TextBox()
-        Me.Label13 = New System.Windows.Forms.Label()
-        Me.Label3 = New System.Windows.Forms.Label()
+        Me.GroupBox4 = New System.Windows.Forms.GroupBox()
+        Me.tglAmbil = New System.Windows.Forms.DateTimePicker()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
         Me.tglTerima = New System.Windows.Forms.DateTimePicker()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
@@ -80,21 +62,25 @@ Partial Class formUpdateOrder
         Me.rbMember = New System.Windows.Forms.RadioButton()
         Me.groupLayanan = New System.Windows.Forms.GroupBox()
         Me.cmbJenisLayanan = New System.Windows.Forms.ComboBox()
-        Me.GroupBox4 = New System.Windows.Forms.GroupBox()
-        Me.GroupBox5 = New System.Windows.Forms.GroupBox()
-        Me.Panel1.SuspendLayout()
-        CType(Me.gridItem, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.Label17 = New System.Windows.Forms.Label()
+        Me.Label13 = New System.Windows.Forms.Label()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.Panel3 = New System.Windows.Forms.Panel()
+        Me.Label20 = New System.Windows.Forms.Label()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.btnAddItems = New System.Windows.Forms.Button()
         Me.Panel2.SuspendLayout()
-        Me.Panel3.SuspendLayout()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.GroupBox5.SuspendLayout()
+        Me.GroupBox4.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.groupStatus.SuspendLayout()
         Me.groupProgress.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
         Me.groupLayanan.SuspendLayout()
-        Me.GroupBox4.SuspendLayout()
-        Me.GroupBox5.SuspendLayout()
+        Me.Panel3.SuspendLayout()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'btnUpdate
@@ -107,161 +93,18 @@ Partial Class formUpdateOrder
         Me.btnUpdate.FlatAppearance.MouseDownBackColor = System.Drawing.Color.MidnightBlue
         Me.btnUpdate.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.btnUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnUpdate.Location = New System.Drawing.Point(141, 477)
+        Me.btnUpdate.Location = New System.Drawing.Point(141, 460)
         Me.btnUpdate.Name = "btnUpdate"
         Me.btnUpdate.Size = New System.Drawing.Size(89, 31)
         Me.btnUpdate.TabIndex = 15
         Me.btnUpdate.UseVisualStyleBackColor = False
-        '
-        'Label2
-        '
-        Me.Label2.AutoSize = True
-        Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(12, 22)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(67, 13)
-        Me.Label2.TabIndex = 46
-        Me.Label2.Text = "Nama Item"
-        '
-        'editItem
-        '
-        Me.editItem.Location = New System.Drawing.Point(85, 22)
-        Me.editItem.Name = "editItem"
-        Me.editItem.Size = New System.Drawing.Size(204, 20)
-        Me.editItem.TabIndex = 16
-        '
-        'Panel1
-        '
-        Me.Panel1.BackColor = System.Drawing.Color.Linen
-        Me.Panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.Panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.Panel1.Controls.Add(Me.btnFinish)
-        Me.Panel1.Controls.Add(Me.btnTambah)
-        Me.Panel1.Controls.Add(Me.gridItem)
-        Me.Panel1.Controls.Add(Me.editJumlah)
-        Me.Panel1.Controls.Add(Me.Label8)
-        Me.Panel1.Controls.Add(Me.editItem)
-        Me.Panel1.Controls.Add(Me.Label2)
-        Me.Panel1.Location = New System.Drawing.Point(798, 127)
-        Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(403, 529)
-        Me.Panel1.TabIndex = 47
-        '
-        'btnFinish
-        '
-        Me.btnFinish.BackColor = System.Drawing.Color.Transparent
-        Me.btnFinish.BackgroundImage = CType(resources.GetObject("btnFinish.BackgroundImage"), System.Drawing.Image)
-        Me.btnFinish.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
-        Me.btnFinish.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.btnFinish.FlatAppearance.BorderSize = 0
-        Me.btnFinish.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Green
-        Me.btnFinish.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.btnFinish.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnFinish.Location = New System.Drawing.Point(269, 403)
-        Me.btnFinish.Name = "btnFinish"
-        Me.btnFinish.Size = New System.Drawing.Size(93, 31)
-        Me.btnFinish.TabIndex = 19
-        Me.btnFinish.UseVisualStyleBackColor = False
-        '
-        'btnTambah
-        '
-        Me.btnTambah.BackColor = System.Drawing.Color.Transparent
-        Me.btnTambah.BackgroundImage = CType(resources.GetObject("btnTambah.BackgroundImage"), System.Drawing.Image)
-        Me.btnTambah.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
-        Me.btnTambah.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.btnTambah.FlatAppearance.BorderSize = 0
-        Me.btnTambah.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Navy
-        Me.btnTambah.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Blue
-        Me.btnTambah.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnTambah.Location = New System.Drawing.Point(309, 16)
-        Me.btnTambah.Name = "btnTambah"
-        Me.btnTambah.Size = New System.Drawing.Size(71, 63)
-        Me.btnTambah.TabIndex = 18
-        Me.btnTambah.UseVisualStyleBackColor = False
-        '
-        'gridItem
-        '
-        Me.gridItem.AllowUserToAddRows = False
-        Me.gridItem.AllowUserToResizeRows = False
-        Me.gridItem.BackgroundColor = System.Drawing.SystemColors.ControlLight
-        Me.gridItem.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.gridItem.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.nama_item, Me.kol_Jumlah, Me.idItem, Me.kolEdit})
-        Me.gridItem.GridColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.gridItem.Location = New System.Drawing.Point(17, 97)
-        Me.gridItem.Name = "gridItem"
-        Me.gridItem.ReadOnly = True
-        Me.gridItem.Size = New System.Drawing.Size(365, 292)
-        Me.gridItem.TabIndex = 49
-        '
-        'nama_item
-        '
-        Me.nama_item.DataPropertyName = "nama_item"
-        Me.nama_item.HeaderText = "Nama Item"
-        Me.nama_item.Name = "nama_item"
-        Me.nama_item.ReadOnly = True
-        Me.nama_item.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.nama_item.Width = 220
-        '
-        'kol_Jumlah
-        '
-        Me.kol_Jumlah.DataPropertyName = "jumlah"
-        Me.kol_Jumlah.HeaderText = "Jumlah"
-        Me.kol_Jumlah.Name = "kol_Jumlah"
-        Me.kol_Jumlah.ReadOnly = True
-        Me.kol_Jumlah.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.kol_Jumlah.Width = 50
-        '
-        'idItem
-        '
-        Me.idItem.DataPropertyName = "id"
-        Me.idItem.HeaderText = "id"
-        Me.idItem.Name = "idItem"
-        Me.idItem.ReadOnly = True
-        Me.idItem.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.idItem.Visible = False
-        '
-        'kolEdit
-        '
-        Me.kolEdit.DataPropertyName = "id"
-        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
-        DataGridViewCellStyle2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle2.ForeColor = System.Drawing.Color.White
-        DataGridViewCellStyle2.NullValue = "Delete"
-        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.Maroon
-        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White
-        Me.kolEdit.DefaultCellStyle = DataGridViewCellStyle2
-        Me.kolEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.kolEdit.HeaderText = "Aksi"
-        Me.kolEdit.Name = "kolEdit"
-        Me.kolEdit.ReadOnly = True
-        Me.kolEdit.Text = "Delete"
-        Me.kolEdit.UseColumnTextForButtonValue = True
-        Me.kolEdit.Width = 50
-        '
-        'editJumlah
-        '
-        Me.editJumlah.Location = New System.Drawing.Point(85, 57)
-        Me.editJumlah.Name = "editJumlah"
-        Me.editJumlah.Size = New System.Drawing.Size(204, 20)
-        Me.editJumlah.TabIndex = 17
-        '
-        'Label8
-        '
-        Me.Label8.AutoSize = True
-        Me.Label8.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label8.Location = New System.Drawing.Point(12, 57)
-        Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(46, 13)
-        Me.Label8.TabIndex = 48
-        Me.Label8.Text = "Jumlah"
         '
         'Label9
         '
         Me.Label9.AutoSize = True
         Me.Label9.BackColor = System.Drawing.Color.Transparent
         Me.Label9.Font = New System.Drawing.Font("Elephant", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label9.Location = New System.Drawing.Point(36, 93)
+        Me.Label9.Location = New System.Drawing.Point(36, 102)
         Me.Label9.Name = "Label9"
         Me.Label9.Size = New System.Drawing.Size(74, 31)
         Me.Label9.TabIndex = 48
@@ -272,7 +115,7 @@ Partial Class formUpdateOrder
         Me.txtNota.AutoSize = True
         Me.txtNota.BackColor = System.Drawing.Color.Transparent
         Me.txtNota.Font = New System.Drawing.Font("Franklin Gothic Demi", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtNota.Location = New System.Drawing.Point(115, 94)
+        Me.txtNota.Location = New System.Drawing.Point(115, 103)
         Me.txtNota.Name = "txtNota"
         Me.txtNota.Size = New System.Drawing.Size(63, 30)
         Me.txtNota.TabIndex = 49
@@ -308,65 +151,35 @@ Partial Class formUpdateOrder
         Me.Panel2.Controls.Add(Me.btnUpdate)
         Me.Panel2.Controls.Add(Me.Label3)
         Me.Panel2.Cursor = System.Windows.Forms.Cursors.Default
-        Me.Panel2.Location = New System.Drawing.Point(23, 127)
+        Me.Panel2.Location = New System.Drawing.Point(23, 144)
         Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(743, 529)
+        Me.Panel2.Size = New System.Drawing.Size(743, 512)
         Me.Panel2.TabIndex = 50
         '
-        'Panel3
+        'GroupBox5
         '
-        Me.Panel3.BackColor = System.Drawing.Color.CornflowerBlue
-        Me.Panel3.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.Panel3.Controls.Add(Me.Label20)
-        Me.Panel3.Controls.Add(Me.PictureBox1)
-        Me.Panel3.Location = New System.Drawing.Point(23, 13)
-        Me.Panel3.Name = "Panel3"
-        Me.Panel3.Size = New System.Drawing.Size(1178, 78)
-        Me.Panel3.TabIndex = 51
+        Me.GroupBox5.Controls.Add(Me.editBerat)
+        Me.GroupBox5.Location = New System.Drawing.Point(141, 241)
+        Me.GroupBox5.Name = "GroupBox5"
+        Me.GroupBox5.Size = New System.Drawing.Size(591, 43)
+        Me.GroupBox5.TabIndex = 68
+        Me.GroupBox5.TabStop = False
         '
-        'Label20
+        'editBerat
         '
-        Me.Label20.AutoSize = True
-        Me.Label20.Font = New System.Drawing.Font("Cooper Std Black", 24.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label20.Location = New System.Drawing.Point(156, 21)
-        Me.Label20.Name = "Label20"
-        Me.Label20.Size = New System.Drawing.Size(254, 38)
-        Me.Label20.TabIndex = 53
-        Me.Label20.Text = "Update Order"
-        Me.Label20.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        Me.editBerat.Location = New System.Drawing.Point(17, 17)
+        Me.editBerat.Name = "editBerat"
+        Me.editBerat.Size = New System.Drawing.Size(168, 20)
+        Me.editBerat.TabIndex = 2
         '
-        'PictureBox1
+        'GroupBox4
         '
-        Me.PictureBox1.BackColor = System.Drawing.Color.Transparent
-        Me.PictureBox1.BackgroundImage = CType(resources.GetObject("PictureBox1.BackgroundImage"), System.Drawing.Image)
-        Me.PictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.PictureBox1.ErrorImage = Nothing
-        Me.PictureBox1.InitialImage = Nothing
-        Me.PictureBox1.Location = New System.Drawing.Point(-2, -2)
-        Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(172, 77)
-        Me.PictureBox1.TabIndex = 52
-        Me.PictureBox1.TabStop = False
-        '
-        'Label17
-        '
-        Me.Label17.AutoSize = True
-        Me.Label17.Font = New System.Drawing.Font("Showcard Gothic", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label17.Location = New System.Drawing.Point(108, 404)
-        Me.Label17.Name = "Label17"
-        Me.Label17.Size = New System.Drawing.Size(12, 14)
-        Me.Label17.TabIndex = 59
-        Me.Label17.Text = ":"
-        '
-        'Label1
-        '
-        Me.Label1.AutoSize = True
-        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(11, 406)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(98, 13)
-        Me.Label1.TabIndex = 44
-        Me.Label1.Text = "Tanggal Diambil"
+        Me.GroupBox4.Controls.Add(Me.tglAmbil)
+        Me.GroupBox4.Location = New System.Drawing.Point(141, 395)
+        Me.GroupBox4.Name = "GroupBox4"
+        Me.GroupBox4.Size = New System.Drawing.Size(591, 39)
+        Me.GroupBox4.TabIndex = 72
+        Me.GroupBox4.TabStop = False
         '
         'tglAmbil
         '
@@ -376,33 +189,6 @@ Partial Class formUpdateOrder
         Me.tglAmbil.Name = "tglAmbil"
         Me.tglAmbil.Size = New System.Drawing.Size(178, 20)
         Me.tglAmbil.TabIndex = 14
-        '
-        'editBerat
-        '
-        Me.editBerat.Location = New System.Drawing.Point(17, 17)
-        Me.editBerat.Name = "editBerat"
-        Me.editBerat.Size = New System.Drawing.Size(168, 20)
-        Me.editBerat.TabIndex = 2
-        '
-        'Label13
-        '
-        Me.Label13.AutoSize = True
-        Me.Label13.Font = New System.Drawing.Font("Showcard Gothic", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label13.Location = New System.Drawing.Point(123, 258)
-        Me.Label13.Name = "Label13"
-        Me.Label13.Size = New System.Drawing.Size(12, 14)
-        Me.Label13.TabIndex = 58
-        Me.Label13.Text = ":"
-        '
-        'Label3
-        '
-        Me.Label3.AutoSize = True
-        Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(15, 261)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(64, 13)
-        Me.Label3.TabIndex = 34
-        Me.Label3.Text = "Berat (Kg)"
         '
         'GroupBox3
         '
@@ -739,23 +525,94 @@ Partial Class formUpdateOrder
         Me.cmbJenisLayanan.Size = New System.Drawing.Size(170, 21)
         Me.cmbJenisLayanan.TabIndex = 0
         '
-        'GroupBox4
+        'Label17
         '
-        Me.GroupBox4.Controls.Add(Me.tglAmbil)
-        Me.GroupBox4.Location = New System.Drawing.Point(141, 395)
-        Me.GroupBox4.Name = "GroupBox4"
-        Me.GroupBox4.Size = New System.Drawing.Size(440, 39)
-        Me.GroupBox4.TabIndex = 72
-        Me.GroupBox4.TabStop = False
+        Me.Label17.AutoSize = True
+        Me.Label17.Font = New System.Drawing.Font("Showcard Gothic", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label17.Location = New System.Drawing.Point(108, 404)
+        Me.Label17.Name = "Label17"
+        Me.Label17.Size = New System.Drawing.Size(12, 14)
+        Me.Label17.TabIndex = 59
+        Me.Label17.Text = ":"
         '
-        'GroupBox5
+        'Label13
         '
-        Me.GroupBox5.Controls.Add(Me.editBerat)
-        Me.GroupBox5.Location = New System.Drawing.Point(141, 241)
-        Me.GroupBox5.Name = "GroupBox5"
-        Me.GroupBox5.Size = New System.Drawing.Size(591, 43)
-        Me.GroupBox5.TabIndex = 68
-        Me.GroupBox5.TabStop = False
+        Me.Label13.AutoSize = True
+        Me.Label13.Font = New System.Drawing.Font("Showcard Gothic", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label13.Location = New System.Drawing.Point(123, 258)
+        Me.Label13.Name = "Label13"
+        Me.Label13.Size = New System.Drawing.Size(12, 14)
+        Me.Label13.TabIndex = 58
+        Me.Label13.Text = ":"
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.Location = New System.Drawing.Point(11, 406)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(98, 13)
+        Me.Label1.TabIndex = 44
+        Me.Label1.Text = "Tanggal Diambil"
+        '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label3.Location = New System.Drawing.Point(15, 261)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(64, 13)
+        Me.Label3.TabIndex = 34
+        Me.Label3.Text = "Berat (Kg)"
+        '
+        'Panel3
+        '
+        Me.Panel3.BackColor = System.Drawing.Color.CornflowerBlue
+        Me.Panel3.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+        Me.Panel3.Controls.Add(Me.Label20)
+        Me.Panel3.Controls.Add(Me.PictureBox1)
+        Me.Panel3.Location = New System.Drawing.Point(23, 13)
+        Me.Panel3.Name = "Panel3"
+        Me.Panel3.Size = New System.Drawing.Size(939, 78)
+        Me.Panel3.TabIndex = 51
+        '
+        'Label20
+        '
+        Me.Label20.AutoSize = True
+        Me.Label20.Font = New System.Drawing.Font("Cooper Std Black", 24.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label20.Location = New System.Drawing.Point(156, 21)
+        Me.Label20.Name = "Label20"
+        Me.Label20.Size = New System.Drawing.Size(254, 38)
+        Me.Label20.TabIndex = 53
+        Me.Label20.Text = "Update Order"
+        Me.Label20.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'PictureBox1
+        '
+        Me.PictureBox1.BackColor = System.Drawing.Color.Transparent
+        Me.PictureBox1.BackgroundImage = CType(resources.GetObject("PictureBox1.BackgroundImage"), System.Drawing.Image)
+        Me.PictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.PictureBox1.ErrorImage = Nothing
+        Me.PictureBox1.InitialImage = Nothing
+        Me.PictureBox1.Location = New System.Drawing.Point(-2, -2)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(172, 77)
+        Me.PictureBox1.TabIndex = 52
+        Me.PictureBox1.TabStop = False
+        '
+        'btnAddItems
+        '
+        Me.btnAddItems.BackColor = System.Drawing.Color.Transparent
+        Me.btnAddItems.BackgroundImage = CType(resources.GetObject("btnAddItems.BackgroundImage"), System.Drawing.Image)
+        Me.btnAddItems.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.btnAddItems.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btnAddItems.FlatAppearance.BorderSize = 0
+        Me.btnAddItems.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnAddItems.Location = New System.Drawing.Point(648, 93)
+        Me.btnAddItems.Name = "btnAddItems"
+        Me.btnAddItems.Size = New System.Drawing.Size(108, 45)
+        Me.btnAddItems.TabIndex = 52
+        Me.btnAddItems.UseVisualStyleBackColor = False
         '
         'formUpdateOrder
         '
@@ -763,26 +620,22 @@ Partial Class formUpdateOrder
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackgroundImage = Global.LaundyProject.My.Resources.Resources.th001X0WEA
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.ClientSize = New System.Drawing.Size(1233, 668)
+        Me.ClientSize = New System.Drawing.Size(787, 668)
+        Me.Controls.Add(Me.btnAddItems)
         Me.Controls.Add(Me.Panel3)
         Me.Controls.Add(Me.Label9)
         Me.Controls.Add(Me.txtNota)
         Me.Controls.Add(Me.Panel2)
-        Me.Controls.Add(Me.Panel1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D
         Me.MinimizeBox = False
-        Me.MinimumSize = New System.Drawing.Size(1133, 639)
         Me.Name = "formUpdateOrder"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Update Order"
-        Me.Panel1.ResumeLayout(False)
-        Me.Panel1.PerformLayout()
-        CType(Me.gridItem, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel2.ResumeLayout(False)
         Me.Panel2.PerformLayout()
-        Me.Panel3.ResumeLayout(False)
-        Me.Panel3.PerformLayout()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.GroupBox5.ResumeLayout(False)
+        Me.GroupBox5.PerformLayout()
+        Me.GroupBox4.ResumeLayout(False)
         Me.GroupBox3.ResumeLayout(False)
         Me.GroupBox2.ResumeLayout(False)
         Me.GroupBox2.PerformLayout()
@@ -793,32 +646,20 @@ Partial Class formUpdateOrder
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
         Me.groupLayanan.ResumeLayout(False)
-        Me.GroupBox4.ResumeLayout(False)
-        Me.GroupBox5.ResumeLayout(False)
-        Me.GroupBox5.PerformLayout()
+        Me.Panel3.ResumeLayout(False)
+        Me.Panel3.PerformLayout()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
     End Sub
     Friend WithEvents btnUpdate As System.Windows.Forms.Button
-    Friend WithEvents Label2 As System.Windows.Forms.Label
-    Friend WithEvents editItem As System.Windows.Forms.TextBox
-    Friend WithEvents Panel1 As System.Windows.Forms.Panel
-    Friend WithEvents btnFinish As System.Windows.Forms.Button
-    Friend WithEvents btnTambah As System.Windows.Forms.Button
-    Friend WithEvents gridItem As System.Windows.Forms.DataGridView
-    Friend WithEvents editJumlah As System.Windows.Forms.TextBox
-    Friend WithEvents Label8 As System.Windows.Forms.Label
     Friend WithEvents Label9 As System.Windows.Forms.Label
     Friend WithEvents txtNota As System.Windows.Forms.Label
     Friend WithEvents Panel2 As System.Windows.Forms.Panel
     Friend WithEvents Panel3 As System.Windows.Forms.Panel
     Friend WithEvents PictureBox1 As System.Windows.Forms.PictureBox
     Friend WithEvents Label20 As System.Windows.Forms.Label
-    Friend WithEvents nama_item As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents kol_Jumlah As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents idItem As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents kolEdit As System.Windows.Forms.DataGridViewButtonColumn
     Friend WithEvents Label17 As System.Windows.Forms.Label
     Friend WithEvents Label1 As System.Windows.Forms.Label
     Friend WithEvents tglAmbil As System.Windows.Forms.DateTimePicker
@@ -858,4 +699,5 @@ Partial Class formUpdateOrder
     Friend WithEvents cmbJenisLayanan As System.Windows.Forms.ComboBox
     Friend WithEvents GroupBox5 As System.Windows.Forms.GroupBox
     Friend WithEvents GroupBox4 As System.Windows.Forms.GroupBox
+    Friend WithEvents btnAddItems As System.Windows.Forms.Button
 End Class

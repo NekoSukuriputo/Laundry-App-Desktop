@@ -9,7 +9,7 @@ Public Class formUpdateOrder
 
     Private Sub formUpdateOrder_Activated(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Activated
         tampil()
-        showItem()
+        '        showItem()
         Application.CurrentCulture = New CultureInfo("EN-US")
         cmbJenisLayanan.Items.Clear()
         fillDropDownLayanan()
@@ -96,7 +96,7 @@ Public Class formUpdateOrder
 
     Private Sub formUpdateOrder_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         tampil()
-        showItem()
+        'showItem()
     End Sub
 
     Sub tampil()
@@ -159,87 +159,6 @@ Public Class formUpdateOrder
             conn = Nothing
         End Try
 
-    End Sub
-
-    Private Sub btnTambah_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnTambah.Click
-
-        conn = New MySqlConnection(connString)
-        conn.Open()
-
-        Dim cmdInsert As MySqlCommand = conn.CreateCommand
-        If (editItem.Text <> "" And editJumlah.Text <> "") Then
-            Try
-                Dim sqlString As String = "insert into t_detailorder(nota,nama_item,jumlah)" & _
-                    " values " & _
-                    "(@nota,@item,@jumlah);"
-                cmdInsert.CommandText = sqlString
-                cmdInsert.Connection = conn
-                cmdInsert.Parameters.Add("@nota", MySqlDbType.VarChar, 100).Value = txtNota.Text
-                'cmdInsert.Parameters.Add("@nota", MySqlDbType.VarChar, 100).Value = 9
-                cmdInsert.Parameters.Add("@item", MySqlDbType.VarChar, 100).Value = editItem.Text
-                cmdInsert.Parameters.Add("@jumlah", MySqlDbType.Int16).Value = editJumlah.Text
-                cmdInsert.ExecuteNonQuery()
-                'MessageBox.Show("Data berhasil ditambahkan", "Create Order", MessageBoxButtons.OK, MessageBoxIcon.Information)
-                editItem.Clear()
-                editJumlah.Clear()
-                showItem()
-            Catch ex As Exception
-                MessageBox.Show(ex.Message, "Terjadi kegagalan!", MessageBoxButtons.OK, MessageBoxIcon.Error)
-            End Try
-
-        End If
-    End Sub
-
-    Sub showItem()
-        Dim da As New MySqlDataAdapter()
-        Dim ds As New DataSet()
-
-        conn = New MySqlConnection(connString)
-        conn.Open()
-
-        Dim cmdSelect As MySqlCommand = conn.CreateCommand()
-        Dim sqlString As String
-
-        Try
-            sqlString = "Select id,nama_item,jumlah from t_detailorder where nota=@nota;"
-            cmdSelect.Parameters.Add("@nota", MySqlDbType.Int16).Value = nota
-            'cmdSelect.Parameters.Add("@nota", MySqlDbType.Int16).Value = 9
-
-            cmdSelect.CommandText = sqlString
-            da.SelectCommand = cmdSelect
-            da.Fill(ds, "t_detailorder")
-            gridItem.DataSource = ds
-            gridItem.DataMember = "t_detailorder"
-            gridItem.ReadOnly = True
-        Catch ex As Exception
-            MessageBox.Show(ex.Message, "Terjadi Kegagalan!", MessageBoxButtons.OK, MessageBoxIcon.Error)
-        Finally
-            cmdSelect.Dispose()
-            conn.Close()
-        End Try
-    End Sub
-
-    Private Sub gridItem_CellContentClick(ByVal sender As System.Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles gridItem.CellContentClick
-        If (e.ColumnIndex = 3) Then
-            Dim id As Integer = gridItem.Rows(e.RowIndex).Cells(0).Value
-            'MsgBox(gridItem.Rows(e.RowIndex).Cells(0).Value)
-
-            conn = New MySqlConnection(connString)
-            conn.Open()
-
-            Dim cmdDel As MySqlCommand = conn.CreateCommand
-            Try
-                Dim sqlString As String = "delete from t_detailorder where id=@id;"
-                cmdDel.CommandText = sqlString
-                cmdDel.Connection = conn
-                cmdDel.Parameters.Add("@id", MySqlDbType.Int16).Value = id
-                cmdDel.ExecuteNonQuery()
-                'MessageBox.Show("Data berhasil ditambahkan", "Create Order", MessageBoxButtons.OK, MessageBoxIcon.Information)
-                showItem()
-            Catch ex As Exception
-                MessageBox.Show(ex.Message, "Terjadi kegagalan!", MessageBoxButtons.OK, MessageBoxIcon.Error)
-            End Try
-        End If
     End Sub
 
     Private Sub updateData()
@@ -313,14 +232,12 @@ Public Class formUpdateOrder
                     calDiskonDate()
                     hrgdiskon = hargaKotor * disPersen
                     cmdInsert.Parameters.Add("@diskon", MySqlDbType.Double).Value = hrgdiskon
+                    cmdInsert.Parameters.Add("@bayar", MySqlDbType.Double).Value = (hargaKotor - hrgdiskon)
+                    cmdInsert.Parameters.Add("@member_id", MySqlDbType.Int16).Value = getMemberID(editNama.Text)
                 ElseIf rbNonMember.Checked Then
                     cmdInsert.Parameters.Add("@diskon", MySqlDbType.Double).Value = 0
-                End If
-
-                If rbMember.Checked Then
-                    cmdInsert.Parameters.Add("@bayar", MySqlDbType.Double).Value = (hargaKotor - hrgdiskon)
-                ElseIf rbNonMember.Checked Then
                     cmdInsert.Parameters.Add("@bayar", MySqlDbType.Double).Value = hargaKotor
+                    cmdInsert.Parameters.Add("@member_id", MySqlDbType.Int16).Value = 0
                 End If
 
                 cmdInsert.ExecuteNonQuery()
@@ -339,7 +256,7 @@ Public Class formUpdateOrder
         updateData()
     End Sub
 
-    Private Sub btnFinish_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnFinish.Click
+    Private Sub btnFinish_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
         Me.Hide()
         formListOrder.tampil()
         formDetail.Show()
@@ -386,6 +303,36 @@ Public Class formUpdateOrder
             'conn = Nothing
         End Try
     End Sub
+
+    'Public Sub autocompleteItem()
+    '    editItem.AutoCompleteMode = AutoCompleteMode.Suggest
+    '    editItem.AutoCompleteSource = AutoCompleteSource.CustomSource
+    '    Dim dataCollections As New AutoCompleteStringCollection
+    '    getItem(dataCollections)
+    '    editItem.AutoCompleteCustomSource = dataCollections
+    'End Sub
+    'Sub getItem(ByVal dataCollection As AutoCompleteStringCollection)
+    '    conn = New MySqlConnection(connString)
+    '    conn.Open()
+
+    '    Dim dr As MySqlDataReader = Nothing
+    '    Dim cmdAmbil As MySqlCommand = conn.CreateCommand
+
+    '    Try
+    '        Dim sqlString As String = "select nama_item from t_singleitem;"
+    '        cmdAmbil.CommandText = sqlString
+    '        dr = cmdAmbil.ExecuteReader
+    '        While dr.Read
+    '            dataCollection.Add(dr("nama_item").ToString)
+    '        End While
+    '    Catch ex As Exception
+    '        MessageBox.Show(ex.Message, "terjadi Kegagalan!", MessageBoxButtons.OK, MessageBoxIcon.Error)
+    '    Finally
+    '        cmdAmbil.Dispose()
+    '        'conn.Close()
+    '        'conn = Nothing
+    '    End Try
+    'End Sub
 
     Sub calDiskonDate()
         'Console.WriteLine(Date.Now.ToShortDateString)
@@ -434,4 +381,33 @@ Public Class formUpdateOrder
         End If
     End Sub
 
+
+    Function getMemberID(ByVal namaMember As String) As Integer
+        conn = New MySqlConnection(connString)
+        conn.Open()
+
+        Dim dr As MySqlDataReader = Nothing
+        Dim cmdAmbil As MySqlCommand = conn.CreateCommand
+        Dim memberID As String
+        Try
+            Dim sqlString As String = "select id from t_pelanggan where nama_pelanggan=@nama_pelanggan;"
+            cmdAmbil.Parameters.Add("@nama_pelanggan", MySqlDbType.String, 100).Value = namaMember
+            cmdAmbil.CommandText = sqlString
+            dr = cmdAmbil.ExecuteReader
+            If dr.Read Then
+                memberID = dr("id").ToString
+            End If
+        Catch ex As Exception
+            MessageBox.Show(ex.Message, "terjadi Kegagalan!", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        Finally
+            cmdAmbil.Dispose()
+            'conn.Close()
+            'conn = Nothing
+        End Try
+        Return memberID
+    End Function
+
+    Private Sub btnAddItems_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnAddItems.Click
+        FormAddItem.Show()
+    End Sub
 End Class

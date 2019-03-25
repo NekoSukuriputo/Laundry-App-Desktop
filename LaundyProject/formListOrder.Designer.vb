@@ -51,6 +51,7 @@ Partial Class formListOrder
         Me.PelangganToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.LayananToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.DiskonToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.HargaItemTetapToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SettingsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel3.SuspendLayout()
@@ -306,7 +307,7 @@ Partial Class formListOrder
         '
         Me.MenuBar.BackColor = System.Drawing.SystemColors.ActiveCaption
         Me.MenuBar.Font = New System.Drawing.Font("Comic Sans MS", 13.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.MenuBar.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.PelangganToolStripMenuItem, Me.LayananToolStripMenuItem, Me.DiskonToolStripMenuItem, Me.SettingsToolStripMenuItem})
+        Me.MenuBar.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.PelangganToolStripMenuItem, Me.LayananToolStripMenuItem, Me.DiskonToolStripMenuItem, Me.HargaItemTetapToolStripMenuItem, Me.SettingsToolStripMenuItem})
         Me.MenuBar.Location = New System.Drawing.Point(0, 0)
         Me.MenuBar.Name = "MenuBar"
         Me.MenuBar.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional
@@ -332,6 +333,12 @@ Partial Class formListOrder
         Me.DiskonToolStripMenuItem.Name = "DiskonToolStripMenuItem"
         Me.DiskonToolStripMenuItem.Size = New System.Drawing.Size(79, 29)
         Me.DiskonToolStripMenuItem.Text = "Diskon"
+        '
+        'HargaItemTetapToolStripMenuItem
+        '
+        Me.HargaItemTetapToolStripMenuItem.Name = "HargaItemTetapToolStripMenuItem"
+        Me.HargaItemTetapToolStripMenuItem.Size = New System.Drawing.Size(125, 29)
+        Me.HargaItemTetapToolStripMenuItem.Text = "Single Item"
         '
         'SettingsToolStripMenuItem
         '
@@ -401,4 +408,5 @@ Partial Class formListOrder
     Friend WithEvents LayananToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents SettingsToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents DiskonToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents HargaItemTetapToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
 End Class

@@ -79,3 +79,6 @@ D:\magaang\Laundry App\code\laundry-app-desktop-vb-.net\LaundyProject\obj\x86\De
 D:\magaang\Laundry App\code\laundry-app-desktop-vb-.net\LaundyProject\obj\x86\Debug\LaundyProject.exe
 D:\magaang\Laundry App\code\laundry-app-desktop-vb-.net\LaundyProject\obj\x86\Debug\LaundyProject.xml
 D:\magaang\Laundry App\code\laundry-app-desktop-vb-.net\LaundyProject\obj\x86\Debug\LaundyProject.pdb
+D:\magaang\Laundry App\code\laundry-app-desktop-vb-.net\LaundyProject\obj\x86\Debug\LaundyProject.FormAddSingleItem.resources
+D:\magaang\Laundry App\code\laundry-app-desktop-vb-.net\LaundyProject\obj\x86\Debug\LaundyProject.FormSingelItem.resources
+D:\magaang\Laundry App\code\laundry-app-desktop-vb-.net\LaundyProject\obj\x86\Debug\LaundyProject.FormAddItem.resources

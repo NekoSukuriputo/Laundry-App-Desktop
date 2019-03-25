@@ -22,11 +22,12 @@ Partial Class FormLayanan
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FormLayanan))
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.Panel3 = New System.Windows.Forms.Panel()
         Me.Label5 = New System.Windows.Forms.Label()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.DGVLayanan = New System.Windows.Forms.DataGridView()
         Me.colIDPlgn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.kol_layanan = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -35,10 +36,9 @@ Partial Class FormLayanan
         Me.kol_Edit = New System.Windows.Forms.DataGridViewButtonColumn()
         Me.kol_Hapus = New System.Windows.Forms.DataGridViewButtonColumn()
         Me.btntambah = New System.Windows.Forms.Button()
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.Panel3.SuspendLayout()
-        CType(Me.DGVLayanan, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.DGVLayanan, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Panel3
@@ -63,6 +63,19 @@ Partial Class FormLayanan
         Me.Label5.TabIndex = 0
         Me.Label5.Text = "Jenis Layanan"
         Me.Label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'PictureBox1
+        '
+        Me.PictureBox1.BackColor = System.Drawing.Color.Transparent
+        Me.PictureBox1.BackgroundImage = CType(resources.GetObject("PictureBox1.BackgroundImage"), System.Drawing.Image)
+        Me.PictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.PictureBox1.ErrorImage = Nothing
+        Me.PictureBox1.InitialImage = Nothing
+        Me.PictureBox1.Location = New System.Drawing.Point(-1, -1)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(133, 77)
+        Me.PictureBox1.TabIndex = 7
+        Me.PictureBox1.TabStop = False
         '
         'DGVLayanan
         '
@@ -113,13 +126,13 @@ Partial Class FormLayanan
         'kol_Edit
         '
         Me.kol_Edit.DataPropertyName = "id"
-        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle3.BackColor = System.Drawing.Color.Goldenrod
-        DataGridViewCellStyle3.ForeColor = System.Drawing.Color.White
-        DataGridViewCellStyle3.NullValue = "Edit"
-        DataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.DarkGoldenrod
-        DataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.White
-        Me.kol_Edit.DefaultCellStyle = DataGridViewCellStyle3
+        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle1.BackColor = System.Drawing.Color.Goldenrod
+        DataGridViewCellStyle1.ForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle1.NullValue = "Edit"
+        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.DarkGoldenrod
+        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.White
+        Me.kol_Edit.DefaultCellStyle = DataGridViewCellStyle1
         Me.kol_Edit.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.kol_Edit.HeaderText = ""
         Me.kol_Edit.Name = "kol_Edit"
@@ -131,13 +144,13 @@ Partial Class FormLayanan
         'kol_Hapus
         '
         Me.kol_Hapus.DataPropertyName = "id"
-        DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle4.BackColor = System.Drawing.Color.Firebrick
-        DataGridViewCellStyle4.ForeColor = System.Drawing.Color.White
-        DataGridViewCellStyle4.NullValue = "Delete"
-        DataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.Brown
-        DataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.White
-        Me.kol_Hapus.DefaultCellStyle = DataGridViewCellStyle4
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle2.BackColor = System.Drawing.Color.Firebrick
+        DataGridViewCellStyle2.ForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle2.NullValue = "Delete"
+        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.Brown
+        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White
+        Me.kol_Hapus.DefaultCellStyle = DataGridViewCellStyle2
         Me.kol_Hapus.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.kol_Hapus.HeaderText = ""
         Me.kol_Hapus.Name = "kol_Hapus"
@@ -164,19 +177,6 @@ Partial Class FormLayanan
         Me.btntambah.TextAlign = System.Drawing.ContentAlignment.TopLeft
         Me.btntambah.UseVisualStyleBackColor = False
         '
-        'PictureBox1
-        '
-        Me.PictureBox1.BackColor = System.Drawing.Color.Transparent
-        Me.PictureBox1.BackgroundImage = CType(resources.GetObject("PictureBox1.BackgroundImage"), System.Drawing.Image)
-        Me.PictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.PictureBox1.ErrorImage = Nothing
-        Me.PictureBox1.InitialImage = Nothing
-        Me.PictureBox1.Location = New System.Drawing.Point(-1, -1)
-        Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(133, 77)
-        Me.PictureBox1.TabIndex = 7
-        Me.PictureBox1.TabStop = False
-        '
         'FormLayanan
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -192,8 +192,8 @@ Partial Class FormLayanan
         Me.Text = "Form Layanan"
         Me.Panel3.ResumeLayout(False)
         Me.Panel3.PerformLayout()
-        CType(Me.DGVLayanan, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DGVLayanan, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub

@@ -1,0 +1,5 @@
+view single
+
+CREATE VIEW vw_single_item as 
+SELECT t_order_single_item.id,t_order_single_item.nota, t_singleitem.nama_item, t_order_single_item.jumlah 
+from t_singleitem INNER JOIN t_order_single_item on t_order_single_item.singleitem_id = t_singleitem.id

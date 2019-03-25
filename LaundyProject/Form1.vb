@@ -217,9 +217,9 @@ Public Class formOrder
 
         If editNama.Text <> "" And tglTerima.Text <> "" And txtBerat.Text <> "" And txtHarga.Text <> "" Then
             Try
-                Dim sqlString As String = "insert into t_order(nota,nama_customer,tgl_terima,berat,jenis_layanan,harga,progress,status,tgl_diambil,status_member,diskon,bayar)" & _
+                Dim sqlString As String = "insert into t_order(nota,nama_customer,tgl_terima,berat,jenis_layanan,harga,progress,status,tgl_diambil,status_member,diskon,bayar,member_id)" & _
                     " values " & _
-                    "(@nota,@nama,@tglterima,@berat,@jenis_layanan,@harga,@progress,@status,@tgl_ambil,@status_member,@diskon,@bayar);"
+                    "(@nota,@nama,@tglterima,@berat,@jenis_layanan,@harga,@progress,@status,@tgl_ambil,@status_member,@diskon,@bayar,@member_id);"
                 cmdInsert.CommandText = sqlString
                 cmdInsert.Connection = conn
                 cmdInsert.Parameters.Add("@nota", MySqlDbType.VarChar, 10).Value = newNota
@@ -237,14 +237,12 @@ Public Class formOrder
                     calDiskonDate()
                     hrgdiskon = (CDbl(txtHarga.Text) * disPersen)
                     cmdInsert.Parameters.Add("@diskon", MySqlDbType.Double).Value = hrgdiskon
+                    cmdInsert.Parameters.Add("@bayar", MySqlDbType.Double).Value = (txtHarga.Text - hrgdiskon)
+                    cmdInsert.Parameters.Add("@member_id", MySqlDbType.Int16).Value = getMemberID(editNama.Text)
                 ElseIf rbNonMember.Checked Then
                     cmdInsert.Parameters.Add("@diskon", MySqlDbType.Double).Value = 0
-                End If
-
-                If rbMember.Checked Then
-                    cmdInsert.Parameters.Add("@bayar", MySqlDbType.Double).Value = (txtHarga.Text - hrgdiskon)
-                ElseIf rbNonMember.Checked Then
                     cmdInsert.Parameters.Add("@bayar", MySqlDbType.Double).Value = txtHarga.Text
+                    cmdInsert.Parameters.Add("@member_id", MySqlDbType.Int16).Value = 0
                 End If
 
                 cmdInsert.ExecuteNonQuery()
@@ -385,4 +383,29 @@ Public Class formOrder
             autocompleteData()
         End If
     End Sub
+
+    Function getMemberID(ByVal namaMember As String) As Integer
+        conn = New MySqlConnection(connString)
+        conn.Open()
+
+        Dim dr As MySqlDataReader = Nothing
+        Dim cmdAmbil As MySqlCommand = conn.CreateCommand
+        Dim memberID As String
+        Try
+            Dim sqlString As String = "select id from t_pelanggan where nama_pelanggan=@nama_pelanggan;"
+            cmdAmbil.Parameters.Add("@nama_pelanggan", MySqlDbType.String, 100).Value = namaMember
+            cmdAmbil.CommandText = sqlString
+            dr = cmdAmbil.ExecuteReader
+            If dr.Read Then
+                memberID = dr("id").ToString
+            End If
+        Catch ex As Exception
+            MessageBox.Show(ex.Message, "terjadi Kegagalan!", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        Finally
+            cmdAmbil.Dispose()
+            'conn.Close()
+            'conn = Nothing
+        End Try
+        Return memberID
+    End Function
 End Class
