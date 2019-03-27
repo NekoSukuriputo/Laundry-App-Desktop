@@ -1,0 +1,36 @@
+D:\magaang\laundry-app-desktop-vb-.net\LaundyProject\bin\Release\LaundyProject.exe
+D:\magaang\laundry-app-desktop-vb-.net\LaundyProject\bin\Release\LaundyProject.pdb
+D:\magaang\laundry-app-desktop-vb-.net\LaundyProject\bin\Release\LaundyProject.xml
+D:\magaang\laundry-app-desktop-vb-.net\LaundyProject\obj\x86\Release\LaundyProject.formOrder.resources
+D:\magaang\laundry-app-desktop-vb-.net\LaundyProject\obj\x86\Release\LaundyProject.formDetail.resources
+D:\magaang\laundry-app-desktop-vb-.net\LaundyProject\obj\x86\Release\LaundyProject.formListOrder.resources
+D:\magaang\laundry-app-desktop-vb-.net\LaundyProject\obj\x86\Release\LaundyProject.formUpdateOrder.resources
+D:\magaang\laundry-app-desktop-vb-.net\LaundyProject\obj\x86\Release\LaundyProject.Resources.resources
+D:\magaang\laundry-app-desktop-vb-.net\LaundyProject\obj\x86\Release\LaundyProject.vbproj.GenerateResource.Cache
+D:\magaang\laundry-app-desktop-vb-.net\LaundyProject\obj\x86\Release\LaundyProject.exe
+D:\magaang\laundry-app-desktop-vb-.net\LaundyProject\obj\x86\Release\LaundyProject.xml
+D:\magaang\laundry-app-desktop-vb-.net\LaundyProject\obj\x86\Release\LaundyProject.pdb
+D:\magaang\Laundry App\code\laundry-app-desktop-vb-.net\LaundyProject\obj\x86\Release\LaundyProject.vbproj.ResolveComReference.cache
+D:\magaang\Laundry App\code\laundry-app-desktop-vb-.net\LaundyProject\obj\x86\Release\LaundyProject.exe
+D:\magaang\Laundry App\code\laundry-app-desktop-vb-.net\LaundyProject\obj\x86\Release\LaundyProject.xml
+D:\magaang\Laundry App\code\laundry-app-desktop-vb-.net\LaundyProject\obj\x86\Release\LaundyProject.pdb
+D:\magaang\Laundry App\code\laundry-app-desktop-vb-.net\LaundyProject\bin\Release\LaundyProject.exe
+D:\magaang\Laundry App\code\laundry-app-desktop-vb-.net\LaundyProject\bin\Release\LaundyProject.pdb
+D:\magaang\Laundry App\code\laundry-app-desktop-vb-.net\LaundyProject\bin\Release\LaundyProject.xml
+D:\magaang\Laundry App\code\laundry-app-desktop-vb-.net\LaundyProject\obj\x86\Release\LaundyProject.formOrder.resources
+D:\magaang\Laundry App\code\laundry-app-desktop-vb-.net\LaundyProject\obj\x86\Release\LaundyProject.FormAddDiskon.resources
+D:\magaang\Laundry App\code\laundry-app-desktop-vb-.net\LaundyProject\obj\x86\Release\LaundyProject.FormAddItem.resources
+D:\magaang\Laundry App\code\laundry-app-desktop-vb-.net\LaundyProject\obj\x86\Release\LaundyProject.FormAddLayanan.resources
+D:\magaang\Laundry App\code\laundry-app-desktop-vb-.net\LaundyProject\obj\x86\Release\LaundyProject.FormAddPelanggan.resources
+D:\magaang\Laundry App\code\laundry-app-desktop-vb-.net\LaundyProject\obj\x86\Release\LaundyProject.FormAddSingleItem.resources
+D:\magaang\Laundry App\code\laundry-app-desktop-vb-.net\LaundyProject\obj\x86\Release\LaundyProject.formDB.resources
+D:\magaang\Laundry App\code\laundry-app-desktop-vb-.net\LaundyProject\obj\x86\Release\LaundyProject.formDetail.resources
+D:\magaang\Laundry App\code\laundry-app-desktop-vb-.net\LaundyProject\obj\x86\Release\LaundyProject.FormDiskon.resources
+D:\magaang\Laundry App\code\laundry-app-desktop-vb-.net\LaundyProject\obj\x86\Release\LaundyProject.FormLayanan.resources
+D:\magaang\Laundry App\code\laundry-app-desktop-vb-.net\LaundyProject\obj\x86\Release\LaundyProject.formListOrder.resources
+D:\magaang\Laundry App\code\laundry-app-desktop-vb-.net\LaundyProject\obj\x86\Release\LaundyProject.FormPelanggan.resources
+D:\magaang\Laundry App\code\laundry-app-desktop-vb-.net\LaundyProject\obj\x86\Release\LaundyProject.FormSettings.resources
+D:\magaang\Laundry App\code\laundry-app-desktop-vb-.net\LaundyProject\obj\x86\Release\LaundyProject.FormSingelItem.resources
+D:\magaang\Laundry App\code\laundry-app-desktop-vb-.net\LaundyProject\obj\x86\Release\LaundyProject.formUpdateOrder.resources
+D:\magaang\Laundry App\code\laundry-app-desktop-vb-.net\LaundyProject\obj\x86\Release\LaundyProject.Resources.resources
+D:\magaang\Laundry App\code\laundry-app-desktop-vb-.net\LaundyProject\obj\x86\Release\LaundyProject.vbproj.GenerateResource.Cache

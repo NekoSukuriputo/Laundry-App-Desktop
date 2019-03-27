@@ -1,0 +1,13 @@
+view single
+
+CREATE VIEW vw_single_item as 
+SELECT t_order_single_item.id,t_order_single_item.nota, t_singleitem.nama_item, t_order_single_item.jumlah 
+from t_singleitem INNER JOIN t_order_single_item on t_order_single_item.singleitem_id = t_singleitem.id
+
+query all item
+
+SELECT nota,nama_item,jumlah FROM 
+(SELECT t_detailorder.nota, t_detailorder.nama_item,t_detailorder.jumlah FROM
+ t_detailorder UNION 
+ SELECT vw_single_item.nota, vw_single_item.nama_item,vw_single_item.jumlah FROM
+ vw_single_item) as itemsdata
