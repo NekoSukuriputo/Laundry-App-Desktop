@@ -81,6 +81,7 @@
     <Import Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="EncriptClass.vb" />
     <Compile Include="Form1.vb">
       <SubType>Form</SubType>
     </Compile>
@@ -118,6 +119,12 @@
     <Compile Include="FormAddSingleItem.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="FormAddUser.Designer.vb">
+      <DependentUpon>FormAddUser.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormAddUser.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="formDB.Designer.vb">
       <DependentUpon>formDB.vb</DependentUpon>
     </Compile>
@@ -148,10 +155,22 @@
     <Compile Include="formListOrder.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="FormLogin.Designer.vb">
+      <DependentUpon>FormLogin.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormLogin.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="FormPelanggan.Designer.vb">
       <DependentUpon>FormPelanggan.vb</DependentUpon>
     </Compile>
     <Compile Include="FormPelanggan.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormReport.Designer.vb">
+      <DependentUpon>FormReport.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormReport.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FormSettings.Designer.vb">
@@ -170,6 +189,12 @@
       <DependentUpon>formUpdateOrder.vb</DependentUpon>
     </Compile>
     <Compile Include="formUpdateOrder.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormUsers.Designer.vb">
+      <DependentUpon>FormUsers.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormUsers.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
@@ -209,6 +234,9 @@
     <EmbeddedResource Include="FormAddSingleItem.resx">
       <DependentUpon>FormAddSingleItem.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormAddUser.resx">
+      <DependentUpon>FormAddUser.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="formDB.resx">
       <DependentUpon>formDB.vb</DependentUpon>
     </EmbeddedResource>
@@ -224,8 +252,14 @@
     <EmbeddedResource Include="formListOrder.resx">
       <DependentUpon>formListOrder.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormLogin.resx">
+      <DependentUpon>FormLogin.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormPelanggan.resx">
       <DependentUpon>FormPelanggan.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormReport.resx">
+      <DependentUpon>FormReport.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormSettings.resx">
       <DependentUpon>FormSettings.vb</DependentUpon>
@@ -235,6 +269,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="formUpdateOrder.resx">
       <DependentUpon>formUpdateOrder.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormUsers.resx">
+      <DependentUpon>FormUsers.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>

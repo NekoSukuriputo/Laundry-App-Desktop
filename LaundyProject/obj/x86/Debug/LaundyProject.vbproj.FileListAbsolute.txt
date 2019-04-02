@@ -82,3 +82,7 @@ D:\magaang\Laundry App\code\laundry-app-desktop-vb-.net\LaundyProject\obj\x86\De
 D:\magaang\Laundry App\code\laundry-app-desktop-vb-.net\LaundyProject\obj\x86\Debug\LaundyProject.FormAddSingleItem.resources
 D:\magaang\Laundry App\code\laundry-app-desktop-vb-.net\LaundyProject\obj\x86\Debug\LaundyProject.FormSingelItem.resources
 D:\magaang\Laundry App\code\laundry-app-desktop-vb-.net\LaundyProject\obj\x86\Debug\LaundyProject.FormAddItem.resources
+D:\magaang\Laundry App\code\laundry-app-desktop-vb-.net\LaundyProject\obj\x86\Debug\LaundyProject.FormLogin.resources
+D:\magaang\Laundry App\code\laundry-app-desktop-vb-.net\LaundyProject\obj\x86\Debug\LaundyProject.FormUsers.resources
+D:\magaang\Laundry App\code\laundry-app-desktop-vb-.net\LaundyProject\obj\x86\Debug\LaundyProject.FormAddUser.resources
+D:\magaang\Laundry App\code\laundry-app-desktop-vb-.net\LaundyProject\obj\x86\Debug\LaundyProject.FormReport.resources

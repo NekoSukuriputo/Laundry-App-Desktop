@@ -42,10 +42,13 @@ Public Class formDetail
                 Dim forDate As String = "dd-MMMM-yyyy"
                 txtNota.Text = dr("nota").ToString
                 txtNama.Text = dr("nama_customer").ToString
+                txtStatusMember.Text = dr("status_member").ToString
                 txtTerima.Text = CType(dr("tgl_terima").ToString, DateTime).ToString(forDate, New CultureInfo("id"))
                 txtBerat.Text = dr("berat").ToString & " Kg"
                 txtJenisLayanan.Text = dr("jenis_layanan").ToString
                 txtHarga.Text = Format(dr("harga"), "#,##0.00")
+                txtDiskon.Text = Format(dr("diskon"), "#,##0.00")
+                txtBayar.Text = Format(dr("bayar"), "#,##0.00")
                 txtProgress.Text = dr("progress").ToString
                 txtStatus.Text = dr("status").ToString
                 txtAmbil.Text = CType(dr("tgl_diambil").ToString, DateTime).ToString(forDate, New CultureInfo("id"))
@@ -179,6 +182,31 @@ Public Class formDetail
         formListOrder.tampil()
     End Sub
 
+    Function getSingleHarga(ByVal nama_item As String) As Double
+        conn = New MySqlConnection(connString)
+        conn.Open()
+
+        Dim dr As MySqlDataReader = Nothing
+        Dim cmdAmbil As MySqlCommand = conn.CreateCommand
+        Dim singleHarga As String
+        Try
+            Dim sqlString As String = "select harga from t_singleitem where nama_item=@nama_item;"
+            cmdAmbil.Parameters.Add("@nama_item", MySqlDbType.String, 100).Value = nama_item
+            cmdAmbil.CommandText = sqlString
+            dr = cmdAmbil.ExecuteReader
+            If dr.Read Then
+                singleHarga = dr("harga").ToString
+            End If
+        Catch ex As Exception
+            MessageBox.Show(ex.Message, "terjadi Kegagalan!", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        Finally
+            cmdAmbil.Dispose()
+            'conn.Close()
+            'conn = Nothing
+        End Try
+        Return singleHarga
+    End Function
+
     Private Sub btnPrint_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnPrint.Click
         PrintingOut()
     End Sub
@@ -216,7 +244,7 @@ Public Class formDetail
             MessageBox.Show(ex.Message, "Terjadi Kegagalan!", MessageBoxButtons.OK, MessageBoxIcon.Error)
         Finally
             cmdSelect2.Dispose()
-            'conn.Close()
+            conn.Close()
         End Try
 
         Dim s As String
@@ -232,6 +260,7 @@ Public Class formDetail
         s &= vbCrLf
         s &= sess_PRINT_BOLD_ON
         s &= "NOTA : " & txtNota.Text & vbCrLf
+        s &= txtStatusMember.Text & vbCrLf
         s &= sess_PRINT_BOLD_OFF
         s &= "Nama : " & txtNama.Text & vbCrLf
         s &= "Tgl Terima : " & txtTerima.Text & vbCrLf
@@ -244,7 +273,40 @@ Public Class formDetail
         's &= FontStyle.Bold
         s &= sess_PRINT_BOLD_ON
         s &= "HARGA    Rp. " & Format(CDbl(txtHarga.Text), "#,##0.00") & vbCrLf
+        s &= "Diskon   Rp. " & Format(CDbl(txtDiskon.Text), "#,##0.00") & vbCrLf
+        s &= "Total Bayar   Rp. " & Format(CDbl(txtBayar.Text), "#,##0.00") & vbCrLf
         s &= sess_PRINT_BOLD_OFF
+
+        s &= "Item Single: " & vbCrLf
+
+        Dim cmdSelect3 As MySqlCommand = conn.CreateCommand()
+        Dim sqlString3 As String
+
+        Dim dr3 As MySqlDataReader = Nothing
+
+        Dim namaitem$, jum$
+        conn.Open()
+        Try
+            sqlString3 = "Select nama_item,jumlah from vw_single_item where nota=@nota;"
+            cmdSelect3.Parameters.Add("@nota", MySqlDbType.Int16).Value = txtNota.Text
+            'cmdSelect.Parameters.Add("@nota", MySqlDbType.Int16).Value = 9
+            cmdSelect3.CommandText = sqlString3
+            dr3 = cmdSelect3.ExecuteReader
+            While dr3.Read()
+                namaitem = dr3.Item("nama_item")
+                jum = dr3.Item("jumlah")
+                s &= namaitem & " : "
+                s &= jum & " = "
+                s &= getSingleHarga(namaitem) * CDbl(jum)
+            End While
+        Catch ex As Exception
+            MessageBox.Show(ex.Message, "Terjadi Kegagalan!", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        Finally
+            cmdSelect3.Dispose()
+            conn.Close()
+        End Try
+
+        s &= vbCrLf
 
         'item section
         s &= "Item: " & vbCrLf
@@ -254,10 +316,10 @@ Public Class formDetail
         Dim sqlString As String
 
         Dim dr2 As MySqlDataReader = Nothing
-
+        conn.Open()
         Try
             sqlString = "Select id,nama_item,jumlah from t_detailorder where nota=@nota;"
-            cmdSelect.Parameters.Add("@nota", MySqlDbType.Int16).Value = formUpdateOrder.nota
+            cmdSelect.Parameters.Add("@nota", MySqlDbType.Int16).Value = txtNota.Text
             'cmdSelect.Parameters.Add("@nota", MySqlDbType.Int16).Value = 9
             cmdSelect.CommandText = sqlString
             dr2 = cmdSelect.ExecuteReader
@@ -269,7 +331,7 @@ Public Class formDetail
             MessageBox.Show(ex.Message, "Terjadi Kegagalan!", MessageBoxButtons.OK, MessageBoxIcon.Error)
         Finally
             cmdSelect.Dispose()
-            'conn.Close()
+            conn.Close()
         End Try
 
         'end item section

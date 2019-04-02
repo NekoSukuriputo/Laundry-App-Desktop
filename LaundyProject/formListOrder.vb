@@ -7,8 +7,13 @@ Public Class formListOrder
     Dim connString = "Database=laundryapp;data source=localhost;user id=root;password=;"
 
     Private Sub formListOrder_Activated(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Activated
-        'tampil()
+        tampil()
         Application.CurrentCulture = New CultureInfo("EN-US")
+        If (FormLogin.rule.ToLower() <> "admin") Then
+            SettingsToolStripMenuItem.Visible = False
+            UsersToolStripMenuItem.Visible = False
+            ReportToolStripMenuItem.Visible = False
+        End If
     End Sub
 
     Private Sub formListOrder_FormClosing(ByVal sender As Object, ByVal e As System.Windows.Forms.FormClosingEventArgs) Handles Me.FormClosing
@@ -30,23 +35,23 @@ Public Class formListOrder
     End Function
 
     Private Sub formListOrder_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
-        If (DoesDBExist("data source=localhost;user id=root;password=;")) Then
-            'MsgBox("ada")
-            tampil()
-        Else
-            formDB.Show()
-        End If
-        'tampil()
+        'If (DoesDBExist("data source=localhost;user id=root;password=;")) Then
+        '    'MsgBox("ada")
+        '    tampil()
+        'Else
+        '    formDB.Show()
+        'End If
+        tampil()
     End Sub
 
     Private Sub DataGridView1_CellContentClick(ByVal sender As System.Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles DataGridView1.CellContentClick
-        If (e.ColumnIndex = 9) Then 'edit
+        If (e.ColumnIndex = 12) Then 'edit
             'MsgBox(DataGridView1.Rows(e.RowIndex).Cells(0).Value)
             formUpdateOrder.nota = DataGridView1.Rows(e.RowIndex).Cells(0).Value
             'Me.Hide()
             formUpdateOrder.Show()
         End If
-        If (e.ColumnIndex = 10) Then 'delete
+        If (e.ColumnIndex = 13) Then 'delete
             'MsgBox(DataGridView1.Rows(e.RowIndex).Cells(0).Value)
 
             conn = New MySqlConnection(connString)
@@ -54,23 +59,30 @@ Public Class formListOrder
 
             Dim cmdDelete As MySqlCommand = conn.CreateCommand
             Dim cmdDelete2 As MySqlCommand = conn.CreateCommand
+            Dim cmdDelete3 As MySqlCommand = conn.CreateCommand
             If MessageBox.Show("Anda yakin akan menghapus Data dengan Nota :  " & DataGridView1.Rows(e.RowIndex).Cells(0).Value & " akan dihapus ? ", "Peringatan!", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) = Windows.Forms.DialogResult.Yes Then
                 Try
                     Dim sqlString As String = "delete from t_order where nota=@nota;"
                     Dim sqlString2 As String = "delete from t_detailorder where nota=@nota;"
+                    Dim sqlString3 As String = "delete from t_order_single_item where nota=@nota;"
 
                     cmdDelete.CommandText = sqlString
                     cmdDelete2.CommandText = sqlString2
+                    cmdDelete3.CommandText = sqlString3
 
                     cmdDelete.Connection = conn
                     cmdDelete2.Connection = conn
+                    cmdDelete3.Connection = conn
 
                     cmdDelete.Parameters.Add("@nota", MySqlDbType.Int16).Value = DataGridView1.Rows(e.RowIndex).Cells(0).Value
                     cmdDelete2.Parameters.Add("@nota", MySqlDbType.Int16).Value = DataGridView1.Rows(e.RowIndex).Cells(0).Value
+                    cmdDelete3.Parameters.Add("@nota", MySqlDbType.Int16).Value = DataGridView1.Rows(e.RowIndex).Cells(0).Value
+
 
                     'cmdDelete.Parameters.Add("@nota", MySqlDbType.Int16).Value = 9
                     'cmdDelete2.Parameters.Add("@nota", MySqlDbType.Int16).Value = 9
 
+                    cmdDelete3.ExecuteNonQuery()
                     cmdDelete2.ExecuteNonQuery()
                     cmdDelete.ExecuteNonQuery()
 
@@ -109,7 +121,8 @@ Public Class formListOrder
         Dim sqlString As String
 
         Try
-            sqlString = "select * from t_order"
+            sqlString = "SELECT nota,nama_customer,status_member," & _
+                "tgl_terima,tgl_diambil,jenis_layanan,berat, harga, diskon, bayar, progress ,status FROM t_order;"
             cmdSelect.CommandText = sqlString
             da.SelectCommand = cmdSelect
             da.Fill(ds, "t_order")
@@ -158,14 +171,38 @@ Public Class formListOrder
         Dim sqlString As String
 
         Try
-            sqlString = "select * from t_order where nota=@nota"
+            sqlString = "SELECT nota,nama_customer,status_member," & _
+                "tgl_terima,tgl_diambil,jenis_layanan,berat, harga, diskon, bayar, progress ,status FROM t_order "
+            If cmbFilter.Text = "Nota" Then
+                sqlString &= " WHERE nota=@where;"
+            ElseIf cmbFilter.Text = "Nama Pelanggan" Then
+                sqlString &= " WHERE nama_customer=@where;"
+            ElseIf cmbFilter.Text = "Tanggal Terima" Then
+                sqlString &= " WHERE tgl_terima=@where;"
+            ElseIf cmbFilter.Text = "Tanggal Ambil" Then
+                sqlString &= " WHERE tgl_diambil=@where;"
+            ElseIf cmbFilter.Text = "Jenis Layanan" Then
+                sqlString &= " WHERE jenis_layanan=@where;"
+            End If
             cmdSelect.CommandText = sqlString
-            cmdSelect.Parameters.Add("@nota", MySqlDbType.Int16).Value = editCari.Text
+            If cmbFilter.Text = "Nota" Then
+                cmdSelect.Parameters.Add("@where", MySqlDbType.Int16).Value = editCari.Text
+            ElseIf cmbFilter.Text = "Nama Pelanggan" Then
+                cmdSelect.Parameters.Add("@where", MySqlDbType.VarChar, 100).Value = editCari.Text
+            ElseIf cmbFilter.Text = "Tanggal Terima" Then
+                cmdSelect.Parameters.Add("@where", MySqlDbType.Date, 100).Value = tglFilter.Text
+            ElseIf cmbFilter.Text = "Tanggal Ambil" Then
+                cmdSelect.Parameters.Add("@where", MySqlDbType.Date, 100).Value = tglFilter.Text
+            ElseIf cmbFilter.Text = "Jenis Layanan" Then
+                cmdSelect.Parameters.Add("@where", MySqlDbType.VarChar, 100).Value = cmbFilterLayanan.Text
+            End If
             da.SelectCommand = cmdSelect
             da.Fill(ds, "t_order")
             DataGridView1.DataSource = ds
             DataGridView1.DataMember = "t_order"
             DataGridView1.ReadOnly = True
+            cmbFilterLayanan.Items.Clear()
+            fillDropDownLayanan()
         Catch ex As Exception
             MessageBox.Show(ex.Message, "Terjadi Kegagalan!", MessageBoxButtons.OK, MessageBoxIcon.Error)
         Finally
@@ -200,18 +237,23 @@ Public Class formListOrder
 
         Dim cmdDelete As MySqlCommand = conn.CreateCommand
         Dim cmdDelete2 As MySqlCommand = conn.CreateCommand
+        Dim cmdDelete3 As MySqlCommand = conn.CreateCommand
         If MessageBox.Show("Menekan Tombol Delete Akan Menghapus SEMUA DATA" & vbNewLine &
                            "Anda yakin akan menghapus SEMUA DATA !!!  ", "Peringatan!", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) = Windows.Forms.DialogResult.Yes Then
             Try
                 Dim sqlString As String = "TRUNCATE TABLE t_order;"
                 Dim sqlString2 As String = "TRUNCATE TABLE t_detailorder;"
+                Dim sqlString3 As String = "TRUNCATE TABLE t_order_single_item;"
 
                 cmdDelete.CommandText = sqlString
                 cmdDelete2.CommandText = sqlString2
+                cmdDelete3.CommandText = sqlString3
 
                 cmdDelete.Connection = conn
                 cmdDelete2.Connection = conn
+                cmdDelete3.Connection = conn
 
+                cmdDelete3.ExecuteNonQuery()
                 cmdDelete2.ExecuteNonQuery()
                 cmdDelete.ExecuteNonQuery()
 
@@ -226,68 +268,6 @@ Public Class formListOrder
                 'conn.Close()
             End Try
         End If
-    End Sub
-
-    Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button1.Click
-        If DataGridView1.RowCount = 0 Then Return
-
-        Button1.Text = "Please Wait..."
-        Button1.Enabled = False
-        Application.DoEvents()
-        Dim FlNm As String
-        FlNm = "C:\Laundry Report\Report\Report" & Now.Day & "-" & Now.Month & "-" & Now.Year & ".xls"
-        Dim path As String = "C:\Laundry Report\Report"
-        If (Not System.IO.Directory.Exists(path)) Then
-            System.IO.Directory.CreateDirectory(path)
-        End If
-        If File.Exists(FlNm) Then File.Delete(FlNm)
-        ReportClass.ReportHari("Report Harian", DataGridView1)
-        Application.DoEvents()
-        Process.Start("C:\Laundry Report\Report\Report" & Now.Day & "-" & Now.Month & "-" & Now.Year & ".xls")
-        Button1.Enabled = True
-    End Sub
-
-    Private Sub Button2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button2.Click
-        ExportExcel(DataGridView1)
-    End Sub
-    Sub ExportExcel(ByVal obj As Object)
-        Dim rowsTotal, colsTotal As Short
-        Dim I, j, iC As Short
-        System.Windows.Forms.Cursor.Current = System.Windows.Forms.Cursors.WaitCursor
-        Dim xlApp As New Excel.Application
-        Try
-            Dim excelBook As Excel.Workbook = xlApp.Workbooks.Add
-            Dim excelWorksheet As Excel.Worksheet = CType(excelBook.Worksheets(1), Excel.Worksheet)
-            xlApp.Visible = True
-
-            rowsTotal = obj.RowCount
-            colsTotal = obj.Columns.Count - 1
-            With excelWorksheet
-                .Cells.Select()
-                .Cells.Delete()
-                For iC = 0 To colsTotal
-                    .Cells(1, iC + 1).Value = obj.Columns(iC).HeaderText
-                Next
-                For I = 0 To rowsTotal - 1
-                    For j = 0 To colsTotal
-                        .Cells(I + 2, j + 1).value = obj.Rows(I).Cells(j).Value
-                    Next j
-                Next I
-                .Rows("1:1").Font.FontStyle = "Bold"
-                .Rows("1:1").Font.Size = 12
-
-                .Cells.Columns.AutoFit()
-                .Cells.Select()
-                .Cells.EntireColumn.AutoFit()
-                .Cells(1, 1).Select()
-            End With
-        Catch ex As Exception
-            MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
-        Finally
-            'RELEASE ALLOACTED RESOURCES
-            System.Windows.Forms.Cursor.Current = System.Windows.Forms.Cursors.Default
-            xlApp = Nothing
-        End Try
     End Sub
 
     Private Sub LayananToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles LayananToolStripMenuItem.Click
@@ -308,5 +288,70 @@ Public Class formListOrder
 
     Private Sub DiskonToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles DiskonToolStripMenuItem.Click
         FormDiskon.Show()
+    End Sub
+
+    Private Sub UsersToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles UsersToolStripMenuItem.Click
+        FormUsers.Show()
+    End Sub
+
+    Private Sub cmbFilter_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cmbFilter.SelectedIndexChanged, cmbFilterLayanan.SelectedIndexChanged
+        If cmbFilter.Text = "Nota" Then
+            editCari.Visible = True
+            tglFilter.Visible = False
+            cmbFilterLayanan.Visible = False
+            cmbFilterLayanan.Items.Clear()
+        ElseIf cmbFilter.Text = "Nama Pelanggan" Then
+            editCari.Visible = True
+            tglFilter.Visible = False
+            cmbFilterLayanan.Visible = False
+            cmbFilterLayanan.Items.Clear()
+        ElseIf cmbFilter.Text = "Tanggal Terima" Then
+            editCari.Visible = False
+            tglFilter.Visible = True
+            cmbFilterLayanan.Visible = False
+            cmbFilterLayanan.Items.Clear()
+        ElseIf cmbFilter.Text = "Tanggal Ambil" Then
+            editCari.Visible = False
+            tglFilter.Visible = True
+            cmbFilterLayanan.Visible = False
+            cmbFilterLayanan.Items.Clear()
+        ElseIf cmbFilter.Text = "Jenis Layanan" Then
+            editCari.Visible = False
+            tglFilter.Visible = False
+            cmbFilterLayanan.Visible = True
+            'cmbFilterLayanan.Items.Clear()
+            fillDropDownLayanan()
+        End If
+    End Sub
+
+    Sub fillDropDownLayanan()
+        conn = New MySqlConnection(connString)
+        conn.Open()
+
+        Dim dr As MySqlDataReader = Nothing
+        Dim cmdAmbil As MySqlCommand = conn.CreateCommand
+
+        Try
+            Dim sqlString As String = "select nama_layanan from t_jenislayanan;"
+            cmdAmbil.CommandText = sqlString
+            dr = cmdAmbil.ExecuteReader
+            While dr.Read
+                cmbFilterLayanan.Items.Add(dr.Item("nama_layanan").ToString)
+            End While
+        Catch ex As Exception
+            MessageBox.Show(ex.Message, "terjadi Kegagalan!", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        Finally
+            cmdAmbil.Dispose()
+            'conn.Close()
+            'conn = Nothing
+        End Try
+    End Sub
+
+    Private Sub btnAll_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnAll.Click
+        tampil()
+    End Sub
+
+    Private Sub ReportToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ReportToolStripMenuItem.Click
+        FormReport.Show()
     End Sub
 End Class

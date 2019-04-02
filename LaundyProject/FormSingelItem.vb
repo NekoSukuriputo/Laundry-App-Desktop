@@ -31,6 +31,11 @@
 
     Private Sub FormSingelItem_Activated(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Activated
         tampil()
+        If (FormLogin.rule.ToLower() <> "admin") Then
+            btntambah.Visible = False
+            Me.DGVSingleItem.Columns("kol_Edit").Visible = False
+            Me.DGVSingleItem.Columns("kol_Hapus").Visible = False
+        End If
     End Sub
 
     Private Sub FormSingelItem_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load

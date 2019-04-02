@@ -9,6 +9,7 @@ Public Class formUpdateOrder
 
     Public bayarItem As Double = 0
     Private hrgDB As Double = 0
+    Private disDB As Double = 0
 
     Private Sub formUpdateOrder_Activated(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Activated
         tampil()
@@ -130,6 +131,9 @@ Public Class formUpdateOrder
                 'var baray from db
                 'hrgDB = CDbl(dr("bayar").ToString)
 
+                'var diskon DB 
+                disDB = CDbl(dr("diskon").ToString)
+
                 If (progress = rbTerima.Text) Then
                     rbTerima.Checked = True
                 ElseIf (progress = rbCuci.Text) Then
@@ -237,7 +241,11 @@ Public Class formUpdateOrder
 
                 If rbMember.Checked Then
                     If (cekMemberExis(editNama.Text)) Then
+                        'If (disDB > 0) Then
+                        '    calDiskonDateDB()
+                        'Else
                         calDiskonDate()
+                        'End If
                         hrgdiskon = (hargaKotor + bayarItem) * disPersen
                         cmdInsert.Parameters.Add("@diskon", MySqlDbType.Double).Value = hrgdiskon
                         cmdInsert.Parameters.Add("@bayar", MySqlDbType.Double).Value = ((hargaKotor + bayarItem) - hrgdiskon)
@@ -344,6 +352,38 @@ Public Class formUpdateOrder
     '    End Try
     'End Sub
 
+    Sub calDiskonDateDB()
+        'Console.WriteLine(Date.Now.ToShortDateString)
+        conn = New MySqlConnection(connString)
+        conn.Open()
+
+        Dim dr As MySqlDataReader = Nothing
+        Dim cmdAmbil As MySqlCommand = conn.CreateCommand
+
+        Try
+            Dim sqlString As String = "select * from t_diskon;"
+            cmdAmbil.CommandText = sqlString
+            dr = cmdAmbil.ExecuteReader
+            While dr.Read
+                'Console.WriteLine(CDate(dr("dari").ToString) & "|" & CDate(dr("sampai").ToString))
+                If ((tglTerima.Text >= dr("dari")) And
+                    (tglTerima.Text <= dr("sampai"))) Then
+                    'Or
+                    '((tglTerima.Text <= dr("dari")) And
+                    '    (tglAmbil.Text <= dr("sampai"))) Then
+                    disPersen = dr("diskon") + disPersen
+                    Console.WriteLine(disPersen)
+                End If
+            End While
+        Catch ex As Exception
+            MessageBox.Show(ex.Message, "terjadi Kegagalan!", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        Finally
+            cmdAmbil.Dispose()
+            'conn.Close()
+            'conn = Nothing
+        End Try
+    End Sub
+
     Sub calDiskonDate()
         'Console.WriteLine(Date.Now.ToShortDateString)
         conn = New MySqlConnection(connString)
@@ -358,8 +398,11 @@ Public Class formUpdateOrder
             dr = cmdAmbil.ExecuteReader
             While dr.Read
                 'Console.WriteLine(CDate(dr("dari").ToString) & "|" & CDate(dr("sampai").ToString))
-                If (Date.Now.ToShortDateString >= dr("dari")) And
-                    (Date.Now.ToShortDateString <= dr("sampai")) Then
+                If ((CDate(tglTerima.Text) >= dr("dari")) And
+                    (CDate(tglTerima.Text) <= dr("sampai"))) Then
+                    'Or
+                    '((tglTerima.Text <= dr("dari")) And
+                    '    (tglAmbil.Text <= dr("sampai"))) Then
                     disPersen = dr("diskon") + disPersen
                     Console.WriteLine(disPersen)
                 End If

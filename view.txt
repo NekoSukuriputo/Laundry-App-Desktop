@@ -11,3 +11,5 @@ SELECT nota,nama_item,jumlah FROM
  t_detailorder UNION 
  SELECT vw_single_item.nota, vw_single_item.nama_item,vw_single_item.jumlah FROM
  vw_single_item) as itemsdata
+ 
+ view list

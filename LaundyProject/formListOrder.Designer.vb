@@ -28,13 +28,16 @@ Partial Class formListOrder
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
         Me.Kol_Nota = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.kol_Pelanggan = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.statusmemebr = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.kol_Terima = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.kol_Berat = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.kol_Ambil = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.kol_Jenis = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.kol_Berat = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.kol_Harga = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.diskon = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.bayar = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.kol_Progress = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.kol_Status = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.kol_Ambil = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.kol_Edit = New System.Windows.Forms.DataGridViewButtonColumn()
         Me.kol_Hapus = New System.Windows.Forms.DataGridViewButtonColumn()
         Me.btntambah = New System.Windows.Forms.Button()
@@ -45,14 +48,18 @@ Partial Class formListOrder
         Me.Label2 = New System.Windows.Forms.Label()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.btnDelTable = New System.Windows.Forms.Button()
-        Me.Button1 = New System.Windows.Forms.Button()
-        Me.Button2 = New System.Windows.Forms.Button()
         Me.MenuBar = New System.Windows.Forms.MenuStrip()
         Me.PelangganToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.LayananToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.DiskonToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.HargaItemTetapToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.UsersToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SettingsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ReportToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.cmbFilter = New System.Windows.Forms.ComboBox()
+        Me.tglFilter = New System.Windows.Forms.DateTimePicker()
+        Me.cmbFilterLayanan = New System.Windows.Forms.ComboBox()
+        Me.btnAll = New System.Windows.Forms.Button()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel3.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -67,11 +74,11 @@ Partial Class formListOrder
         Me.DataGridView1.AllowUserToResizeRows = False
         Me.DataGridView1.BackgroundColor = System.Drawing.SystemColors.GradientInactiveCaption
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Kol_Nota, Me.kol_Pelanggan, Me.kol_Terima, Me.kol_Berat, Me.kol_Jenis, Me.kol_Harga, Me.kol_Progress, Me.kol_Status, Me.kol_Ambil, Me.kol_Edit, Me.kol_Hapus})
-        Me.DataGridView1.Location = New System.Drawing.Point(25, 188)
+        Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Kol_Nota, Me.kol_Pelanggan, Me.statusmemebr, Me.kol_Terima, Me.kol_Ambil, Me.kol_Jenis, Me.kol_Berat, Me.kol_Harga, Me.diskon, Me.bayar, Me.kol_Progress, Me.kol_Status, Me.kol_Edit, Me.kol_Hapus})
+        Me.DataGridView1.Location = New System.Drawing.Point(25, 196)
         Me.DataGridView1.Name = "DataGridView1"
         Me.DataGridView1.ReadOnly = True
-        Me.DataGridView1.Size = New System.Drawing.Size(1031, 329)
+        Me.DataGridView1.Size = New System.Drawing.Size(1300, 365)
         Me.DataGridView1.TabIndex = 1
         '
         'Kol_Nota
@@ -88,7 +95,14 @@ Partial Class formListOrder
         Me.kol_Pelanggan.HeaderText = "Nama Pelanggan"
         Me.kol_Pelanggan.Name = "kol_Pelanggan"
         Me.kol_Pelanggan.ReadOnly = True
-        Me.kol_Pelanggan.Width = 200
+        Me.kol_Pelanggan.Width = 170
+        '
+        'statusmemebr
+        '
+        Me.statusmemebr.DataPropertyName = "status_member"
+        Me.statusmemebr.HeaderText = "Status Member"
+        Me.statusmemebr.Name = "statusmemebr"
+        Me.statusmemebr.ReadOnly = True
         '
         'kol_Terima
         '
@@ -98,13 +112,13 @@ Partial Class formListOrder
         Me.kol_Terima.ReadOnly = True
         Me.kol_Terima.Width = 80
         '
-        'kol_Berat
+        'kol_Ambil
         '
-        Me.kol_Berat.DataPropertyName = "berat"
-        Me.kol_Berat.HeaderText = "Berat"
-        Me.kol_Berat.Name = "kol_Berat"
-        Me.kol_Berat.ReadOnly = True
-        Me.kol_Berat.Width = 50
+        Me.kol_Ambil.DataPropertyName = "tgl_diambil"
+        Me.kol_Ambil.HeaderText = "Tgl Diambil"
+        Me.kol_Ambil.Name = "kol_Ambil"
+        Me.kol_Ambil.ReadOnly = True
+        Me.kol_Ambil.Width = 80
         '
         'kol_Jenis
         '
@@ -113,12 +127,34 @@ Partial Class formListOrder
         Me.kol_Jenis.Name = "kol_Jenis"
         Me.kol_Jenis.ReadOnly = True
         '
+        'kol_Berat
+        '
+        Me.kol_Berat.DataPropertyName = "berat"
+        Me.kol_Berat.HeaderText = "Berat"
+        Me.kol_Berat.Name = "kol_Berat"
+        Me.kol_Berat.ReadOnly = True
+        Me.kol_Berat.Width = 50
+        '
         'kol_Harga
         '
         Me.kol_Harga.DataPropertyName = "harga"
         Me.kol_Harga.HeaderText = "Harga"
         Me.kol_Harga.Name = "kol_Harga"
         Me.kol_Harga.ReadOnly = True
+        '
+        'diskon
+        '
+        Me.diskon.DataPropertyName = "diskon"
+        Me.diskon.HeaderText = "Diskon"
+        Me.diskon.Name = "diskon"
+        Me.diskon.ReadOnly = True
+        '
+        'bayar
+        '
+        Me.bayar.DataPropertyName = "bayar"
+        Me.bayar.HeaderText = "Bayar"
+        Me.bayar.Name = "bayar"
+        Me.bayar.ReadOnly = True
         '
         'kol_Progress
         '
@@ -134,14 +170,6 @@ Partial Class formListOrder
         Me.kol_Status.Name = "kol_Status"
         Me.kol_Status.ReadOnly = True
         Me.kol_Status.Width = 120
-        '
-        'kol_Ambil
-        '
-        Me.kol_Ambil.DataPropertyName = "tgl_diambil"
-        Me.kol_Ambil.HeaderText = "Tgl Diambil"
-        Me.kol_Ambil.Name = "kol_Ambil"
-        Me.kol_Ambil.ReadOnly = True
-        Me.kol_Ambil.Width = 80
         '
         'kol_Edit
         '
@@ -208,7 +236,7 @@ Partial Class formListOrder
         Me.btncari.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DarkOrchid
         Me.btncari.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btncari.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btncari.Location = New System.Drawing.Point(949, 141)
+        Me.btncari.Location = New System.Drawing.Point(1196, 140)
         Me.btncari.Name = "btncari"
         Me.btncari.Size = New System.Drawing.Size(107, 42)
         Me.btncari.TabIndex = 3
@@ -220,15 +248,15 @@ Partial Class formListOrder
         Me.Label1.AutoSize = True
         Me.Label1.BackColor = System.Drawing.Color.Transparent
         Me.Label1.Font = New System.Drawing.Font("Modern No. 20", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(697, 149)
+        Me.Label1.Location = New System.Drawing.Point(773, 149)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(67, 24)
+        Me.Label1.Size = New System.Drawing.Size(78, 24)
         Me.Label1.TabIndex = 95
-        Me.Label1.Text = "Nota :"
+        Me.Label1.Text = "Filter :"
         '
         'editCari
         '
-        Me.editCari.Location = New System.Drawing.Point(793, 154)
+        Me.editCari.Location = New System.Drawing.Point(1040, 152)
         Me.editCari.Name = "editCari"
         Me.editCari.Size = New System.Drawing.Size(150, 20)
         Me.editCari.TabIndex = 2
@@ -241,7 +269,7 @@ Partial Class formListOrder
         Me.Panel3.Controls.Add(Me.PictureBox1)
         Me.Panel3.Location = New System.Drawing.Point(25, 58)
         Me.Panel3.Name = "Panel3"
-        Me.Panel3.Size = New System.Drawing.Size(1031, 78)
+        Me.Panel3.Size = New System.Drawing.Size(1310, 78)
         Me.Panel3.TabIndex = 97
         '
         'Label2
@@ -279,39 +307,21 @@ Partial Class formListOrder
         Me.btnDelTable.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Maroon
         Me.btnDelTable.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Red
         Me.btnDelTable.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnDelTable.Location = New System.Drawing.Point(230, 141)
+        Me.btnDelTable.Location = New System.Drawing.Point(227, 142)
         Me.btnDelTable.Name = "btnDelTable"
         Me.btnDelTable.Size = New System.Drawing.Size(98, 41)
         Me.btnDelTable.TabIndex = 98
         Me.btnDelTable.UseVisualStyleBackColor = False
         '
-        'Button1
-        '
-        Me.Button1.Location = New System.Drawing.Point(446, 149)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(75, 23)
-        Me.Button1.TabIndex = 99
-        Me.Button1.Text = "Button1"
-        Me.Button1.UseVisualStyleBackColor = True
-        '
-        'Button2
-        '
-        Me.Button2.Location = New System.Drawing.Point(578, 150)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(75, 23)
-        Me.Button2.TabIndex = 100
-        Me.Button2.Text = "Button2"
-        Me.Button2.UseVisualStyleBackColor = True
-        '
         'MenuBar
         '
         Me.MenuBar.BackColor = System.Drawing.SystemColors.ActiveCaption
         Me.MenuBar.Font = New System.Drawing.Font("Comic Sans MS", 13.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.MenuBar.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.PelangganToolStripMenuItem, Me.LayananToolStripMenuItem, Me.DiskonToolStripMenuItem, Me.HargaItemTetapToolStripMenuItem, Me.SettingsToolStripMenuItem})
+        Me.MenuBar.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.PelangganToolStripMenuItem, Me.LayananToolStripMenuItem, Me.DiskonToolStripMenuItem, Me.HargaItemTetapToolStripMenuItem, Me.UsersToolStripMenuItem, Me.SettingsToolStripMenuItem, Me.ReportToolStripMenuItem})
         Me.MenuBar.Location = New System.Drawing.Point(0, 0)
         Me.MenuBar.Name = "MenuBar"
         Me.MenuBar.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional
-        Me.MenuBar.Size = New System.Drawing.Size(1080, 33)
+        Me.MenuBar.Size = New System.Drawing.Size(1347, 33)
         Me.MenuBar.Stretch = False
         Me.MenuBar.TabIndex = 101
         Me.MenuBar.Text = "MenuStrip1"
@@ -340,11 +350,66 @@ Partial Class formListOrder
         Me.HargaItemTetapToolStripMenuItem.Size = New System.Drawing.Size(125, 29)
         Me.HargaItemTetapToolStripMenuItem.Text = "Single Item"
         '
+        'UsersToolStripMenuItem
+        '
+        Me.UsersToolStripMenuItem.Name = "UsersToolStripMenuItem"
+        Me.UsersToolStripMenuItem.Size = New System.Drawing.Size(74, 29)
+        Me.UsersToolStripMenuItem.Text = "Users"
+        '
         'SettingsToolStripMenuItem
         '
         Me.SettingsToolStripMenuItem.Name = "SettingsToolStripMenuItem"
         Me.SettingsToolStripMenuItem.Size = New System.Drawing.Size(95, 29)
         Me.SettingsToolStripMenuItem.Text = "Settings"
+        '
+        'ReportToolStripMenuItem
+        '
+        Me.ReportToolStripMenuItem.Name = "ReportToolStripMenuItem"
+        Me.ReportToolStripMenuItem.Size = New System.Drawing.Size(82, 29)
+        Me.ReportToolStripMenuItem.Text = "Report"
+        '
+        'cmbFilter
+        '
+        Me.cmbFilter.FormattingEnabled = True
+        Me.cmbFilter.Items.AddRange(New Object() {"Nota", "Nama Pelanggan", "Tanggal Terima", "Tanggal Ambil", "Jenis Layanan"})
+        Me.cmbFilter.Location = New System.Drawing.Point(863, 152)
+        Me.cmbFilter.Name = "cmbFilter"
+        Me.cmbFilter.Size = New System.Drawing.Size(140, 21)
+        Me.cmbFilter.TabIndex = 102
+        '
+        'tglFilter
+        '
+        Me.tglFilter.CustomFormat = "MM/dd/yyyy"
+        Me.tglFilter.Format = System.Windows.Forms.DateTimePickerFormat.Custom
+        Me.tglFilter.Location = New System.Drawing.Point(1024, 152)
+        Me.tglFilter.Name = "tglFilter"
+        Me.tglFilter.Size = New System.Drawing.Size(160, 20)
+        Me.tglFilter.TabIndex = 103
+        Me.tglFilter.Visible = False
+        '
+        'cmbFilterLayanan
+        '
+        Me.cmbFilterLayanan.FormattingEnabled = True
+        Me.cmbFilterLayanan.Location = New System.Drawing.Point(1024, 152)
+        Me.cmbFilterLayanan.Name = "cmbFilterLayanan"
+        Me.cmbFilterLayanan.Size = New System.Drawing.Size(160, 21)
+        Me.cmbFilterLayanan.TabIndex = 102
+        Me.cmbFilterLayanan.Visible = False
+        '
+        'btnAll
+        '
+        Me.btnAll.BackColor = System.Drawing.Color.Transparent
+        Me.btnAll.BackgroundImage = CType(resources.GetObject("btnAll.BackgroundImage"), System.Drawing.Image)
+        Me.btnAll.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.btnAll.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btnAll.FlatAppearance.BorderSize = 0
+        Me.btnAll.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnAll.Location = New System.Drawing.Point(679, 149)
+        Me.btnAll.Name = "btnAll"
+        Me.btnAll.Size = New System.Drawing.Size(76, 27)
+        Me.btnAll.TabIndex = 104
+        Me.btnAll.Text = " "
+        Me.btnAll.UseVisualStyleBackColor = False
         '
         'formListOrder
         '
@@ -352,9 +417,11 @@ Partial Class formListOrder
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackgroundImage = Global.LaundyProject.My.Resources.Resources.th001X0WEA
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.ClientSize = New System.Drawing.Size(1080, 496)
-        Me.Controls.Add(Me.Button2)
-        Me.Controls.Add(Me.Button1)
+        Me.ClientSize = New System.Drawing.Size(1347, 584)
+        Me.Controls.Add(Me.btnAll)
+        Me.Controls.Add(Me.tglFilter)
+        Me.Controls.Add(Me.cmbFilterLayanan)
+        Me.Controls.Add(Me.cmbFilter)
         Me.Controls.Add(Me.btnDelTable)
         Me.Controls.Add(Me.Panel3)
         Me.Controls.Add(Me.editCari)
@@ -366,7 +433,6 @@ Partial Class formListOrder
         Me.Cursor = System.Windows.Forms.Cursors.Default
         Me.MainMenuStrip = Me.MenuBar
         Me.MaximizeBox = False
-        Me.MaximumSize = New System.Drawing.Size(1096, 535)
         Me.MinimumSize = New System.Drawing.Size(1096, 535)
         Me.Name = "formListOrder"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
@@ -389,24 +455,31 @@ Partial Class formListOrder
     Friend WithEvents Panel3 As System.Windows.Forms.Panel
     Friend WithEvents Label2 As System.Windows.Forms.Label
     Friend WithEvents PictureBox1 As System.Windows.Forms.PictureBox
-    Friend WithEvents Kol_Nota As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents kol_Pelanggan As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents kol_Terima As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents kol_Berat As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents kol_Jenis As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents kol_Harga As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents kol_Progress As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents kol_Status As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents kol_Ambil As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents kol_Edit As System.Windows.Forms.DataGridViewButtonColumn
-    Friend WithEvents kol_Hapus As System.Windows.Forms.DataGridViewButtonColumn
     Friend WithEvents btnDelTable As System.Windows.Forms.Button
-    Friend WithEvents Button1 As System.Windows.Forms.Button
-    Friend WithEvents Button2 As System.Windows.Forms.Button
     Friend WithEvents MenuBar As System.Windows.Forms.MenuStrip
     Friend WithEvents PelangganToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents LayananToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents SettingsToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents DiskonToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents HargaItemTetapToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents Kol_Nota As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents kol_Pelanggan As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents statusmemebr As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents kol_Terima As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents kol_Ambil As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents kol_Jenis As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents kol_Berat As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents kol_Harga As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents diskon As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents bayar As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents kol_Progress As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents kol_Status As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents kol_Edit As System.Windows.Forms.DataGridViewButtonColumn
+    Friend WithEvents kol_Hapus As System.Windows.Forms.DataGridViewButtonColumn
+    Friend WithEvents UsersToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents cmbFilter As System.Windows.Forms.ComboBox
+    Friend WithEvents tglFilter As System.Windows.Forms.DateTimePicker
+    Friend WithEvents cmbFilterLayanan As System.Windows.Forms.ComboBox
+    Friend WithEvents btnAll As System.Windows.Forms.Button
+    Friend WithEvents ReportToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
 End Class

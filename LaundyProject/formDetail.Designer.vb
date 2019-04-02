@@ -29,6 +29,8 @@ Partial Class formDetail
         Me.Label17 = New System.Windows.Forms.Label()
         Me.Label13 = New System.Windows.Forms.Label()
         Me.Label15 = New System.Windows.Forms.Label()
+        Me.Label26 = New System.Windows.Forms.Label()
+        Me.Label23 = New System.Windows.Forms.Label()
         Me.Label9 = New System.Windows.Forms.Label()
         Me.Label11 = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
@@ -41,7 +43,11 @@ Partial Class formDetail
         Me.Label16 = New System.Windows.Forms.Label()
         Me.txtProgress = New System.Windows.Forms.Label()
         Me.Label14 = New System.Windows.Forms.Label()
+        Me.txtBayar = New System.Windows.Forms.Label()
+        Me.txtDiskon = New System.Windows.Forms.Label()
         Me.txtHarga = New System.Windows.Forms.Label()
+        Me.Label24 = New System.Windows.Forms.Label()
+        Me.lbdis = New System.Windows.Forms.Label()
         Me.Label12 = New System.Windows.Forms.Label()
         Me.txtJenisLayanan = New System.Windows.Forms.Label()
         Me.Label10 = New System.Windows.Forms.Label()
@@ -50,6 +56,7 @@ Partial Class formDetail
         Me.txtTerima = New System.Windows.Forms.Label()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.txtNama = New System.Windows.Forms.Label()
+        Me.txtStatusMember = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.txtNota = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
@@ -110,6 +117,8 @@ Partial Class formDetail
         Me.GroupBox1.Controls.Add(Me.Label17)
         Me.GroupBox1.Controls.Add(Me.Label13)
         Me.GroupBox1.Controls.Add(Me.Label15)
+        Me.GroupBox1.Controls.Add(Me.Label26)
+        Me.GroupBox1.Controls.Add(Me.Label23)
         Me.GroupBox1.Controls.Add(Me.Label9)
         Me.GroupBox1.Controls.Add(Me.Label11)
         Me.GroupBox1.Controls.Add(Me.Label5)
@@ -122,7 +131,11 @@ Partial Class formDetail
         Me.GroupBox1.Controls.Add(Me.Label16)
         Me.GroupBox1.Controls.Add(Me.txtProgress)
         Me.GroupBox1.Controls.Add(Me.Label14)
+        Me.GroupBox1.Controls.Add(Me.txtBayar)
+        Me.GroupBox1.Controls.Add(Me.txtDiskon)
         Me.GroupBox1.Controls.Add(Me.txtHarga)
+        Me.GroupBox1.Controls.Add(Me.Label24)
+        Me.GroupBox1.Controls.Add(Me.lbdis)
         Me.GroupBox1.Controls.Add(Me.Label12)
         Me.GroupBox1.Controls.Add(Me.txtJenisLayanan)
         Me.GroupBox1.Controls.Add(Me.Label10)
@@ -131,13 +144,14 @@ Partial Class formDetail
         Me.GroupBox1.Controls.Add(Me.txtTerima)
         Me.GroupBox1.Controls.Add(Me.Label6)
         Me.GroupBox1.Controls.Add(Me.txtNama)
+        Me.GroupBox1.Controls.Add(Me.txtStatusMember)
         Me.GroupBox1.Controls.Add(Me.Label4)
         Me.GroupBox1.Controls.Add(Me.txtNota)
         Me.GroupBox1.Controls.Add(Me.Label1)
         Me.GroupBox1.Controls.Add(Me.PictureBox2)
-        Me.GroupBox1.Location = New System.Drawing.Point(29, 145)
+        Me.GroupBox1.Location = New System.Drawing.Point(12, 145)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(384, 362)
+        Me.GroupBox1.Size = New System.Drawing.Size(438, 362)
         Me.GroupBox1.TabIndex = 0
         Me.GroupBox1.TabStop = False
         '
@@ -146,7 +160,7 @@ Partial Class formDetail
         Me.Label17.AutoSize = True
         Me.Label17.BackColor = System.Drawing.Color.Transparent
         Me.Label17.Font = New System.Drawing.Font("Humnst777 Blk BT", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label17.Location = New System.Drawing.Point(137, 308)
+        Me.Label17.Location = New System.Drawing.Point(137, 100)
         Me.Label17.Name = "Label17"
         Me.Label17.Size = New System.Drawing.Size(11, 15)
         Me.Label17.TabIndex = 25
@@ -157,7 +171,7 @@ Partial Class formDetail
         Me.Label13.AutoSize = True
         Me.Label13.BackColor = System.Drawing.Color.Transparent
         Me.Label13.Font = New System.Drawing.Font("Humnst777 Blk BT", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label13.Location = New System.Drawing.Point(137, 272)
+        Me.Label13.Location = New System.Drawing.Point(137, 328)
         Me.Label13.Name = "Label13"
         Me.Label13.Size = New System.Drawing.Size(11, 15)
         Me.Label13.TabIndex = 23
@@ -168,18 +182,40 @@ Partial Class formDetail
         Me.Label15.AutoSize = True
         Me.Label15.BackColor = System.Drawing.Color.Transparent
         Me.Label15.Font = New System.Drawing.Font("Humnst777 Blk BT", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label15.Location = New System.Drawing.Point(137, 237)
+        Me.Label15.Location = New System.Drawing.Point(137, 300)
         Me.Label15.Name = "Label15"
         Me.Label15.Size = New System.Drawing.Size(11, 15)
         Me.Label15.TabIndex = 22
         Me.Label15.Text = ":"
+        '
+        'Label26
+        '
+        Me.Label26.AutoSize = True
+        Me.Label26.BackColor = System.Drawing.Color.Transparent
+        Me.Label26.Font = New System.Drawing.Font("Humnst777 Blk BT", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label26.Location = New System.Drawing.Point(138, 272)
+        Me.Label26.Name = "Label26"
+        Me.Label26.Size = New System.Drawing.Size(11, 15)
+        Me.Label26.TabIndex = 21
+        Me.Label26.Text = ":"
+        '
+        'Label23
+        '
+        Me.Label23.AutoSize = True
+        Me.Label23.BackColor = System.Drawing.Color.Transparent
+        Me.Label23.Font = New System.Drawing.Font("Humnst777 Blk BT", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label23.Location = New System.Drawing.Point(138, 240)
+        Me.Label23.Name = "Label23"
+        Me.Label23.Size = New System.Drawing.Size(11, 15)
+        Me.Label23.TabIndex = 21
+        Me.Label23.Text = ":"
         '
         'Label9
         '
         Me.Label9.AutoSize = True
         Me.Label9.BackColor = System.Drawing.Color.Transparent
         Me.Label9.Font = New System.Drawing.Font("Humnst777 Blk BT", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label9.Location = New System.Drawing.Point(138, 209)
+        Me.Label9.Location = New System.Drawing.Point(138, 206)
         Me.Label9.Name = "Label9"
         Me.Label9.Size = New System.Drawing.Size(11, 15)
         Me.Label9.TabIndex = 21
@@ -190,7 +226,7 @@ Partial Class formDetail
         Me.Label11.AutoSize = True
         Me.Label11.BackColor = System.Drawing.Color.Transparent
         Me.Label11.Font = New System.Drawing.Font("Humnst777 Blk BT", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label11.Location = New System.Drawing.Point(138, 174)
+        Me.Label11.Location = New System.Drawing.Point(138, 173)
         Me.Label11.Name = "Label11"
         Me.Label11.Size = New System.Drawing.Size(11, 15)
         Me.Label11.TabIndex = 20
@@ -201,7 +237,7 @@ Partial Class formDetail
         Me.Label5.AutoSize = True
         Me.Label5.BackColor = System.Drawing.Color.Transparent
         Me.Label5.Font = New System.Drawing.Font("Humnst777 Blk BT", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label5.Location = New System.Drawing.Point(138, 137)
+        Me.Label5.Location = New System.Drawing.Point(138, 135)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(11, 15)
         Me.Label5.TabIndex = 19
@@ -212,7 +248,7 @@ Partial Class formDetail
         Me.Label7.AutoSize = True
         Me.Label7.BackColor = System.Drawing.Color.Transparent
         Me.Label7.Font = New System.Drawing.Font("Humnst777 Blk BT", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label7.Location = New System.Drawing.Point(138, 102)
+        Me.Label7.Location = New System.Drawing.Point(138, 70)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(11, 15)
         Me.Label7.TabIndex = 18
@@ -223,7 +259,7 @@ Partial Class formDetail
         Me.Label3.AutoSize = True
         Me.Label3.BackColor = System.Drawing.Color.Transparent
         Me.Label3.Font = New System.Drawing.Font("Humnst777 Blk BT", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(138, 69)
+        Me.Label3.Location = New System.Drawing.Point(138, 42)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(11, 15)
         Me.Label3.TabIndex = 5
@@ -233,7 +269,7 @@ Partial Class formDetail
         '
         Me.txtAmbil.AutoSize = True
         Me.txtAmbil.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtAmbil.Location = New System.Drawing.Point(154, 310)
+        Me.txtAmbil.Location = New System.Drawing.Point(154, 102)
         Me.txtAmbil.Name = "txtAmbil"
         Me.txtAmbil.Size = New System.Drawing.Size(38, 15)
         Me.txtAmbil.TabIndex = 17
@@ -244,7 +280,7 @@ Partial Class formDetail
         Me.Label2.AutoSize = True
         Me.Label2.BackColor = System.Drawing.Color.Transparent
         Me.Label2.Font = New System.Drawing.Font("Humnst777 Blk BT", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(138, 34)
+        Me.Label2.Location = New System.Drawing.Point(138, 14)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(11, 15)
         Me.Label2.TabIndex = 4
@@ -256,7 +292,7 @@ Partial Class formDetail
         Me.Label18.BackColor = System.Drawing.Color.Transparent
         Me.Label18.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label18.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
-        Me.Label18.Location = New System.Drawing.Point(20, 310)
+        Me.Label18.Location = New System.Drawing.Point(20, 102)
         Me.Label18.Name = "Label18"
         Me.Label18.Size = New System.Drawing.Size(113, 15)
         Me.Label18.TabIndex = 16
@@ -266,7 +302,7 @@ Partial Class formDetail
         '
         Me.txtStatus.AutoSize = True
         Me.txtStatus.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtStatus.Location = New System.Drawing.Point(154, 276)
+        Me.txtStatus.Location = New System.Drawing.Point(154, 332)
         Me.txtStatus.Name = "txtStatus"
         Me.txtStatus.Size = New System.Drawing.Size(39, 15)
         Me.txtStatus.TabIndex = 15
@@ -277,7 +313,7 @@ Partial Class formDetail
         Me.Label16.AutoSize = True
         Me.Label16.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label16.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
-        Me.Label16.Location = New System.Drawing.Point(20, 276)
+        Me.Label16.Location = New System.Drawing.Point(20, 332)
         Me.Label16.Name = "Label16"
         Me.Label16.Size = New System.Drawing.Size(47, 15)
         Me.Label16.TabIndex = 14
@@ -287,7 +323,7 @@ Partial Class formDetail
         '
         Me.txtProgress.AutoSize = True
         Me.txtProgress.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtProgress.Location = New System.Drawing.Point(154, 237)
+        Me.txtProgress.Location = New System.Drawing.Point(154, 300)
         Me.txtProgress.Name = "txtProgress"
         Me.txtProgress.Size = New System.Drawing.Size(55, 15)
         Me.txtProgress.TabIndex = 13
@@ -298,28 +334,70 @@ Partial Class formDetail
         Me.Label14.AutoSize = True
         Me.Label14.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label14.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
-        Me.Label14.Location = New System.Drawing.Point(20, 237)
+        Me.Label14.Location = New System.Drawing.Point(20, 300)
         Me.Label14.Name = "Label14"
         Me.Label14.Size = New System.Drawing.Size(64, 15)
         Me.Label14.TabIndex = 12
         Me.Label14.Text = "Progress"
         '
+        'txtBayar
+        '
+        Me.txtBayar.AutoSize = True
+        Me.txtBayar.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtBayar.Location = New System.Drawing.Point(154, 269)
+        Me.txtBayar.Name = "txtBayar"
+        Me.txtBayar.Size = New System.Drawing.Size(37, 15)
+        Me.txtBayar.TabIndex = 11
+        Me.txtBayar.Text = "bayar"
+        '
+        'txtDiskon
+        '
+        Me.txtDiskon.AutoSize = True
+        Me.txtDiskon.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtDiskon.Location = New System.Drawing.Point(154, 237)
+        Me.txtDiskon.Name = "txtDiskon"
+        Me.txtDiskon.Size = New System.Drawing.Size(43, 15)
+        Me.txtDiskon.TabIndex = 11
+        Me.txtDiskon.Text = "diskon"
+        '
         'txtHarga
         '
         Me.txtHarga.AutoSize = True
         Me.txtHarga.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtHarga.Location = New System.Drawing.Point(154, 206)
+        Me.txtHarga.Location = New System.Drawing.Point(154, 203)
         Me.txtHarga.Name = "txtHarga"
         Me.txtHarga.Size = New System.Drawing.Size(39, 15)
         Me.txtHarga.TabIndex = 11
         Me.txtHarga.Text = "harga"
+        '
+        'Label24
+        '
+        Me.Label24.AutoSize = True
+        Me.Label24.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label24.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.Label24.Location = New System.Drawing.Point(20, 269)
+        Me.Label24.Name = "Label24"
+        Me.Label24.Size = New System.Drawing.Size(43, 15)
+        Me.Label24.TabIndex = 10
+        Me.Label24.Text = "Bayar"
+        '
+        'lbdis
+        '
+        Me.lbdis.AutoSize = True
+        Me.lbdis.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbdis.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.lbdis.Location = New System.Drawing.Point(20, 237)
+        Me.lbdis.Name = "lbdis"
+        Me.lbdis.Size = New System.Drawing.Size(51, 15)
+        Me.lbdis.TabIndex = 10
+        Me.lbdis.Text = "Diskon"
         '
         'Label12
         '
         Me.Label12.AutoSize = True
         Me.Label12.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label12.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
-        Me.Label12.Location = New System.Drawing.Point(20, 206)
+        Me.Label12.Location = New System.Drawing.Point(20, 203)
         Me.Label12.Name = "Label12"
         Me.Label12.Size = New System.Drawing.Size(46, 15)
         Me.Label12.TabIndex = 10
@@ -329,7 +407,7 @@ Partial Class formDetail
         '
         Me.txtJenisLayanan.AutoSize = True
         Me.txtJenisLayanan.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtJenisLayanan.Location = New System.Drawing.Point(154, 174)
+        Me.txtJenisLayanan.Location = New System.Drawing.Point(154, 173)
         Me.txtJenisLayanan.Name = "txtJenisLayanan"
         Me.txtJenisLayanan.Size = New System.Drawing.Size(50, 15)
         Me.txtJenisLayanan.TabIndex = 9
@@ -340,7 +418,7 @@ Partial Class formDetail
         Me.Label10.AutoSize = True
         Me.Label10.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label10.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
-        Me.Label10.Location = New System.Drawing.Point(20, 174)
+        Me.Label10.Location = New System.Drawing.Point(20, 173)
         Me.Label10.Name = "Label10"
         Me.Label10.Size = New System.Drawing.Size(99, 15)
         Me.Label10.TabIndex = 8
@@ -350,7 +428,7 @@ Partial Class formDetail
         '
         Me.txtBerat.AutoSize = True
         Me.txtBerat.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtBerat.Location = New System.Drawing.Point(154, 139)
+        Me.txtBerat.Location = New System.Drawing.Point(154, 137)
         Me.txtBerat.Name = "txtBerat"
         Me.txtBerat.Size = New System.Drawing.Size(35, 15)
         Me.txtBerat.TabIndex = 7
@@ -361,7 +439,7 @@ Partial Class formDetail
         Me.Label8.AutoSize = True
         Me.Label8.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label8.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
-        Me.Label8.Location = New System.Drawing.Point(20, 139)
+        Me.Label8.Location = New System.Drawing.Point(20, 137)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(41, 15)
         Me.Label8.TabIndex = 6
@@ -371,7 +449,7 @@ Partial Class formDetail
         '
         Me.txtTerima.AutoSize = True
         Me.txtTerima.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtTerima.Location = New System.Drawing.Point(154, 102)
+        Me.txtTerima.Location = New System.Drawing.Point(154, 70)
         Me.txtTerima.Name = "txtTerima"
         Me.txtTerima.Size = New System.Drawing.Size(42, 15)
         Me.txtTerima.TabIndex = 5
@@ -382,7 +460,7 @@ Partial Class formDetail
         Me.Label6.AutoSize = True
         Me.Label6.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label6.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
-        Me.Label6.Location = New System.Drawing.Point(20, 102)
+        Me.Label6.Location = New System.Drawing.Point(20, 70)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(108, 15)
         Me.Label6.TabIndex = 4
@@ -392,18 +470,29 @@ Partial Class formDetail
         '
         Me.txtNama.AutoSize = True
         Me.txtNama.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtNama.Location = New System.Drawing.Point(154, 67)
+        Me.txtNama.Location = New System.Drawing.Point(154, 40)
         Me.txtNama.Name = "txtNama"
         Me.txtNama.Size = New System.Drawing.Size(41, 15)
         Me.txtNama.TabIndex = 3
         Me.txtNama.Text = "Nama"
+        '
+        'txtStatusMember
+        '
+        Me.txtStatusMember.AutoSize = True
+        Me.txtStatusMember.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtStatusMember.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.txtStatusMember.Location = New System.Drawing.Point(288, 13)
+        Me.txtStatusMember.Name = "txtStatusMember"
+        Me.txtStatusMember.Size = New System.Drawing.Size(102, 15)
+        Me.txtStatusMember.TabIndex = 2
+        Me.txtStatusMember.Text = "status member"
         '
         'Label4
         '
         Me.Label4.AutoSize = True
         Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label4.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
-        Me.Label4.Location = New System.Drawing.Point(20, 69)
+        Me.Label4.Location = New System.Drawing.Point(20, 42)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(110, 15)
         Me.Label4.TabIndex = 2
@@ -413,7 +502,7 @@ Partial Class formDetail
         '
         Me.txtNota.AutoSize = True
         Me.txtNota.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtNota.Location = New System.Drawing.Point(154, 32)
+        Me.txtNota.Location = New System.Drawing.Point(154, 12)
         Me.txtNota.Name = "txtNota"
         Me.txtNota.Size = New System.Drawing.Size(31, 15)
         Me.txtNota.TabIndex = 1
@@ -424,7 +513,7 @@ Partial Class formDetail
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
-        Me.Label1.Location = New System.Drawing.Point(20, 34)
+        Me.Label1.Location = New System.Drawing.Point(20, 14)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(37, 15)
         Me.Label1.TabIndex = 0
@@ -449,7 +538,7 @@ Partial Class formDetail
         Me.Panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Panel1.Controls.Add(Me.Label19)
         Me.Panel1.Controls.Add(Me.gridDetail)
-        Me.Panel1.Location = New System.Drawing.Point(434, 145)
+        Me.Panel1.Location = New System.Drawing.Point(456, 145)
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(366, 362)
         Me.Panel1.TabIndex = 3
@@ -639,4 +728,11 @@ Partial Class formDetail
     Friend WithEvents kol_Item As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents kol_jumlah As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents btnPrint As System.Windows.Forms.Button
+    Friend WithEvents Label26 As System.Windows.Forms.Label
+    Friend WithEvents Label23 As System.Windows.Forms.Label
+    Friend WithEvents txtBayar As System.Windows.Forms.Label
+    Friend WithEvents txtDiskon As System.Windows.Forms.Label
+    Friend WithEvents Label24 As System.Windows.Forms.Label
+    Friend WithEvents lbdis As System.Windows.Forms.Label
+    Friend WithEvents txtStatusMember As System.Windows.Forms.Label
 End Class
